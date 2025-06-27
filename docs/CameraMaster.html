@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CameraMaster &#8212; Cizentech Site 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="연락처" href="contact.html" />
+    <link rel="prev" title="환영합니다!(Welcome)" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="cameramaster">
+<h1>CameraMaster<a class="headerlink" href="#cameramaster" title="Link to this heading">¶</a></h1>
+<p><strong>CameraMaster User Manual</strong></p>
+<p>The CameraMaster (software GUI) interacts directly with the MIG-S2 Grabber to control camera modules, configure serializers/deserializers, and capture image in real-time.</p>
+<p><img alt="스크린샷, 멀티미디어 소프트웨어, 그래픽 소프트웨어, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/f3e1cedbc2b9b51676e8ca70ae92bdc9.png" /><img alt="전자기기이(가) 표시된 사진 자동 생성된 설명" src="_images/86713b5ed13dbb048f35c9678f511289.png" /></p>
+<p><strong>Table of Contents</strong></p>
+<ol class="arabic simple">
+<li><p>System Overview</p></li>
+<li><p>Configuration File Structure</p>
+<ul class="simple">
+<li><p>2.1 Grabber Configuration</p></li>
+<li><p>2.2 Power Configuration</p></li>
+<li><p>2.3 Deserializer Configuration</p></li>
+<li><p>2.4 Serializer Configuration</p></li>
+<li><p>2.5 Image Sensor / ISP Configuration</p></li>
+</ul>
+</li>
+<li><p>Module Bring-up Procedure</p>
+<ul class="simple">
+<li><p>3.1 Required Information</p></li>
+<li><p>3.2 Bring-up Test Using CameraMaster</p></li>
+</ul>
+</li>
+<li><p>Offline Test Mode</p>
+<ul class="simple">
+<li><p>4.1 Test Procedure</p></li>
+</ul>
+</li>
+<li><p>Additional Menu Functions</p></li>
+<li><p>Grabber Terminal Usage</p>
+<ul class="simple">
+<li><p>6.1 Setting I2C Address</p></li>
+<li><p>6.2 Writing I2C Data</p></li>
+<li><p>6.3 Reading I2C Data</p></li>
+</ul>
+</li>
+<li><p>Image Kit Content</p>
+<ul class="simple">
+<li><p>SFR</p></li>
+<li><p>Distortion</p></li>
+<li><p>Defect</p></li>
+<li><p>Stain (Blemish)</p></li>
+<li><p>Optical Center</p></li>
+<li><p>Shading (Vignetting)</p></li>
+<li><p>Fixed Pattern Noise</p></li>
+<li><p>Uniformity</p></li>
+</ul>
+</li>
+<li><p>Driver Installation</p></li>
+<li><p>Appendix &amp; Notes</p></li>
+</ol>
+<p><strong>1. System Overview</strong></p>
+<p>CameraMaster operates through a following data flow.</p>
+<p><img alt="텍스트, 스크린샷이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/ff60fa9b0cff9c3bbec0b7c2fc44b066.png" /></p>
+<ul class="simple">
+<li><p><strong>Configuration Data Flow (for settings):</strong><br />
+CameraMaster(PC USB) → S2 Board (I2C) → Deserializer (GMSL) → FAKRA Cable → Serializer (I2C) → Camera Module (I2C)</p></li>
+<li><p><strong>Video Signal Flow (for image data):</strong><br />
+Camera Module (MIPI) → Serializer (GMSL) → FAKRA Cable → Deserializer (MIPI) → S2 Board(USB) → CameraMaster(PC)</p></li>
+</ul>
+<p><strong>2. Configuration File Structure</strong></p>
+<p>CameraMaster utilizes .ini files to configure sensor modules.</p>
+<p><strong>2.1 Grabber Configuration</strong></p>
+<ul class="simple">
+<li><p><img alt="텍스트, 스크린샷, 폰트, 번호이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/d40396ba84d259d90cf42f26b398ce1f.png" />Image Format</p></li>
+<li><p>Image Size</p></li>
+<li><p>Default i2c format</p></li>
+<li><p>Etc.</p></li>
+</ul>
+<p><img alt="텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/8a476b8abb929eefc3459ba6bd8ded73.png" /><strong>2.2 Power Configuration</strong></p>
+<ul class="simple">
+<li><p>Module Power Configuration</p></li>
+</ul>
+<p><img alt="텍스트, 스크린샷, 폰트, 번호이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/2b4cb29f3d52a2a1bc9ac4f899953c63.png" /><strong>2.3 Deserializer Configuration</strong></p>
+<ul class="simple">
+<li><p>GMSL Link Speed Configuration</p></li>
+<li><p>Output MIPI Lane Configuration</p></li>
+<li><p>Etc.</p></li>
+</ul>
+<p><strong>2.4 Serializer Configuration</strong></p>
+<ul class="simple">
+<li><p>GMSL Link Speed Configuration</p></li>
+<li><p><img alt="텍스트, 폰트, 화이트, 타이포그래피이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/e9f004a9204e384ea6080f7e3d17f691.png" />Input data type Configuration</p></li>
+<li><p>Output GPIO Configuration</p></li>
+<li><p>Etc.</p></li>
+</ul>
+<p><img alt="텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/1b9991215f47f6b9e2fb2a7a17b62950.png" /></p>
+<p><strong>2.5 Image Sensor / ISP Configuration</strong></p>
+<ul class="simple">
+<li><p>Initial register settings for streaming.</p></li>
+<li><p>Etc.</p></li>
+</ul>
+<p><strong>3. Module Bring-up Procedure</strong></p>
+<p><strong>3.1 Required Information</strong></p>
+<p><strong>case 1. Image Sensor and SER initial is downloaded during module boot up</strong></p>
+<p><strong>case 2. Image Sensor and SER initial is setup by host i2c command</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Required Information</strong></p></th>
+<th class="head"><p><strong>case 1 (boot)</strong></p></th>
+<th class="head"><p><strong>case 2 (host)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Image Format</strong></p></td>
+<td><p><strong>O</strong></p></td>
+<td><p><strong>O</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Image Resolution</strong></p></td>
+<td><p><strong>O</strong></p></td>
+<td><p><strong>O</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Image Sensor initial setting</strong></p></td>
+<td><p><strong>X</strong></p></td>
+<td><p><strong>O</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Serializer setting</strong></p></td>
+<td><p><strong>X</strong></p></td>
+<td><p><strong>O</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>De-serializer setting</strong></p></td>
+<td><p><strong>O</strong></p></td>
+<td><p><strong>O</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PoC Power Voltage</strong></p></td>
+<td><p><strong>O</strong></p></td>
+<td><p><strong>O</strong></p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple">
+<li><p><strong>Bring-up Test Using CameraMaster</strong></p></li>
+<li><p>Select configuration file</p></li>
+<li><p>View configuration file contents</p></li>
+<li><p>Power ON camera module</p></li>
+<li><p>View live video</p></li>
+<li><p>Initialize sensor</p></li>
+<li><p>Power OFF</p></li>
+<li><p>Currently selected configuration file name</p></li>
+<li><p>Monitor frame status</p></li>
+<li><p>Monitor Grabber board connection</p></li>
+<li><p>Monitor I2C logs</p></li>
+</ol>
+<p><img alt="스크린샷, 멀티미디어 소프트웨어, 텍스트, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/13656e259ab4051972844d97b6491574.png" /></p>
+<p><strong>4. Offline Test Mode</strong></p>
+<p><strong>4.1 Test Procedure</strong></p>
+<ol class="arabic simple">
+<li><p>Select configuration(ini) file</p></li>
+<li><p>Load image file</p></li>
+<li><p>Save image file</p></li>
+<li><p>Open ini in Notepad</p></li>
+<li><p>Open Inspection Option window</p></li>
+<li><p>Set Offline test mode (test without capturing)</p></li>
+<li><p>Proceed Test item.</p></li>
+<li><p>Open the Inspection Options Settings window for the corresponding item.</p></li>
+</ol>
+<p><img alt="스크린샷, 텍스트, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/49d8142b35b10757826fe55a3521f696.png" /></p>
+<p><strong>5. Additional Menu Functions</strong></p>
+<ol class="arabic simple">
+<li><p><img alt="텍스트, 스크린샷, 디자인이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/a353e4925c15f7f2176c895fd8032615.png" />Open report directory</p></li>
+<li><p>Open settings path</p></li>
+<li><p>Open item option file</p></li>
+<li><p>Access program folder</p></li>
+</ol>
+<p><strong>6. Grabber Terminal Usage</strong></p>
+<p><img alt="텍스트, 전자제품, 스크린샷, 컴퓨터이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다." src="_images/395621af1870db11f2bcb38d7227b123.png" /><strong>6.1 Setting I2C Address</strong></p>
+<p>devadr x90 400 1 1</p>
+<p>// Slave Address: x90</p>
+<p>// I2C Speed: 400kHz</p>
+<p>// 16-bit Register Address: Enabled</p>
+<p>// 16-bit Register Data: Enabled</p>
+<p><strong>6.2 Writing I2C Data</strong></p>
+<p>x0000 x90</p>
+<p>// Write value x90 to register x0000</p>
+<p><strong>6.3 Reading I2C Data</strong></p>
+<p>i2cr x0000</p>
+<p>// Read 1 byte from x0000</p>
+<p>i2cr x0000 4</p>
+<p>// Read 4 bytes from x0000</p>
+<p><strong>7. Image Kit Content</strong></p>
+<p>CameraMaster have a solution for camera module inspection.</p>
+<ul>
+<li><p>SFR</p>
+<p><img alt="스크린샷이(가) 표시된 사진 자동 생성된 설명" src="_images/891d17d21d23aef2970a95701e73e4c9.png" /> <img alt="그래프, 라인, 스크린샷, 텍스트이(가) 표시된 사진 자동 생성된 설명" src="_images/00284097ddf7f685e6e13b6be488a3c7.png" /> <img alt="스크린샷, 직사각형, 다채로움, 그린이(가) 표시된 사진 자동 생성된 설명" src="_images/a62ef24101ae8a09734d3a704e5d5500.png" /></p>
+<p>- Tested according to ISO-12233:2023 standard</p>
+<p>- Measuring resolution with chart image including edges</p>
+</li>
+<li><p>Distortion</p>
+<p><img alt="스케치, 라인, 도표, 디자인이(가) 표시된 사진 자동 생성된 설명" src="_images/f056982e041b7d432c9ed40cb7daa868.png" /></p>
+</li>
+</ul>
+<p>- Check the ratio of A and B using the SMIA standard inspection method</p>
+<ul>
+<li><p>Defect</p>
+<p><img alt="다채로움, 그린이(가) 표시된 사진 자동 생성된 설명" src="_images/91883e0de42175e07876e3fb8b2f581e.png" /> <img alt="스크린샷, 어둠, 블랙이(가) 표시된 사진 자동 생성된 설명" src="_images/78062be01231dd68f235923dd92f921b.png" /></p>
+<p>- This occurs when there is a defect in the sensor’s pixels or foreign matter on the sensor surface.</p>
+<p>- Perform tests in bright or dark environments</p>
+</li>
+<li><p>Stain (Blemish)</p>
+<p><img alt="" src="_images/cdaee30cfe61312a1921e91cde3c4a03.emf" /> <img alt="스크린샷, 달, 예술이(가) 표시된 사진 자동 생성된 설명" src="_images/817bea45897508a4df58f1307f04a5f0.png" /></p>
+<p>- Defects due to foreign matter such as dust on the lens or between the lens and the image sensor</p>
+</li>
+<li><p>Optical Center</p>
+<p><img alt="텍스트, 스크린샷, 디자인, 예술이(가) 표시된 사진 자동 생성된 설명" src="_images/cdc43d5d498ed57f88cdb9dfa283a672.png" /></p>
+<p>- Determine the location of the brightest area in the image and check how far it deviates from the center of the image.</p>
+</li>
+<li><p>Shading (Vignetting)</p>
+<p><img alt="텍스트, 스크린샷, 폰트, 도표이(가) 표시된 사진 자동 생성된 설명" src="_images/ba22b58c4adafc73d39a356573e207e3.png" /></p>
+<p>- Test is conducted by comparing the difference in brightness between the central and peripheral areas.</p>
+</li>
+<li><p>Fixed Pattern Noise</p>
+<p><img alt="안개, 그레이이(가) 표시된 사진 자동 생성된 설명" src="_images/7391765ab13216ab5fe43e4c13edf719.png" /> <img alt="라인, 스크린샷이(가) 표시된 사진 자동 생성된 설명" src="_images/2991157029a8891ee86429c7056b4864.png" /></p>
+<p>- This occurs because the pixel characteristics of the image sensor are not completely uniform.</p>
+</li>
+</ul>
+<p>- Perform tests in bright or dark environments</p>
+<ul>
+<li><p>Uniformity</p>
+<p><img alt="스크린샷, 직사각형, 화이트보드이(가) 표시된 사진 자동 생성된 설명" src="_images/e37f0a310617bafe8cc03d728a2f4d4b.png" /></p>
+<p>- Check the uniformity of the image by measuring the standard deviation of the image.</p>
+</li>
+</ul>
+<p><strong>8. Driver Installation</strong></p>
+<p>Install the MIG_Driver_win10_x64 package:</p>
+<p><img alt="텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명" src="_images/24f7ac826006a1f50233abfc07da21e9.png" /></p>
+<p><img alt="텍스트, 스크린샷, 폰트, 라인이(가) 표시된 사진 자동 생성된 설명" src="_images/d510c68c255d79152026d3434cc52ab7.png" /><img alt="텍스트, 스크린샷, 폰트이(가) 표시된 사진 자동 생성된 설명" src="_images/5295c0e89f0e336cad77bca047164ef3.png" /><img alt="텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명" src="_images/8e6e2c8dc87bcada269f9d8f3a5d8b76.png" /></p>
+<p><strong>9. Appendix &amp; Notes</strong></p>
+<ul class="simple">
+<li><p>2025-06-23</p>
+<ul>
+<li><p>Initial release</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>CIZEN TECH Co., Ltd.</strong></p>
+<p>507, 8 Sanbon-ro 324beon-gil, Gunpo-si, Gyeonggi-do, Republic of Korea</p>
+<p>contact&#64;cizentech.com</p>
+<p>http://cizentech.com/</p>
+<p>Disclaimer and Copyright Notice</p>
+<p>Information in this document, including URL references, is subject to change without notice.</p>
+<p>No permission is granted to use for purpose anything but descriptions in this document. Disorderly binding and page missing shall be replaced into a correct documentation</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Cizentech Site</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">목차</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CameraMaster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">연락처</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">환영합니다!(Welcome)</a></li>
+      <li>Next: <a href="contact.html" title="next chapter">연락처</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/CameraMaster.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
