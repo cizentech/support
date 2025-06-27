@@ -1,4 +1,5 @@
 # CameraMaster
+
 **CameraMaster User Manual**
 
 The CameraMaster (software GUI) interacts directly with the MIG-S2 Grabber to control camera modules, configure serializers/deserializers, and capture image in real-time.
@@ -53,34 +54,41 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
 **2.1 Grabber Configuration**
 
--   ![텍스트, 스크린샷, 폰트, 번호이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/d40396ba84d259d90cf42f26b398ce1f.png)Image Format
+![텍스트, 스크린샷, 폰트, 번호이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/d40396ba84d259d90cf42f26b398ce1f.png)
+
+-   Image Format
 -   Image Size
 -   Default i2c format
 -   Etc.
 
-![텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/8a476b8abb929eefc3459ba6bd8ded73.png)**2.2 Power Configuration**
+**2.2 Power Configuration**
+
+![텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/8a476b8abb929eefc3459ba6bd8ded73.png)
 
 -   Module Power Configuration
 
-![텍스트, 스크린샷, 폰트, 번호이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/2b4cb29f3d52a2a1bc9ac4f899953c63.png)**2.3 Deserializer Configuration**
+**2.3 Deserializer Configuration**
 
 -   GMSL Link Speed Configuration
 -   Output MIPI Lane Configuration
 -   Etc.
 
+    ![텍스트, 스크린샷, 폰트, 번호이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/2b4cb29f3d52a2a1bc9ac4f899953c63.png)
+
 **2.4 Serializer Configuration**
 
 -   GMSL Link Speed Configuration
--   ![텍스트, 폰트, 화이트, 타이포그래피이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/e9f004a9204e384ea6080f7e3d17f691.png)Input data type Configuration
+-   Input data type Configuration
 -   Output GPIO Configuration
 -   Etc.
-
-![텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/1b9991215f47f6b9e2fb2a7a17b62950.png)
+-   ![텍스트, 폰트, 화이트, 타이포그래피이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/e9f004a9204e384ea6080f7e3d17f691.png)
 
 **2.5 Image Sensor / ISP Configuration**
 
 -   Initial register settings for streaming.
 -   Etc.
+
+    ![텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/1b9991215f47f6b9e2fb2a7a17b62950.png)
 
 **3. Module Bring-up Procedure**
 
@@ -90,7 +98,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
 **case 2. Image Sensor and SER initial is setup by host i2c command**
 
-|   **Required Information**       | **case 1 (boot)** | **case 2 (host)** |
+| **Required Information**         | **case 1 (boot)** | **case 2 (host)** |
 |----------------------------------|-------------------|-------------------|
 | **Image Format**                 | **O**             | **O**             |
 | **Image Resolution**             | **O**             | **O**             |
@@ -130,14 +138,18 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
 **5. Additional Menu Functions**
 
-1.  ![텍스트, 스크린샷, 디자인이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/a353e4925c15f7f2176c895fd8032615.png)Open report directory
+![텍스트, 스크린샷, 디자인이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/a353e4925c15f7f2176c895fd8032615.png)
+
+1.  Open report directory
 2.  Open settings path
 3.  Open item option file
 4.  Access program folder
 
 **6. Grabber Terminal Usage**
 
-![텍스트, 전자제품, 스크린샷, 컴퓨터이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/395621af1870db11f2bcb38d7227b123.png)**6.1 Setting I2C Address**
+![텍스트, 전자제품, 스크린샷, 컴퓨터이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/395621af1870db11f2bcb38d7227b123.png)
+
+**6.1 Setting I2C Address**
 
 devadr x90 400 1 1
 
