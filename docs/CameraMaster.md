@@ -4,7 +4,9 @@
 
 The CameraMaster (software GUI) interacts directly with the MIG-S2 Grabber to control camera modules, configure serializers/deserializers, and capture image in real-time.
 
-![스크린샷, 멀티미디어 소프트웨어, 그래픽 소프트웨어, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/f3e1cedbc2b9b51676e8ca70ae92bdc9.png)![전자기기이(가) 표시된 사진 자동 생성된 설명](media/86713b5ed13dbb048f35c9678f511289.png)
+![스크린샷, 멀티미디어 소프트웨어, 그래픽 소프트웨어, 텍스트이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/d08601e04fea5ba0feda2a4d77b84032.png)
+
+![전자기기이(가) 표시된 사진 자동 생성된 설명](media/86713b5ed13dbb048f35c9678f511289.png)
 
 **Table of Contents**
 
@@ -110,7 +112,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
 **3.2 Bring-up Test Using CameraMaster**
 
-![스크린샷, 멀티미디어 소프트웨어, 텍스트, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/13656e259ab4051972844d97b6491574.png)
+![텍스트, 스크린샷, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/efa9ca734684d7b43c56f43f52ad2c82.png)
 
 1.  Select configuration file
 2.  View configuration file contents
@@ -121,7 +123,6 @@ CameraMaster utilizes .ini files to configure sensor modules.
 7.  Currently selected configuration file name
 8.  Monitor frame status
 9.  Monitor Grabber board connection
-10. Monitor I2C logs
 
 ![텍스트, 스크린샷, 소프트웨어, 번호이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/a2b4c10ee189f5c0455ac220404c0809.png)
 
@@ -145,11 +146,11 @@ CameraMaster utilizes .ini files to configure sensor modules.
 7.  Proceed Test item.
 8.  Open the Inspection Options Settings window for the corresponding item.
 
-![스크린샷, 텍스트, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/49d8142b35b10757826fe55a3521f696.png)
+![텍스트, 스크린샷, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/38ae081a284d63440119b92ac0ab894e.png)
 
 ## 5. Additional Menu Functions
 
-![텍스트, 스크린샷, 디자인이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/a353e4925c15f7f2176c895fd8032615.png)
+![텍스트, 스크린샷, 소프트웨어, 디자인이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/8f01133d9eddf331d5db75f7da0afb76.png)
 
 1.  Open report directory
 2.  Open settings path
@@ -328,15 +329,15 @@ CameraMaster have a solution for camera module inspection.
 
 ![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/1552c2bced5a44d47d58e511e960af1c.png)
 
-![텍스트, 스크린샷, 소프트웨어, 컴퓨터 아이콘이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/abbb2f39f6147cfcd99f7c057309cc68.png)
+![텍스트, 스크린샷, 소프트웨어, 번호이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/47816e071e5b6055a1d50f852e2525ad.png)
 
 Occurs when there is no ini file. Select the ini file.
 
-![텍스트, 스크린샷, 소프트웨어, 컴퓨터 아이콘이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/6dce45e0750b8beaeb97a57f1ffa3c6d.png)
+![텍스트, 스크린샷, 소프트웨어, 컴퓨터 아이콘이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/dbf0f7f3f7ff02079900b2f64b998a60.png)
 
 Occurs when there is no user information. Enter the red box user information.
 
-![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/2c942c285d8b6aa714165772dbbc2cff.png)
+![텍스트, 소프트웨어, 멀티미디어 소프트웨어, 컴퓨터 아이콘이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/632b22af12f197d60003b1823a9c18e8.png)
 
 ini selection button disabled. Occurs when the user is not an Engineer. Select Engineer as the user.
 
