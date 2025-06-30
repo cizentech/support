@@ -123,6 +123,15 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
 ![스크린샷, 멀티미디어 소프트웨어, 텍스트, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/13656e259ab4051972844d97b6491574.png)
 
+![텍스트, 스크린샷, 소프트웨어, 번호이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/a2b4c10ee189f5c0455ac220404c0809.png)
+
+1.  Select Power On / Off
+    1.  Check Applied Voltage after Power On
+    2.  Check Current
+    3.  Select Sensor & SER & DES initial set
+    4.  Power Off when Sensor Init Fail
+    5.  Check Sensor PCLK and Horizontal and Vertical sync count
+
 ## 4. Offline Test Mode
 
 **4.1 Test Procedure**
