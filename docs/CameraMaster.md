@@ -286,6 +286,7 @@ CameraMaster have a solution for camera module inspection.
     \- Check the uniformity of the image by measuring the standard deviation of the image.
 
 ## 9. CameraMaster installation
+
 [installation program](https://cizentech-my.sharepoint.com/:u:/p/mason/EZeax6VV-1VKriBgZKDfdEwBMlDYa9pkRP8T6u_6m8a5zQ?e=BvJcAH)
 
 ![텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/cb2674501edde05c227b3b47f1010b20.png)
@@ -321,6 +322,10 @@ CameraMaster have a solution for camera module inspection.
 ![텍스트, 스크린샷, 소프트웨어, 컴퓨터 아이콘이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/abbb2f39f6147cfcd99f7c057309cc68.png)
 
 Occurs when there is no ini file. Select the ini file.
+
+![텍스트, 폰트, 라인, 스크린샷이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/70eb88e47bb059134f04525161478117.png)
+
+Install “[Visual C++ Redistributable for Visual Studio 2015\~2022](https://cizentech-my.sharepoint.com/:u:/p/mason/Ed_I9q-3fPpAj6ca6SkHVgQBklY5Z7CpYuXBG8GC3qJv5g?e=Df2KPC)”
 
 ![텍스트, 스크린샷, 소프트웨어, 컴퓨터 아이콘이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/6dce45e0750b8beaeb97a57f1ffa3c6d.png)
 
