@@ -1,3 +1,3 @@
-# 연락처
+# Contact
 
-문의: sw@cizentech.com
+Contact: sw@cizentech.com
