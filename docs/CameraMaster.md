@@ -1,3 +1,8 @@
+---
+title: CameraMaster
+nav_order: 2
+---
+
 # CameraMaster
 
 **CameraMaster User Manual**
