@@ -287,7 +287,9 @@ CameraMaster have a solution for camera module inspection.
 
 ## 9. CameraMaster installation
 
-![](media/54177e20eb1983909d106168314e8c10.png)![텍스트, 스크린샷, 소프트웨어, 웹 페이지이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/fbb66aabf4899433d3f8495170f29cac.png)
+![](media/54177e20eb1983909d106168314e8c10.png)
+
+![텍스트, 스크린샷, 소프트웨어, 웹 페이지이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/fbb66aabf4899433d3f8495170f29cac.png)
 
 ![텍스트, 스크린샷, 소프트웨어, 웹 페이지이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/f513f31414d0036f6e284ab2f55df531.png)
 
