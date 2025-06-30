@@ -1,2 +1,3 @@
-* [CameraMaster](CameraMaster.md)
-* [contact](contact.md)
+* [Home](README.md)
+* [Guide](guide.md)
+* [FAQ](faq.md)
