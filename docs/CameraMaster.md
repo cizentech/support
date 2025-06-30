@@ -91,7 +91,6 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
     ![텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/1b9991215f47f6b9e2fb2a7a17b62950.png)
 
-
 ## 3. Module Bring-up Procedure
 
 **3.1 Required Information**
@@ -110,6 +109,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 | **PoC Power Voltage**            | **O**             | **O**             |
 
 **3.2 Bring-up Test Using CameraMaster**
+
 1.  Select configuration file
 2.  View configuration file contents
 3.  Power ON camera module
@@ -118,11 +118,10 @@ CameraMaster utilizes .ini files to configure sensor modules.
 6.  Power OFF
 7.  Currently selected configuration file name
 8.  Monitor frame status
-9. Monitor Grabber board connection
+9.  Monitor Grabber board connection
 10. Monitor I2C logs
 
 ![스크린샷, 멀티미디어 소프트웨어, 텍스트, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/13656e259ab4051972844d97b6491574.png)
-
 
 ## 4. Offline Test Mode
 
@@ -147,7 +146,6 @@ CameraMaster utilizes .ini files to configure sensor modules.
 2.  Open settings path
 3.  Open item option file
 4.  Access program folder
-
 
 ## 6. Grabber Terminal Usage
 
@@ -181,8 +179,55 @@ i2cr x0000 4
 
 // Read 4 bytes from x0000
 
+## 7. Grabber Terminal command list
 
-## 7. Image Kit Content
+VER (Read current F/W H/W version)
+
+DEVADR x90 400 10 (SlaveAddr [Speed] [WordIndex(0/1)] [WordValue(0/1)]/ Change CAM_I2C slave address)
+
+I2CR xAABB 1 (RegAddr, NumOfRead / Read CAM_I2C Register)
+
+I2CW xAABB x12 (RegAddr, Value / Write CAM_I2C Register)
+
+DELAY 100 (delay time 100 milisec)
+
+I2C32W xaabbccdd x12 (I2C 32bit Address and 1byte data write)
+
+I2C32R xaabbccdd (I2C 32bit Address and read 1byte data)
+
+GPIOR 1 (Pin_1 / read Value(high:1,low:0) / Read GPIO)
+
+GPIOW 1 0 (Pin_1 low / set Value(high: 1,low:0) / Write GPIO)
+
+PWR 1 10 (Channel_1 = 10 V / Channel:1\~ (if Zero, OV Forcesing) / Power ON the specified channel)
+
+PWROFF 1 (Channel_1 off / Channel:1\~ / Power OFF the specified channel. without Param, off all channel)
+
+MEASUREV 1 10 (Channel(1\~), Average Count(10) / Measure voltage)
+
+MEASUREC 1 10 (Channel(1\~), Average Count(10) / Measure current)
+
+BOARD_PRESET RESET (RESET: reset (set this before sensor initial), ENABLE: enable (set this after sensor initial) - for S2 board internal)
+
+FPS (check Frame Per Second)
+
+CHECKSYNC (Check image data sync count)
+
+MIPI_VIRTUAL_CH_SEL 0 (select virtual channel 0, 1,,)
+
+DES_INDEX_SEL 1 (1,2,3,,8 (or TI)(select DES Channel) - This only works on certain daughterboards.
+
+FSYNC_AUTO_SET 1 30 (Periodic Frame Sync 0:Disable 1:Eanble / 1:1Hz, 30:30 Hz)
+
+FSYNC_SINGLE (Single Frame Sync. 1pulse generate.it should disable FSYNC_AUTO_SET)
+
+MSGBOX test1 (Popup message box)
+
+BULK_MODE_START (Bulk Mode data Starting) – in bulk mode, all data (start\~end) will send to board first, after each data will be send to target.
+
+BULK_MODE_END (Bulk Mode data Finishing)
+
+## 8. Image Kit Content
 
 CameraMaster have a solution for camera module inspection.
 
@@ -240,8 +285,21 @@ CameraMaster have a solution for camera module inspection.
 
     \- Check the uniformity of the image by measuring the standard deviation of the image.
 
+## 9. CameraMaster installation
 
-## 8. Driver Installation
+![](media/54177e20eb1983909d106168314e8c10.png)![텍스트, 스크린샷, 소프트웨어, 웹 페이지이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/fbb66aabf4899433d3f8495170f29cac.png)
+
+![텍스트, 스크린샷, 소프트웨어, 웹 페이지이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/f513f31414d0036f6e284ab2f55df531.png)
+
+![텍스트, 스크린샷, 디스플레이, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/3dab304a43c08f20697dca56cf13291f.png)
+
+![텍스트, 스크린샷, 소프트웨어, 컴퓨터 아이콘이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/32ed79c43e32e47ef065fcb814b51570.png)
+
+![텍스트, 스크린샷, 디자인이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/32836dd1da821f5fe1b002d0d7e4aed0.png)
+
+![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/ffda57c75a0475daeafb775ab309007d.png)
+
+## 10. Driver Installation
 
 Install the MIG_Driver_win10_x64 package:
 
@@ -253,8 +311,23 @@ Install the MIG_Driver_win10_x64 package:
 
 ![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/8e6e2c8dc87bcada269f9d8f3a5d8b76.png)
 
+## 11. Trouble shoot
 
-## 9. Appendix & Notes
+![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/1552c2bced5a44d47d58e511e960af1c.png)
+
+![텍스트, 스크린샷, 소프트웨어, 컴퓨터 아이콘이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/abbb2f39f6147cfcd99f7c057309cc68.png)
+
+Occurs when there is no ini file. Select the ini file.
+
+![텍스트, 스크린샷, 소프트웨어, 컴퓨터 아이콘이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/6dce45e0750b8beaeb97a57f1ffa3c6d.png)
+
+Occurs when there is no user information. Enter the red box user information.
+
+![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/2c942c285d8b6aa714165772dbbc2cff.png)
+
+ini selection button disabled. Occurs when the user is not an Engineer. Select Engineer as the user.
+
+## 12. Appendix & Notes
 
 -   2025-06-23
     -   Initial release
