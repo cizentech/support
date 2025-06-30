@@ -10,10 +10,18 @@
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script>
     window.$docsify = {
-      name: 'CIZEN TECH',
+      name: '',
       subMaxLevel: 2,
       loadSidebar: true,
     };
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const logo = document.createElement('div');
+      logo.innerHTML = '<img src="img/cizentech-logo-195x88-trans.png" alt="Logo" style="height:40px; margin:10px;">';
+      const sidebar = document.querySelector('.sidebar');
+      if (sidebar) sidebar.insertBefore(logo, sidebar.firstChild);
+    });
   </script>
 </body>
 </html>
