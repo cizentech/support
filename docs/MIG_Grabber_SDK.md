@@ -1,7 +1,9 @@
 # MIG Grabber SDK
+
 We provide a SDK (API) so that users can control the grabber through their own programs.
 
 ## API interface List
+
 ```
 /**
  * @brief Get the version of MIG SDK.
@@ -278,6 +280,7 @@ extern int              GetFrameRate(int BoardId, int nFpsType, float* pfFrameRa
 ```
 
 ## C++ Sample code
+
 ```
 // Dynamically Load API from SDK library
 sFile.Format(_T("%s\\migGrabber.dll"), Helper::GetCurrentProcessPath());
@@ -345,10 +348,10 @@ if (nRet == MIG_OK)
 // i2c write and read function
 nRet = i2cWrite(nBoardID, reg, data, nLen);
 nRet = i2cRead(nBoardID, reg, data, nLen);
-
 ```
 
 ## Python Sample code
+
 ```
 # Load SDK Library
 pathname = os.path.dirname(sys.argv[0])
@@ -378,8 +381,4 @@ if (ret == 0)
 {
 	ret = Grabber.GetImage(board_id, pBuff, width, height, width * bytePexPxl)
 }
-
 ```
-
-
-
