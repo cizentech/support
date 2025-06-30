@@ -2,7 +2,7 @@
 
 We provide a SDK (API) so that users can control the grabber through their own programs.
 
-## API interface List
+## API List
 
 ```
 /**
