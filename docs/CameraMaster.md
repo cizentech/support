@@ -109,17 +109,17 @@ CameraMaster utilizes .ini files to configure sensor modules.
 | **De-serializer setting**        | **O**             | **O**             |
 | **PoC Power Voltage**            | **O**             | **O**             |
 
-1.  **Bring-up Test Using CameraMaster**
-2.  Select configuration file
-3.  View configuration file contents
-4.  Power ON camera module
-5.  View live video
-6.  Initialize sensor
-7.  Power OFF
-8.  Currently selected configuration file name
-9.  Monitor frame status
-10. Monitor Grabber board connection
-11. Monitor I2C logs
+**3.2 Bring-up Test Using CameraMaster**
+1.  Select configuration file
+2.  View configuration file contents
+3.  Power ON camera module
+4.  View live video
+5.  Initialize sensor
+6.  Power OFF
+7.  Currently selected configuration file name
+8.  Monitor frame status
+9. Monitor Grabber board connection
+10. Monitor I2C logs
 
 ![스크린샷, 멀티미디어 소프트웨어, 텍스트, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/13656e259ab4051972844d97b6491574.png)
 
