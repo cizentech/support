@@ -1,3 +1,1 @@
-# 환영합니다
-
-test
+# Welcome to the CIZEN TECH support page.
