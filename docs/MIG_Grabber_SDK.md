@@ -57,8 +57,6 @@ extern int              SetParamInt(int BoardId, int type, int val);
  * @return parameter value
  */
 extern int              GetParamInt(int BoardId, int type);
-extern int              SetParamDouble(int BoardId, int type, double val);
-extern double           GetParamDouble(int BoardId, int type);
 /**
  * @brief Open Grabber board.
  *
@@ -152,8 +150,6 @@ extern int              HaltGrab(int BoardId);
  * @see GrabContinuous()
  */
 extern int              WaitForFrameDone(int BoardId, DWORD dwTimeOut_ms);
-extern int              GetBytesPerPixel(int BoardId);
-extern int              GetImageSizeBytes(int BoardId);
 /**
  * @brief Get image data.
  *
@@ -165,11 +161,6 @@ extern int              GetImageSizeBytes(int BoardId);
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              GetImage(int BoardId, unsigned char* pDstBuffer, int dstWidth, int dstHeight, int dstPitchBytes);
-extern BOOL             PutImage(int BoardId, unsigned char* pSrcBuffer, int srcWidth, int srcHeight, int srcPitchBytes);
-extern int              ImportImage(int BoardId, const char* pPathName);
-extern int              ExportImage(int BoardId, const char* pPathName);
-extern int              RegisterEvent(int BoardId, MIG_HANDLE hEv, int nMigEvent);
-extern void             UnregisterEvent(int BoardId, int nMigEvent);
 /**
  * @brief Read i2c data.
  *
@@ -223,11 +214,6 @@ extern int              bulk_i2cSetDelay(int BoardId, WORD wDelay_ms);
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              bulk_i2cRun(int BoardId);
-extern int              pwrSetMode(int BoardId, int mode);
-extern int              pwrGetNumOfChannel(int BoardId);
-extern BOOL             pwrIsPowerOn(int BoardId);
-extern int              pwrPowerOff(int BoardId, int nPwrChannel);
-extern int              pwrPowerOffAll(int BoardId);
 /**
  * @brief Power on the specified power channel.
  *
@@ -276,7 +262,6 @@ extern int              WriteRegisterSet(int BoardId, const char* pFile, const c
  * @return #MIG_OK\n #MIG_ERR_TIMEOUT_READSYNC
  */
 extern int              ReadSyncCount(int BoardId, DWORD dwTimeOut_ms, int* pDestHsync, int* pDestVsync, ULONG* pDestPClk_Hz);
-extern int              GetFrameRate(int BoardId, int nFpsType, float* pfFrameRate);
 ```
 
 ## C++ Sample code
