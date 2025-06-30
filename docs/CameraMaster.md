@@ -91,6 +91,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
     ![텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/1b9991215f47f6b9e2fb2a7a17b62950.png)
 
+
 ## 3. Module Bring-up Procedure
 
 **3.1 Required Information**
@@ -122,6 +123,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
 ![스크린샷, 멀티미디어 소프트웨어, 텍스트, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/13656e259ab4051972844d97b6491574.png)
 
+
 ## 4. Offline Test Mode
 
 **4.1 Test Procedure**
@@ -145,6 +147,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 2.  Open settings path
 3.  Open item option file
 4.  Access program folder
+
 
 ## 6. Grabber Terminal Usage
 
@@ -177,6 +180,7 @@ i2cr x0000
 i2cr x0000 4
 
 // Read 4 bytes from x0000
+
 
 ## 7. Image Kit Content
 
@@ -236,6 +240,7 @@ CameraMaster have a solution for camera module inspection.
 
     \- Check the uniformity of the image by measuring the standard deviation of the image.
 
+
 ## 8. Driver Installation
 
 Install the MIG_Driver_win10_x64 package:
@@ -248,7 +253,8 @@ Install the MIG_Driver_win10_x64 package:
 
 ![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/8e6e2c8dc87bcada269f9d8f3a5d8b76.png)
 
-##9. Appendix & Notes
+
+## 9. Appendix & Notes
 
 -   2025-06-23
     -   Initial release
