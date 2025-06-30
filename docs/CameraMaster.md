@@ -1,4 +1,4 @@
-# \# CameraMaster
+# CameraMaster
 
 **CameraMaster User Manual**
 
@@ -37,7 +37,7 @@ The CameraMaster (software GUI) interacts directly with the MIG-S2 Grabber to co
 8.  Driver Installation
 9.  Appendix & Notes
 
-**\#\# 1. System Overview**
+## 1. System Overview
 
 CameraMaster operates through a following data flow.
 
@@ -48,7 +48,7 @@ CameraMaster operates through a following data flow.
 -   **Video Signal Flow (for image data):**  
     Camera Module (MIPI) → Serializer (GMSL) → FAKRA Cable → Deserializer (MIPI) → S2 Board(USB) → CameraMaster(PC)
 
-**\#\# 2. Configuration File Structure**
+## 2. Configuration File Structure
 
 CameraMaster utilizes .ini files to configure sensor modules.
 
@@ -91,7 +91,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
     ![텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/1b9991215f47f6b9e2fb2a7a17b62950.png)
 
-**\#\# 3. Module Bring-up Procedure**
+## 3. Module Bring-up Procedure
 
 **3.1 Required Information**
 
@@ -122,7 +122,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
 ![스크린샷, 멀티미디어 소프트웨어, 텍스트, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/13656e259ab4051972844d97b6491574.png)
 
-**\#\# 4. Offline Test Mode**
+## 4. Offline Test Mode
 
 **4.1 Test Procedure**
 
@@ -137,7 +137,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
 ![스크린샷, 텍스트, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/49d8142b35b10757826fe55a3521f696.png)
 
-**\#\# 5. Additional Menu Functions**
+## 5. Additional Menu Functions
 
 ![텍스트, 스크린샷, 디자인이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/a353e4925c15f7f2176c895fd8032615.png)
 
@@ -146,7 +146,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 3.  Open item option file
 4.  Access program folder
 
-**\#\# 6. Grabber Terminal Usage**
+## 6. Grabber Terminal Usage
 
 ![텍스트, 전자제품, 스크린샷, 컴퓨터이(가) 표시된 사진 AI가 생성한 콘텐츠는 부정확할 수 있습니다.](media/395621af1870db11f2bcb38d7227b123.png)
 
@@ -178,7 +178,7 @@ i2cr x0000 4
 
 // Read 4 bytes from x0000
 
-**\#\# 7. Image Kit Content**
+## 7. Image Kit Content
 
 CameraMaster have a solution for camera module inspection.
 
@@ -236,7 +236,7 @@ CameraMaster have a solution for camera module inspection.
 
     \- Check the uniformity of the image by measuring the standard deviation of the image.
 
-**\#\# 8. Driver Installation**
+## 8. Driver Installation
 
 Install the MIG_Driver_win10_x64 package:
 
@@ -248,7 +248,7 @@ Install the MIG_Driver_win10_x64 package:
 
 ![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/8e6e2c8dc87bcada269f9d8f3a5d8b76.png)
 
-**9. Appendix & Notes**
+##9. Appendix & Notes
 
 -   2025-06-23
     -   Initial release
