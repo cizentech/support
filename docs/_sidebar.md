@@ -1,6 +1,6 @@
 * [CameraMaster](CameraMaster.md)
- * [1.System Overview](CameraMaster.md#1.-System Overview)
- * [2.Configuration File Structure](CameraMaster.md#2.-Configuration File Structure)
+ * [1.System Overview](CameraMaster.md#1.-System-Overview)
+ * [2.Configuration File Structure](CameraMaster.md#2.-Configuration-File-Structure)
  * [3.Module Bring-up Procedure](CameraMaster.md#3.-Module-Bring-up-Procedure)
  * [4.Offline Test Mode](CameraMaster.md#4.-Offline-Test-Mode)
  * [5.Additional Menu Functions](CameraMaster.md#5.-Additional-Menu-Functions)
