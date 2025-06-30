@@ -242,7 +242,11 @@ Install the MIG_Driver_win10_x64 package:
 
 ![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/24f7ac826006a1f50233abfc07da21e9.png)
 
-![텍스트, 스크린샷, 폰트, 라인이(가) 표시된 사진 자동 생성된 설명](media/d510c68c255d79152026d3434cc52ab7.png)![텍스트, 스크린샷, 폰트이(가) 표시된 사진 자동 생성된 설명](media/5295c0e89f0e336cad77bca047164ef3.png)![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/8e6e2c8dc87bcada269f9d8f3a5d8b76.png)
+![텍스트, 스크린샷, 폰트, 라인이(가) 표시된 사진 자동 생성된 설명](media/d510c68c255d79152026d3434cc52ab7.png)
+
+![텍스트, 스크린샷, 폰트이(가) 표시된 사진 자동 생성된 설명](media/5295c0e89f0e336cad77bca047164ef3.png)
+
+![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/8e6e2c8dc87bcada269f9d8f3a5d8b76.png)
 
 **9. Appendix & Notes**
 
