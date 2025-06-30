@@ -286,7 +286,7 @@ CameraMaster have a solution for camera module inspection.
     \- Check the uniformity of the image by measuring the standard deviation of the image.
 
 ## 9. CameraMaster installation
-
+[installation program](https://cizentech-my.sharepoint.com/:u:/p/mason/EZeax6VV-1VKriBgZKDfdEwBMlDYa9pkRP8T6u_6m8a5zQ?e=BvJcAH)
 ![텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/cb2674501edde05c227b3b47f1010b20.png)
 
 ![텍스트, 스크린샷, 소프트웨어, 컴퓨터 아이콘이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/d70c0900188d0fe97f8e4cce90236412.png)
@@ -303,7 +303,7 @@ CameraMaster have a solution for camera module inspection.
 
 ## 10. Driver Installation
 
-Install the MIG_Driver_win10_x64 package:
+[Install the MIG_Driver_win10_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/Ed_I9q-3fPpAj6ca6SkHVgQBklY5Z7CpYuXBG8GC3qJv5g?e=32tdgL)
 
 ![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/24f7ac826006a1f50233abfc07da21e9.png)
 
