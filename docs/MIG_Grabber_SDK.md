@@ -352,7 +352,7 @@ nRet = i2cRead(nBoardID, reg, data, nLen);
 
 ## Python Sample code
 
-![스크린샷, 멀티미디어 소프트웨어, 텍스트이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/f1ff96be9eb09ad966b794ca8a1a5322.png)
+![스크린샷, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/84ef7a549f08d016b6d5e0256bd3a241.png)
 
 ```
 # Load SDK Library
