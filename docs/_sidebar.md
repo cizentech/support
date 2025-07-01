@@ -4,4 +4,6 @@
 
 * [Image Kit](ImageKit.md)
 
+* [NVIDIA Jetson platform](NVIDIA_Jetson_platform.md)
+
 * [Technical Support](Technical_Support.md)
