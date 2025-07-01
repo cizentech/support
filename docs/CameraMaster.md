@@ -4,7 +4,7 @@
 
 The CameraMaster (software GUI) interacts directly with the MIG-S2 Grabber to control camera modules, configure serializers/deserializers, and capture image in real-time.
 
-![스크린샷, 멀티미디어 소프트웨어, 그래픽 소프트웨어, 텍스트이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/d08601e04fea5ba0feda2a4d77b84032.png)
+![스크린샷, 멀티미디어 소프트웨어, 텍스트, 그래픽 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/432a52bc17e1873952d5be2ea0d40df1.png)
 
 ![전자기기이(가) 표시된 사진 자동 생성된 설명](media/86713b5ed13dbb048f35c9678f511289.png)
 
