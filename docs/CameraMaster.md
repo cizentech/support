@@ -237,65 +237,7 @@ BULK_MODE_START (Bulk Mode data Starting) – in bulk mode, all data (start\~end
 
 BULK_MODE_END (Bulk Mode data Finishing)
 
-## 8. Image Kit Content
-
-CameraMaster have a solution for camera module inspection.
-
--   SFR
-
-    ![스크린샷이(가) 표시된 사진 자동 생성된 설명](media/891d17d21d23aef2970a95701e73e4c9.png) ![그래프, 라인, 스크린샷, 텍스트이(가) 표시된 사진 자동 생성된 설명](media/00284097ddf7f685e6e13b6be488a3c7.png) ![스크린샷, 직사각형, 다채로움, 그린이(가) 표시된 사진 자동 생성된 설명](media/a62ef24101ae8a09734d3a704e5d5500.png)
-
-    \- Tested according to ISO-12233:2023 standard
-
-    \- Measuring resolution with chart image including edges
-
--   Distortion
-
-    ![스케치, 라인, 도표, 디자인이(가) 표시된 사진 자동 생성된 설명](media/f056982e041b7d432c9ed40cb7daa868.png)
-
-\- Check the ratio of A and B using the SMIA standard inspection method
-
--   Defect
-
-    ![다채로움, 그린이(가) 표시된 사진 자동 생성된 설명](media/91883e0de42175e07876e3fb8b2f581e.png) ![스크린샷, 어둠, 블랙이(가) 표시된 사진 자동 생성된 설명](media/78062be01231dd68f235923dd92f921b.png)
-
-    \- This occurs when there is a defect in the sensor's pixels or foreign matter on the sensor surface.
-
-    \- Perform tests in bright or dark environments
-
--   Stain (Blemish)
-
-    ![](media/cdaee30cfe61312a1921e91cde3c4a03.emf) ![스크린샷, 달, 예술이(가) 표시된 사진 자동 생성된 설명](media/817bea45897508a4df58f1307f04a5f0.png)
-
-    \- Defects due to foreign matter such as dust on the lens or between the lens and the image sensor
-
--   Optical Center
-
-    ![텍스트, 스크린샷, 디자인, 예술이(가) 표시된 사진 자동 생성된 설명](media/cdc43d5d498ed57f88cdb9dfa283a672.png)
-
-    \- Determine the location of the brightest area in the image and check how far it deviates from the center of the image.
-
--   Shading (Vignetting)
-
-    ![텍스트, 스크린샷, 폰트, 도표이(가) 표시된 사진 자동 생성된 설명](media/ba22b58c4adafc73d39a356573e207e3.png)
-
-    \- Test is conducted by comparing the difference in brightness between the central and peripheral areas.
-
--   Fixed Pattern Noise
-
-    ![안개, 그레이이(가) 표시된 사진 자동 생성된 설명](media/7391765ab13216ab5fe43e4c13edf719.png) ![라인, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/2991157029a8891ee86429c7056b4864.png)
-
-    \- This occurs because the pixel characteristics of the image sensor are not completely uniform.
-
-\- Perform tests in bright or dark environments
-
--   Uniformity
-
-    ![스크린샷, 직사각형, 화이트보드이(가) 표시된 사진 자동 생성된 설명](media/e37f0a310617bafe8cc03d728a2f4d4b.png)
-
-    \- Check the uniformity of the image by measuring the standard deviation of the image.
-
-## 9. CameraMaster installation
+## 8. CameraMaster installation
 
 [installation program](https://cizentech-my.sharepoint.com/:u:/p/mason/EZeax6VV-1VKriBgZKDfdEwBMlDYa9pkRP8T6u_6m8a5zQ?e=BvJcAH)
 
@@ -313,7 +255,7 @@ CameraMaster have a solution for camera module inspection.
 
 ![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/ffda57c75a0475daeafb775ab309007d.png)
 
-## 10. Driver Installation
+## 9. Driver Installation
 
 [Install the MIG_Driver_win10_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/Ed_I9q-3fPpAj6ca6SkHVgQBklY5Z7CpYuXBG8GC3qJv5g?e=32tdgL)
 
@@ -325,7 +267,7 @@ CameraMaster have a solution for camera module inspection.
 
 ![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/8e6e2c8dc87bcada269f9d8f3a5d8b76.png)
 
-## 11. Trouble shoot
+## 10. Trouble shoot
 
 ![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/a83d3e2e62e2776ded5ebd0c8ae379a8.png)
 
@@ -345,7 +287,7 @@ ini selection button disabled. Occurs when the user is not an Engineer. Select E
 
 Install “[Visual C++ Redistributable for Visual Studio 2015\~2022](https://cizentech-my.sharepoint.com/:u:/p/mason/EVMhVvG3-CtCtEEtHW4ev9wB4d4AobfjBobrFZFd4BxH6Q?e=UaIyb8)”
 
-## 12. Appendix & Notes
+## 11. Appendix & Notes
 
 -   2025-06-23
     -   Initial release
