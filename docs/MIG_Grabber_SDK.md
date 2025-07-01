@@ -2,7 +2,10 @@
 
 We provide a SDK (API) so that users can control the grabber through their own programs.
 
-![텍스트, 스크린샷, 디자인이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/0b1cd39fe95fa2fb948ed444a75fb4bb.png)
+-   SDK (Software Development Kit)
+-   API (Application Programming Interface)
+
+![텍스트, 스크린샷, 디자인이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/f490d55ba96d7df3ab8d419b1af48b51.png)
 
 ## API List
 
@@ -268,7 +271,7 @@ extern int              ReadSyncCount(int BoardId, DWORD dwTimeOut_ms, int* pDes
 
 ## C++ Sample code
 
-![텍스트, 스크린샷, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/b4a3f5d9317993cbf27b108af84323c0.png)
+![텍스트, 스크린샷, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/94fa8ac2cb28d19dd18c5f270bc81459.png)
 
 ```
 // Dynamically Load API from SDK library
