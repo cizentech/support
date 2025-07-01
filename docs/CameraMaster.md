@@ -112,7 +112,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
 **3.2 Bring-up Test Using CameraMaster**
 
-![텍스트, 스크린샷, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/efa9ca734684d7b43c56f43f52ad2c82.png)
+![텍스트, 스크린샷, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/29dd477f5dfe574e70c9966cec7e6ac4.png)
 
 1.  Select configuration file
 2.  View configuration file contents
