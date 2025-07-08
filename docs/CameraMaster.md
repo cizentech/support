@@ -296,7 +296,7 @@ Install “[Visual C++ Redistributable for Visual Studio 2015\~2022](https://ciz
 
 507, 8 Sanbon-ro 324beon-gil, Gunpo-si, Gyeonggi-do, Republic of Korea
 
-contact@cizentech.com
+sw@cizentech.com
 
 http://cizentech.com/
 
