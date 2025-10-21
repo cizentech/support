@@ -376,3 +376,39 @@ if (ret == 0)
 	ret = Grabber.GetImage(board_id, pBuff, width, height, width * bytePexPxl)
 }
 ```
+
+## 
+
+## C\# Sample code
+
+```
+// Load SDK Library
+public static extern int SetParamInt(int BoardId, int type, int val);
+[DllImport(sdk_dll, SetLastError = true, CallingConvention = CallingConvention.Cdecl)]
+public static extern int OpenGrabber(int BoardId, int nGrabberType, int hwndParent);
+[DllImport(sdk_dll, SetLastError = true, CallingConvention = CallingConvention.Cdecl)]
+public static extern int CloseGrabber(int nBoardID);
+[DllImport(sdk_dll, SetLastError = true, CallingConvention = CallingConvention.Cdecl)]
+public static extern int pwrPowerOffAll(int nBoardID);
+[DllImport(sdk_dll, SetLastError = true, CallingConvention = CallingConvention.Cdecl)]
+public static extern int WriteRegisterSet(int nBoardID, string strFile, string strSection, IntPtr ErrIndex);
+
+// Setup Grabber board with Test Image config
+nRet = SetParamInt(nBoardID, MIG_PARAM_VIDEO_FMT, video_format);
+nRet = SetParamInt(nBoardID, MIG_PARAM_PIXEL_ORDER, pixel_order);
+nRet = SetParamInt(nBoardID, MIG_PARAM_HOR_RES, width);
+nRet = SetParamInt(nBoardID, MIG_PARAM_VER_RES, height);
+
+// Send sensor power on config set
+string poweron_set = "POWERON";
+nRet = WriteRegisterSet(nBoardID, file_config.ToString(), poweron_set.ToString(), IntPtr.Zero);
+// Send sensor initial config set
+string init_set = "REGISTER_INIT";
+nRet = WriteRegisterSet(nBoardID, file_config.ToString(), init_set.ToString(), IntPtr.Zero);
+// Read Image Data Sync Count (to check image data validation)
+nRet = ReadSyncCount(nBoardID, 500, &get_h_sync, &get_v_sync, &get_p_clk);
+
+// Capture Image in Grabber and copy image data from Grabber board to application.
+nRet = Grab(nBoardID, 1, 1000);
+nRet = GetImage(nBoardID, pBuff, width, height, width * bytePexPxl);
+```
