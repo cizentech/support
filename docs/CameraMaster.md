@@ -259,6 +259,8 @@ BULK_MODE_END (Bulk Mode data Finishing)
 
 [Install the MIG_Driver_win10_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/Ed_I9q-3fPpAj6ca6SkHVgQBklY5Z7CpYuXBG8GC3qJv5g?e=32tdgL)
 
+[Install the MIG_Driver_Signed_win10_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/EVryLOTvBRBJhrQF8aKAbaQBKpjr-BKYtnMeJWi-xjI3uw?e=tfwECH)
+
 ![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/24f7ac826006a1f50233abfc07da21e9.png)
 
 ![텍스트, 스크린샷, 폰트, 라인이(가) 표시된 사진 자동 생성된 설명](media/d510c68c255d79152026d3434cc52ab7.png)
