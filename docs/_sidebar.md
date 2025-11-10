@@ -1,5 +1,7 @@
 * [CameraMaster](CameraMaster.md)
 
+* [Driver Installation](DriverInstallation.md)
+
 * [MIG Grabber SDK](MIG_Grabber_SDK.md)
 
 * [Image Kit](ImageKit.md)
