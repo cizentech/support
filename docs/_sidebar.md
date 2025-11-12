@@ -2,6 +2,8 @@
 
 * [Driver Installation](DriverInstallation.md)
 
+* [Deserializer](Deserializer.md)
+
 * [MIG Grabber SDK](MIG_Grabber_SDK.md)
 
 * [Image Kit](ImageKit.md)
