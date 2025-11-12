@@ -53,9 +53,11 @@ CameraMaster operates through a following data flow.
 ## 2. Configuration File Structure
 
 CameraMaster utilizes .ini files to configure sensor modules.
+
 **template file**
-[MODULE-NAME_DES-NAME_SER-NAME_VIDEO-FORMAT.ini](https://cizentech-my.sharepoint.com/:u:/p/mason/EfEcJIjcXt1CvwxKebLXNvUBo_f8rp33s7NLYN0r46I2Ag?e=mgZid2)
-[MODULE-NAME_DES-NAME_SER-NAME_VIDEO-FORMAT.txt](https://cizentech-my.sharepoint.com/:t:/p/mason/EdVMrO4baqRIqS1d5DAs6oIB8rVleAza0DrJWnOxYVhj2g?e=xKXj1o)
+
+-   [MODULE-NAME_DES-NAME_SER-NAME_VIDEO-FORMAT.ini](https://cizentech-my.sharepoint.com/:u:/p/mason/EfEcJIjcXt1CvwxKebLXNvUBo_f8rp33s7NLYN0r46I2Ag?e=mgZid2)
+-   [MODULE-NAME_DES-NAME_SER-NAME_VIDEO-FORMAT.txt](https://cizentech-my.sharepoint.com/:t:/p/mason/EdVMrO4baqRIqS1d5DAs6oIB8rVleAza0DrJWnOxYVhj2g?e=xKXj1o)
 
 **2.1 Grabber Configuration**
 
