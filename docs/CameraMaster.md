@@ -4,7 +4,7 @@
 
 The CameraMaster (software GUI) interacts directly with the MIG-S2 Grabber to control camera modules, configure serializers/deserializers, and capture image in real-time.
 
-[installation program](https://cizentech-my.sharepoint.com/:u:/p/mason/EeInKktAIOlDioB3qlaVPDoBy6HqrDvB5HItRu0Q7BgQYw?e=RcHOqE)
+[installation program](https://cizentech-my.sharepoint.com/:u:/p/mason/EYHKzAJrs95CpA0ZRCZHcegBujgdcRlf6Erb1_4RAY0MEA?e=ltqIrI)
 
 ![스크린샷, 멀티미디어 소프트웨어, 텍스트, 그래픽 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/432a52bc17e1873952d5be2ea0d40df1.png)
 
@@ -246,7 +246,7 @@ BULK_MODE_END (Bulk Mode data Finishing)
 
 ## 8. CameraMaster installation
 
-[installation program](https://cizentech-my.sharepoint.com/:u:/p/mason/EeInKktAIOlDioB3qlaVPDoBy6HqrDvB5HItRu0Q7BgQYw?e=RcHOqE)
+[installation program](https://cizentech-my.sharepoint.com/:u:/p/mason/EYHKzAJrs95CpA0ZRCZHcegBujgdcRlf6Erb1_4RAY0MEA?e=ltqIrI)
 
 ![텍스트, 폰트, 스크린샷, 화이트이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/cb2674501edde05c227b3b47f1010b20.png)
 
