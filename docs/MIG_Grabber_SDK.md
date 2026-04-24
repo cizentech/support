@@ -270,8 +270,10 @@ extern int              ReadSyncCount(int BoardId, DWORD dwTimeOut_ms, int* pDes
 ```
 
 ## C++ Sample code
-[Sample Code C#](https://cizentech-my.sharepoint.com/:u:/p/mason/IQBjlYE7KuL2R5vcKToan8KyAb1nui9J_I4seHTxnHKvnrU?e=P8ljEj)
+
 ![텍스트, 스크린샷, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/94fa8ac2cb28d19dd18c5f270bc81459.png)
+
+[Sample Code C#](https://cizentech-my.sharepoint.com/:u:/p/mason/IQBjlYE7KuL2R5vcKToan8KyAb1nui9J_I4seHTxnHKvnrU?e=P8ljEj)
 
 ```
 // Dynamically Load API from SDK library
