@@ -34,30 +34,12 @@
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
-    /* ─── Body — isometric grid background ─── */
+    /* ─── Body ─── */
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      background-color: var(--bg) !important;
+      background-color: #ffffff !important;
       color: var(--text-body) !important;
       overflow-x: hidden;
-    }
-
-    /* Isometric hex-grid overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background-image:
-        linear-gradient(30deg,  rgba(79,70,229,.06) 12%, transparent 12.5%, transparent 87%, rgba(79,70,229,.06) 87.5%),
-        linear-gradient(150deg, rgba(79,70,229,.06) 12%, transparent 12.5%, transparent 87%, rgba(79,70,229,.06) 87.5%),
-        linear-gradient(30deg,  rgba(79,70,229,.06) 12%, transparent 12.5%, transparent 87%, rgba(79,70,229,.06) 87.5%),
-        linear-gradient(150deg, rgba(79,70,229,.06) 12%, transparent 12.5%, transparent 87%, rgba(79,70,229,.06) 87.5%),
-        linear-gradient(60deg,  rgba(79,70,229,.04) 25%, transparent 25.5%, transparent 75%, rgba(79,70,229,.04) 75%),
-        linear-gradient(60deg,  rgba(79,70,229,.04) 25%, transparent 25.5%, transparent 75%, rgba(79,70,229,.04) 75%);
-      background-size:    44px 76px;
-      background-position: 0 0, 0 0, 22px 38px, 22px 38px, 0 0, 22px 38px;
     }
 
     /* ─── Custom scrollbar ─── */
@@ -168,36 +150,15 @@
     }
 
     .markdown-section {
-      max-width: 880px !important;
-      margin: 24px auto !important;
-      padding: 44px 52px !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 40px 52px !important;
       background: var(--surface) !important;
-      border-radius: 14px !important;
-      border: 1px solid var(--border) !important;
-      box-shadow: var(--shadow-lg) !important;
+      border-radius: 0 !important;
+      border: none !important;
+      border-top: 3px solid var(--primary) !important;
+      box-shadow: none !important;
       color: var(--text-body) !important;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Top accent stripe on content card */
-    .markdown-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary) 0%, var(--sky) 100%);
-    }
-
-    /* Corner isometric accent — top right */
-    .markdown-section::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 80px; height: 80px;
-      background:
-        linear-gradient(135deg, rgba(79,70,229,.05) 0%, transparent 60%);
-      pointer-events: none;
     }
 
     /* ─── Typography ─── */
