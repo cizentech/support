@@ -1,28 +1,448 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CIZEN TECH</title>
   <link rel="icon" type="image/png" sizes="32x32" href="./img/cizentech-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+  <style>
+    /* ─── CSS Variables ─── */
+    :root {
+      --bg-deep:        #060b14;
+      --bg-mid:         #0a1120;
+      --bg-surface:     rgba(12, 22, 44, 0.72);
+      --glass-border:   rgba(99, 179, 237, 0.12);
+      --glass-shine:    rgba(255, 255, 255, 0.04);
+      --accent:         #3b82f6;
+      --accent-glow:    rgba(59, 130, 246, 0.35);
+      --accent-2:       #818cf8;
+      --text-primary:   #e2e8f0;
+      --text-secondary: #94a3b8;
+      --text-muted:     #475569;
+      --grid-color:     rgba(59, 130, 246, 0.04);
+      --sidebar-w:      280px;
+    }
+
+    /* ─── Base Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      background-color: var(--bg-deep) !important;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(59,130,246,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(129,140,248,0.06) 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+      background-attachment: fixed;
+      color: var(--text-primary) !important;
+      overflow-x: hidden;
+    }
+
+    /* Isometric grid overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── Custom Scrollbar ─── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.3);
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 246, 0.55); }
+
+    /* ─── Sidebar ─── */
+    .sidebar {
+      background: rgba(6, 11, 22, 0.82) !important;
+      backdrop-filter: blur(24px) saturate(1.4) !important;
+      -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
+      border-right: 1px solid var(--glass-border) !important;
+      box-shadow:
+        4px 0 32px rgba(0, 0, 0, 0.5),
+        inset -1px 0 0 rgba(255,255,255,0.03) !important;
+      width: var(--sidebar-w) !important;
+      position: fixed !important;
+      z-index: 10 !important;
+    }
+
+    .sidebar::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 1px; height: 100%;
+      background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(59,130,246,0.25) 30%,
+        rgba(129,140,248,0.2) 70%,
+        transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Logo area */
+    .sidebar-logo {
+      padding: 24px 20px 16px;
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(59,130,246,0.04) 0%, transparent 100%);
+    }
+    .sidebar-logo img {
+      height: 68px;
+      filter: drop-shadow(0 0 12px rgba(59,130,246,0.4));
+      transition: filter 0.3s ease;
+    }
+    .sidebar-logo img:hover {
+      filter: drop-shadow(0 0 20px rgba(59,130,246,0.7));
+    }
+
+    /* Sidebar navigation */
+    .sidebar-nav {
+      padding: 16px 0 !important;
+    }
+
+    .sidebar-nav > ul { padding: 0 12px !important; }
+
+    .sidebar-nav ul li {
+      list-style: none !important;
+      margin: 2px 0 !important;
+    }
+
+    .sidebar-nav ul li a {
+      color: var(--text-secondary) !important;
+      font-size: 13.5px !important;
+      font-weight: 450 !important;
+      letter-spacing: 0.01em !important;
+      padding: 8px 14px !important;
+      border-radius: 8px !important;
+      display: block !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+      border: 1px solid transparent !important;
+    }
+
+    .sidebar-nav ul li a:hover {
+      color: var(--text-primary) !important;
+      background: rgba(59, 130, 246, 0.1) !important;
+      border-color: rgba(59, 130, 246, 0.2) !important;
+      transform: translateX(3px);
+    }
+
+    .sidebar-nav ul li.active > a,
+    .sidebar-nav ul li a.active {
+      color: #93c5fd !important;
+      background: rgba(59, 130, 246, 0.15) !important;
+      border-color: rgba(59, 130, 246, 0.3) !important;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.1) !important;
+      font-weight: 600 !important;
+    }
+
+    .sidebar-nav ul ul {
+      padding-left: 12px !important;
+      border-left: 1px solid rgba(59,130,246,0.12) !important;
+      margin-left: 14px !important;
+    }
+
+    .sidebar-nav ul ul li a {
+      font-size: 12.5px !important;
+      padding: 5px 12px !important;
+      color: var(--text-muted) !important;
+    }
+
+    /* ─── Main Content ─── */
+    .content {
+      background: transparent !important;
+      position: relative;
+      z-index: 1;
+    }
+
+    .markdown-section {
+      max-width: 860px !important;
+      margin: 28px auto !important;
+      padding: 40px 48px !important;
+      background: var(--bg-surface) !important;
+      backdrop-filter: blur(16px) saturate(1.2) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
+      border-radius: 16px !important;
+      border: 1px solid var(--glass-border) !important;
+      box-shadow:
+        0 4px 6px rgba(0,0,0,0.2),
+        0 24px 48px rgba(0,0,0,0.35),
+        inset 0 1px 0 var(--glass-shine) !important;
+      color: var(--text-primary) !important;
+    }
+
+    /* ─── Typography ─── */
+    .markdown-section h1,
+    .markdown-section h2,
+    .markdown-section h3,
+    .markdown-section h4,
+    .markdown-section h5,
+    .markdown-section h6 {
+      font-family: 'Inter', sans-serif !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.02em !important;
+      color: transparent !important;
+      background: linear-gradient(135deg, #e2e8f0 0%, #93c5fd 60%, #818cf8 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      margin-top: 1.8em !important;
+    }
+
+    .markdown-section h1 {
+      font-size: 2rem !important;
+      border-bottom: 1px solid var(--glass-border) !important;
+      padding-bottom: 0.5em !important;
+    }
+
+    .markdown-section h2 {
+      font-size: 1.45rem !important;
+      border-bottom: 1px solid rgba(59,130,246,0.08) !important;
+      padding-bottom: 0.35em !important;
+    }
+
+    .markdown-section h3 { font-size: 1.15rem !important; }
+
+    .markdown-section p {
+      color: var(--text-secondary) !important;
+      line-height: 1.8 !important;
+      font-size: 14.5px !important;
+    }
+
+    .markdown-section strong {
+      color: var(--text-primary) !important;
+      font-weight: 600 !important;
+    }
+
+    /* ─── Links ─── */
+    .markdown-section a {
+      color: #60a5fa !important;
+      text-decoration: none !important;
+      border-bottom: 1px solid rgba(96,165,250,0.25) !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .markdown-section a:hover {
+      color: #93c5fd !important;
+      border-bottom-color: rgba(147,197,253,0.5) !important;
+      text-shadow: 0 0 8px rgba(96,165,250,0.4) !important;
+    }
+
+    /* ─── Code ─── */
+    .markdown-section code {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+      font-size: 0.84em !important;
+      background: rgba(59, 130, 246, 0.08) !important;
+      color: #93c5fd !important;
+      border: 1px solid rgba(59, 130, 246, 0.15) !important;
+      border-radius: 5px !important;
+      padding: 2px 7px !important;
+    }
+
+    .markdown-section pre {
+      background: rgba(4, 9, 20, 0.85) !important;
+      border: 1px solid var(--glass-border) !important;
+      border-radius: 12px !important;
+      box-shadow:
+        0 4px 24px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.03) !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .markdown-section pre::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), transparent);
+    }
+
+    .markdown-section pre code {
+      background: transparent !important;
+      border: none !important;
+      color: #c9d1d9 !important;
+      font-size: 13px !important;
+      padding: 0 !important;
+    }
+
+    /* ─── Tables ─── */
+    .markdown-section table {
+      border-collapse: collapse !important;
+      width: 100% !important;
+      border-radius: 10px !important;
+      overflow: hidden !important;
+      border: 1px solid var(--glass-border) !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25) !important;
+    }
+
+    .markdown-section thead tr {
+      background: linear-gradient(135deg, rgba(59,130,246,0.18), rgba(129,140,248,0.12)) !important;
+    }
+
+    .markdown-section thead th {
+      color: #93c5fd !important;
+      font-weight: 600 !important;
+      font-size: 13px !important;
+      letter-spacing: 0.04em !important;
+      text-transform: uppercase !important;
+      padding: 12px 16px !important;
+      border: none !important;
+      border-bottom: 1px solid rgba(59,130,246,0.2) !important;
+    }
+
+    .markdown-section tbody tr {
+      background: transparent !important;
+      transition: background 0.15s ease !important;
+    }
+
+    .markdown-section tbody tr:nth-child(even) {
+      background: rgba(59, 130, 246, 0.03) !important;
+    }
+
+    .markdown-section tbody tr:hover {
+      background: rgba(59, 130, 246, 0.07) !important;
+    }
+
+    .markdown-section tbody td {
+      color: var(--text-secondary) !important;
+      padding: 10px 16px !important;
+      font-size: 13.5px !important;
+      border: none !important;
+      border-bottom: 1px solid rgba(255,255,255,0.03) !important;
+    }
+
+    /* ─── Blockquotes ─── */
+    .markdown-section blockquote {
+      background: rgba(59, 130, 246, 0.05) !important;
+      border-left: 3px solid rgba(59, 130, 246, 0.5) !important;
+      border-radius: 0 10px 10px 0 !important;
+      margin: 20px 0 !important;
+      padding: 16px 20px !important;
+      color: var(--text-secondary) !important;
+    }
+
+    .markdown-section blockquote p { color: var(--text-secondary) !important; margin: 0 !important; }
+
+    /* ─── Lists ─── */
+    .markdown-section ul li,
+    .markdown-section ol li {
+      color: var(--text-secondary) !important;
+      font-size: 14.5px !important;
+      line-height: 1.75 !important;
+      margin: 4px 0 !important;
+    }
+
+    .markdown-section ul li::marker { color: var(--accent) !important; }
+
+    /* ─── Horizontal Rule ─── */
+    .markdown-section hr {
+      border: none !important;
+      height: 1px !important;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), transparent) !important;
+      margin: 32px 0 !important;
+    }
+
+    /* ─── Images ─── */
+    .markdown-section img {
+      border-radius: 10px !important;
+      border: 1px solid var(--glass-border) !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
+      max-width: 100% !important;
+      transition: box-shadow 0.3s ease !important;
+    }
+
+    .markdown-section img:hover {
+      box-shadow:
+        0 12px 36px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(59,130,246,0.25) !important;
+    }
+
+    /* ─── App nav (top-right if any) ─── */
+    .app-nav { display: none !important; }
+
+    /* ─── Cover page (if ever used) ─── */
+    section.cover {
+      background: var(--bg-deep) !important;
+    }
+
+    /* ─── Docsify progress bar ─── */
+    #nprogress .bar { background: var(--accent) !important; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .markdown-section {
+        margin: 12px !important;
+        padding: 24px 20px !important;
+        border-radius: 12px !important;
+      }
+    }
+
+    /* ─── Isometric accent orbs ─── */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -30%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Sidebar toggle button (mobile) */
+    .sidebar-toggle {
+      background: rgba(6, 11, 22, 0.85) !important;
+      border: 1px solid var(--glass-border) !important;
+      backdrop-filter: blur(12px) !important;
+    }
+    .sidebar-toggle span {
+      background-color: var(--text-secondary) !important;
+    }
+
+    /* ─── Anchor hash link ─── */
+    .anchor span { color: var(--accent) !important; }
+  </style>
 </head>
 <body>
   <div id="app">Loading...</div>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
   <script>
     window.$docsify = {
       name: '',
       subMaxLevel: 2,
       loadSidebar: true,
+      plugins: [
+        function(hook) {
+          hook.ready(function() {
+            var logo = document.createElement('div');
+            logo.className = 'sidebar-logo';
+            logo.innerHTML = '<a href="#/README"><img src="img/cizentech-logo-195x88-trans.png" alt="CIZEN TECH Logo"></a>';
+            var sidebar = document.querySelector('.sidebar');
+            if (sidebar) sidebar.insertBefore(logo, sidebar.firstChild);
+          });
+        }
+      ]
     };
   </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const logo = document.createElement('div');
-      logo.innerHTML = '<a href="#/README"><img src="img/cizentech-logo-195x88-trans.png" alt="Logo" style="height:80px; margin:10px;">';
-      const sidebar = document.querySelector('.sidebar');
-      if (sidebar) sidebar.insertBefore(logo, sidebar.firstChild);
-    });
-  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 </body>
 </html>
