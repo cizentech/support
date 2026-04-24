@@ -10,112 +10,97 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
   <style>
-    /* ─── CSS Variables ─── */
+    /* ─── Variables ─── */
     :root {
-      --bg-deep:        #060b14;
-      --bg-mid:         #0a1120;
-      --bg-surface:     rgba(12, 22, 44, 0.72);
-      --glass-border:   rgba(99, 179, 237, 0.12);
-      --glass-shine:    rgba(255, 255, 255, 0.04);
-      --accent:         #3b82f6;
-      --accent-glow:    rgba(59, 130, 246, 0.35);
-      --accent-2:       #818cf8;
-      --text-primary:   #e2e8f0;
-      --text-secondary: #94a3b8;
-      --text-muted:     #475569;
-      --grid-color:     rgba(59, 130, 246, 0.04);
-      --sidebar-w:      280px;
+      --bg:           #eef1f8;
+      --surface:      #ffffff;
+      --sidebar-bg:   #ffffff;
+      --primary:      #4f46e5;
+      --primary-lt:   #ede9fe;
+      --primary-dk:   #3730a3;
+      --sky:          #0ea5e9;
+      --text-h:       #0f172a;
+      --text-body:    #334155;
+      --text-muted:   #64748b;
+      --border:       #e2e8f0;
+      --border-strong:#c7d2fe;
+      --shadow-sm:    0 1px 3px rgba(15,23,42,.08), 0 1px 2px rgba(15,23,42,.05);
+      --shadow-md:    0 4px 12px rgba(15,23,42,.10), 0 2px 4px rgba(15,23,42,.06);
+      --shadow-lg:    0 12px 32px rgba(15,23,42,.12), 0 4px 8px rgba(15,23,42,.07);
+      --sidebar-w:    280px;
+      --radius:       10px;
     }
 
-    /* ─── Base Reset ─── */
     *, *::before, *::after { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
+    /* ─── Body — isometric grid background ─── */
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      background-color: var(--bg-deep) !important;
-      background-image:
-        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(59,130,246,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(129,140,248,0.06) 0%, transparent 55%),
-        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
-      background-attachment: fixed;
-      color: var(--text-primary) !important;
+      background-color: var(--bg) !important;
+      color: var(--text-body) !important;
       overflow-x: hidden;
     }
 
-    /* Isometric grid overlay */
+    /* Isometric hex-grid overlay */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image:
-        linear-gradient(var(--grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-      background-size: 48px 48px;
       pointer-events: none;
       z-index: 0;
+      background-image:
+        linear-gradient(30deg,  rgba(79,70,229,.06) 12%, transparent 12.5%, transparent 87%, rgba(79,70,229,.06) 87.5%),
+        linear-gradient(150deg, rgba(79,70,229,.06) 12%, transparent 12.5%, transparent 87%, rgba(79,70,229,.06) 87.5%),
+        linear-gradient(30deg,  rgba(79,70,229,.06) 12%, transparent 12.5%, transparent 87%, rgba(79,70,229,.06) 87.5%),
+        linear-gradient(150deg, rgba(79,70,229,.06) 12%, transparent 12.5%, transparent 87%, rgba(79,70,229,.06) 87.5%),
+        linear-gradient(60deg,  rgba(79,70,229,.04) 25%, transparent 25.5%, transparent 75%, rgba(79,70,229,.04) 75%),
+        linear-gradient(60deg,  rgba(79,70,229,.04) 25%, transparent 25.5%, transparent 75%, rgba(79,70,229,.04) 75%);
+      background-size:    44px 76px;
+      background-position: 0 0, 0 0, 22px 38px, 22px 38px, 0 0, 22px 38px;
     }
 
-    /* ─── Custom Scrollbar ─── */
+    /* ─── Custom scrollbar ─── */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(59, 130, 246, 0.3);
-      border-radius: 99px;
-    }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 246, 0.55); }
+    ::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
     /* ─── Sidebar ─── */
     .sidebar {
-      background: rgba(6, 11, 22, 0.82) !important;
-      backdrop-filter: blur(24px) saturate(1.4) !important;
-      -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
-      border-right: 1px solid var(--glass-border) !important;
-      box-shadow:
-        4px 0 32px rgba(0, 0, 0, 0.5),
-        inset -1px 0 0 rgba(255,255,255,0.03) !important;
+      background: var(--sidebar-bg) !important;
+      border-right: 2px solid var(--border) !important;
+      box-shadow: var(--shadow-md) !important;
       width: var(--sidebar-w) !important;
-      position: fixed !important;
+      position: relative;
       z-index: 10 !important;
     }
 
-    .sidebar::after {
+    /* Indigo accent stripe top of sidebar */
+    .sidebar::before {
       content: '';
       position: absolute;
-      top: 0; right: 0;
-      width: 1px; height: 100%;
-      background: linear-gradient(180deg,
-        transparent 0%,
-        rgba(59,130,246,0.25) 30%,
-        rgba(129,140,248,0.2) 70%,
-        transparent 100%);
-      pointer-events: none;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--sky) 100%);
     }
 
-    /* Logo area */
+    /* Logo */
     .sidebar-logo {
-      padding: 24px 20px 16px;
-      border-bottom: 1px solid var(--glass-border);
+      padding: 28px 20px 20px;
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(180deg, rgba(59,130,246,0.04) 0%, transparent 100%);
     }
     .sidebar-logo img {
-      height: 68px;
-      filter: drop-shadow(0 0 12px rgba(59,130,246,0.4));
-      transition: filter 0.3s ease;
+      height: 64px;
+      transition: transform 0.25s ease;
     }
-    .sidebar-logo img:hover {
-      filter: drop-shadow(0 0 20px rgba(59,130,246,0.7));
-    }
+    .sidebar-logo img:hover { transform: scale(1.04); }
 
-    /* Sidebar navigation */
-    .sidebar-nav {
-      padding: 16px 0 !important;
-    }
-
+    /* Nav */
+    .sidebar-nav { padding: 16px 0 !important; }
     .sidebar-nav > ul { padding: 0 12px !important; }
 
     .sidebar-nav ul li {
@@ -124,47 +109,58 @@
     }
 
     .sidebar-nav ul li a {
-      color: var(--text-secondary) !important;
+      color: var(--text-muted) !important;
       font-size: 13.5px !important;
-      font-weight: 450 !important;
+      font-weight: 500 !important;
       letter-spacing: 0.01em !important;
       padding: 8px 14px !important;
-      border-radius: 8px !important;
+      border-radius: var(--radius) !important;
       display: block !important;
       text-decoration: none !important;
-      transition: all 0.2s ease !important;
+      transition: all 0.15s ease !important;
       border: 1px solid transparent !important;
     }
 
     .sidebar-nav ul li a:hover {
-      color: var(--text-primary) !important;
-      background: rgba(59, 130, 246, 0.1) !important;
-      border-color: rgba(59, 130, 246, 0.2) !important;
-      transform: translateX(3px);
+      color: var(--primary) !important;
+      background: var(--primary-lt) !important;
+      border-color: var(--border-strong) !important;
     }
 
     .sidebar-nav ul li.active > a,
     .sidebar-nav ul li a.active {
-      color: #93c5fd !important;
-      background: rgba(59, 130, 246, 0.15) !important;
-      border-color: rgba(59, 130, 246, 0.3) !important;
-      box-shadow: 0 0 12px rgba(59, 130, 246, 0.1) !important;
+      color: var(--primary-dk) !important;
+      background: var(--primary-lt) !important;
+      border-color: var(--border-strong) !important;
       font-weight: 600 !important;
     }
 
+    /* Active left accent bar */
+    .sidebar-nav ul li.active > a::before,
+    .sidebar-nav ul li a.active::before {
+      content: '';
+      display: inline-block;
+      width: 3px; height: 12px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
     .sidebar-nav ul ul {
-      padding-left: 12px !important;
-      border-left: 1px solid rgba(59,130,246,0.12) !important;
-      margin-left: 14px !important;
+      padding-left: 10px !important;
+      border-left: 2px solid var(--border) !important;
+      margin-left: 16px !important;
+      margin-top: 2px !important;
     }
 
     .sidebar-nav ul ul li a {
       font-size: 12.5px !important;
       padding: 5px 12px !important;
-      color: var(--text-muted) !important;
+      font-weight: 400 !important;
     }
 
-    /* ─── Main Content ─── */
+    /* ─── Content ─── */
     .content {
       background: transparent !important;
       position: relative;
@@ -172,19 +168,36 @@
     }
 
     .markdown-section {
-      max-width: 860px !important;
-      margin: 28px auto !important;
-      padding: 40px 48px !important;
-      background: var(--bg-surface) !important;
-      backdrop-filter: blur(16px) saturate(1.2) !important;
-      -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
-      border-radius: 16px !important;
-      border: 1px solid var(--glass-border) !important;
-      box-shadow:
-        0 4px 6px rgba(0,0,0,0.2),
-        0 24px 48px rgba(0,0,0,0.35),
-        inset 0 1px 0 var(--glass-shine) !important;
-      color: var(--text-primary) !important;
+      max-width: 880px !important;
+      margin: 24px auto !important;
+      padding: 44px 52px !important;
+      background: var(--surface) !important;
+      border-radius: 14px !important;
+      border: 1px solid var(--border) !important;
+      box-shadow: var(--shadow-lg) !important;
+      color: var(--text-body) !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Top accent stripe on content card */
+    .markdown-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--sky) 100%);
+    }
+
+    /* Corner isometric accent — top right */
+    .markdown-section::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      background:
+        linear-gradient(135deg, rgba(79,70,229,.05) 0%, transparent 60%);
+      pointer-events: none;
     }
 
     /* ─── Typography ─── */
@@ -195,89 +208,90 @@
     .markdown-section h5,
     .markdown-section h6 {
       font-family: 'Inter', sans-serif !important;
+      color: var(--text-h) !important;
       font-weight: 700 !important;
-      letter-spacing: -0.02em !important;
-      color: transparent !important;
-      background: linear-gradient(135deg, #e2e8f0 0%, #93c5fd 60%, #818cf8 100%) !important;
-      -webkit-background-clip: text !important;
-      background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
+      letter-spacing: -0.025em !important;
       margin-top: 1.8em !important;
     }
 
     .markdown-section h1 {
       font-size: 2rem !important;
-      border-bottom: 1px solid var(--glass-border) !important;
-      padding-bottom: 0.5em !important;
+      border-bottom: 2px solid var(--border) !important;
+      padding-bottom: 0.45em !important;
+      margin-bottom: 1em !important;
     }
 
+    /* Indigo accent left bar on h2 */
     .markdown-section h2 {
-      font-size: 1.45rem !important;
-      border-bottom: 1px solid rgba(59,130,246,0.08) !important;
-      padding-bottom: 0.35em !important;
+      font-size: 1.4rem !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      border-bottom: 1px solid var(--border) !important;
+      padding-bottom: 0.4em !important;
+    }
+    .markdown-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px; height: 1.1em;
+      background: linear-gradient(180deg, var(--primary), var(--sky));
+      border-radius: 2px;
+      flex-shrink: 0;
     }
 
-    .markdown-section h3 { font-size: 1.15rem !important; }
+    .markdown-section h3 {
+      font-size: 1.1rem !important;
+      color: var(--primary-dk) !important;
+    }
 
     .markdown-section p {
-      color: var(--text-secondary) !important;
+      color: var(--text-body) !important;
       line-height: 1.8 !important;
       font-size: 14.5px !important;
     }
 
     .markdown-section strong {
-      color: var(--text-primary) !important;
+      color: var(--text-h) !important;
       font-weight: 600 !important;
     }
 
     /* ─── Links ─── */
     .markdown-section a {
-      color: #60a5fa !important;
+      color: var(--primary) !important;
       text-decoration: none !important;
-      border-bottom: 1px solid rgba(96,165,250,0.25) !important;
-      transition: all 0.2s ease !important;
+      border-bottom: 1px solid rgba(79,70,229,.3) !important;
+      font-weight: 500 !important;
+      transition: all 0.15s !important;
     }
-
     .markdown-section a:hover {
-      color: #93c5fd !important;
-      border-bottom-color: rgba(147,197,253,0.5) !important;
-      text-shadow: 0 0 8px rgba(96,165,250,0.4) !important;
+      color: var(--primary-dk) !important;
+      border-bottom-color: var(--primary) !important;
     }
 
     /* ─── Code ─── */
     .markdown-section code {
       font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
-      font-size: 0.84em !important;
-      background: rgba(59, 130, 246, 0.08) !important;
-      color: #93c5fd !important;
-      border: 1px solid rgba(59, 130, 246, 0.15) !important;
+      font-size: 0.83em !important;
+      background: #f1f5ff !important;
+      color: var(--primary-dk) !important;
+      border: 1px solid var(--border-strong) !important;
       border-radius: 5px !important;
       padding: 2px 7px !important;
     }
 
     .markdown-section pre {
-      background: rgba(4, 9, 20, 0.85) !important;
-      border: 1px solid var(--glass-border) !important;
-      border-radius: 12px !important;
-      box-shadow:
-        0 4px 24px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.03) !important;
+      background: #f8faff !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius) !important;
+      box-shadow: var(--shadow-sm) !important;
+      border-left: 3px solid var(--primary) !important;
       position: relative;
-      overflow: hidden;
-    }
-
-    .markdown-section pre::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), transparent);
     }
 
     .markdown-section pre code {
       background: transparent !important;
       border: none !important;
-      color: #c9d1d9 !important;
+      color: #1e293b !important;
       font-size: 13px !important;
       padding: 0 !important;
     }
@@ -286,140 +300,103 @@
     .markdown-section table {
       border-collapse: collapse !important;
       width: 100% !important;
-      border-radius: 10px !important;
+      border-radius: var(--radius) !important;
       overflow: hidden !important;
-      border: 1px solid var(--glass-border) !important;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25) !important;
+      border: 1px solid var(--border) !important;
+      box-shadow: var(--shadow-sm) !important;
     }
 
     .markdown-section thead tr {
-      background: linear-gradient(135deg, rgba(59,130,246,0.18), rgba(129,140,248,0.12)) !important;
+      background: linear-gradient(90deg, var(--primary) 0%, #6366f1 100%) !important;
     }
 
     .markdown-section thead th {
-      color: #93c5fd !important;
+      color: #ffffff !important;
       font-weight: 600 !important;
-      font-size: 13px !important;
-      letter-spacing: 0.04em !important;
+      font-size: 12.5px !important;
+      letter-spacing: 0.05em !important;
       text-transform: uppercase !important;
       padding: 12px 16px !important;
       border: none !important;
-      border-bottom: 1px solid rgba(59,130,246,0.2) !important;
     }
 
     .markdown-section tbody tr {
-      background: transparent !important;
-      transition: background 0.15s ease !important;
+      background: var(--surface) !important;
+      transition: background 0.12s !important;
     }
-
     .markdown-section tbody tr:nth-child(even) {
-      background: rgba(59, 130, 246, 0.03) !important;
+      background: #f8f9ff !important;
     }
-
     .markdown-section tbody tr:hover {
-      background: rgba(59, 130, 246, 0.07) !important;
+      background: var(--primary-lt) !important;
     }
 
     .markdown-section tbody td {
-      color: var(--text-secondary) !important;
+      color: var(--text-body) !important;
       padding: 10px 16px !important;
       font-size: 13.5px !important;
       border: none !important;
-      border-bottom: 1px solid rgba(255,255,255,0.03) !important;
+      border-bottom: 1px solid var(--border) !important;
     }
 
     /* ─── Blockquotes ─── */
     .markdown-section blockquote {
-      background: rgba(59, 130, 246, 0.05) !important;
-      border-left: 3px solid rgba(59, 130, 246, 0.5) !important;
-      border-radius: 0 10px 10px 0 !important;
+      background: #f8f9ff !important;
+      border-left: 4px solid var(--primary) !important;
+      border-radius: 0 var(--radius) var(--radius) 0 !important;
       margin: 20px 0 !important;
       padding: 16px 20px !important;
-      color: var(--text-secondary) !important;
+      color: var(--text-muted) !important;
+      box-shadow: var(--shadow-sm) !important;
     }
-
-    .markdown-section blockquote p { color: var(--text-secondary) !important; margin: 0 !important; }
+    .markdown-section blockquote p { color: var(--text-muted) !important; margin: 0 !important; }
 
     /* ─── Lists ─── */
     .markdown-section ul li,
     .markdown-section ol li {
-      color: var(--text-secondary) !important;
+      color: var(--text-body) !important;
       font-size: 14.5px !important;
       line-height: 1.75 !important;
       margin: 4px 0 !important;
     }
+    .markdown-section ul li::marker { color: var(--primary) !important; }
 
-    .markdown-section ul li::marker { color: var(--accent) !important; }
-
-    /* ─── Horizontal Rule ─── */
+    /* ─── HR ─── */
     .markdown-section hr {
       border: none !important;
       height: 1px !important;
-      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), transparent) !important;
+      background: var(--border) !important;
       margin: 32px 0 !important;
     }
 
-    /* ─── Images ─── */
+    /* ─── Images — keep white bg friendly ─── */
     .markdown-section img {
-      border-radius: 10px !important;
-      border: 1px solid var(--glass-border) !important;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
+      border-radius: var(--radius) !important;
+      border: 1px solid var(--border) !important;
+      box-shadow: var(--shadow-md) !important;
       max-width: 100% !important;
-      transition: box-shadow 0.3s ease !important;
+      background: #fff !important;
     }
 
-    .markdown-section img:hover {
-      box-shadow:
-        0 12px 36px rgba(0,0,0,0.5),
-        0 0 0 1px rgba(59,130,246,0.25) !important;
+    /* ─── Sidebar toggle (mobile) ─── */
+    .sidebar-toggle {
+      background: var(--surface) !important;
+      border: 1px solid var(--border) !important;
+      box-shadow: var(--shadow-sm) !important;
     }
+    .sidebar-toggle span { background-color: var(--primary) !important; }
 
-    /* ─── App nav (top-right if any) ─── */
-    .app-nav { display: none !important; }
-
-    /* ─── Cover page (if ever used) ─── */
-    section.cover {
-      background: var(--bg-deep) !important;
-    }
-
-    /* ─── Docsify progress bar ─── */
-    #nprogress .bar { background: var(--accent) !important; }
+    /* ─── Progress bar ─── */
+    #nprogress .bar { background: var(--primary) !important; }
 
     /* ─── Responsive ─── */
     @media (max-width: 768px) {
       .markdown-section {
         margin: 12px !important;
-        padding: 24px 20px !important;
-        border-radius: 12px !important;
+        padding: 24px 18px !important;
+        border-radius: var(--radius) !important;
       }
     }
-
-    /* ─── Isometric accent orbs ─── */
-    body::after {
-      content: '';
-      position: fixed;
-      top: -30%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Sidebar toggle button (mobile) */
-    .sidebar-toggle {
-      background: rgba(6, 11, 22, 0.85) !important;
-      border: 1px solid var(--glass-border) !important;
-      backdrop-filter: blur(12px) !important;
-    }
-    .sidebar-toggle span {
-      background-color: var(--text-secondary) !important;
-    }
-
-    /* ─── Anchor hash link ─── */
-    .anchor span { color: var(--accent) !important; }
   </style>
 </head>
 <body>
