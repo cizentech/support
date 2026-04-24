@@ -380,6 +380,7 @@ if (ret == 0)
 ## C\# Sample code
 
 ![스크린샷, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/56b41c43236500cc09fa57f2c10e951b.png)
+
 [Download Sample Code for C#](https://cizentech-my.sharepoint.com/:u:/p/mason/IQBjlYE7KuL2R5vcKToan8KyAb1nui9J_I4seHTxnHKvnrU?e=P8ljEj)
 ```
 // Load SDK Library
