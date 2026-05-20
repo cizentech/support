@@ -24,14 +24,6 @@ Install “[Visual C++ Redistributable for Visual Studio 2015\~2022](https://ciz
 
 ## MIG-S6 Driver Installation
 
-**Enable Loading of Test Signed Drivers**
+[Install the S6_Driver_Signed_win11_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/IQDTfXYv20pyQpmeUu3e9ElCAVtZkgKFUF8cxpS2iIWNxLE?e=iEfYA6)
 
-bcdedit /set loadoptions ENABLE_INTEGRITY_CHECKS
-
-bcdedit /set testsigning on
-
-![텍스트, 전자제품, 스크린샷, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/f871280b564e417013bfafbbec57bc44.png)
-
-**Install Grabber Driver**
-
-![텍스트, 스크린샷, 웹 페이지, 웹사이트이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/baf6b80c6e457235011114ac005356ff.png)
+![The image shows a user interface on a Windows device, where the user is guiding through the process of updating a PCI Serial Port driver, with options to search for drivers automatically or manually, and the successful installation message is displayed. AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/297dd6bf502f2d5f1ab0f82cff60fd99.png)
