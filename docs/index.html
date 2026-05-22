@@ -152,13 +152,15 @@
     .markdown-section {
       max-width: 100% !important;
       margin: 0 !important;
-      padding: 40px 52px !important;
+      padding: 40px 36px !important;
       background: var(--surface) !important;
       border-radius: 0 !important;
       border: none !important;
       border-top: 3px solid var(--primary) !important;
       box-shadow: none !important;
       color: var(--text-body) !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden;
     }
 
     /* ─── Typography ─── */
@@ -419,10 +421,12 @@
     /* ─── Home: Card grid ─── */
     .cz-card-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 14px;
       margin: 18px 0 8px;
       width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
     .cz-card {
       display: block !important;
@@ -580,9 +584,6 @@
     .docsify-copy-code-button.success { background: #10b981 !important; }
 
     /* ─── Responsive ─── */
-    @media (max-width: 1400px) {
-      .cz-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
     @media (max-width: 768px) {
       .markdown-section {
         margin: 12px !important;
@@ -591,7 +592,6 @@
       }
       .cz-hero { padding: 26px 22px; }
       .cz-hero-title { font-size: 1.6rem !important; }
-      .cz-card-grid { grid-template-columns: 1fr; }
     }
   </style>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
