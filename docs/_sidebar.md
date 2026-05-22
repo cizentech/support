@@ -1,15 +1,17 @@
-* [CameraMaster](CameraMaster.md)
+* **Getting Started**
+  * [Driver Installation](DriverInstallation.md)
+  * [CameraMaster](CameraMaster.md)
 
-* [Driver Installation](DriverInstallation.md)
+* **Developer**
+  * [MIG Grabber SDK](MIG_Grabber_SDK.md)
+  * [CameraMaster Framework](CameraMasterFramework.md)
 
-* [Deserializer](Deserializer.md)
+* **Hardware**
+  * [Deserializer](Deserializer.md)
+  * [NVIDIA Jetson Platform](NVIDIA_Jetson_platform.md)
 
-* [MIG Grabber SDK](MIG_Grabber_SDK.md)
+* **Test Suite**
+  * [Image Kit](ImageKit.md)
 
-* [Image Kit](ImageKit.md)
-
-* [CameraMaster Framework](CameraMasterFramework.md)
-
-* [NVIDIA Jetson platform](NVIDIA_Jetson_platform.md)
-
-* [Technical Support](Technical_Support.md)
+* **Support**
+  * [Technical Support](Technical_Support.md)

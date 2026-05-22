@@ -9,7 +9,7 @@ We provide a SDK (API) so that users can control the grabber through their own p
 
 ## API List
 
-```
+```cpp
 /**
  * @brief Get the version of MIG SDK.
  *
@@ -273,7 +273,7 @@ extern int              ReadSyncCount(int BoardId, DWORD dwTimeOut_ms, int* pDes
 
 ![텍스트, 스크린샷, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/94fa8ac2cb28d19dd18c5f270bc81459.png)
 
-```
+```cpp
 // Dynamically Load API from SDK library
 sFile.Format(_T("%s\\migGrabber.dll"), Helper::GetCurrentProcessPath());
 
@@ -346,7 +346,7 @@ nRet = i2cRead(nBoardID, reg, data, nLen);
 
 ![스크린샷, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/84ef7a549f08d016b6d5e0256bd3a241.png)
 
-```
+```python
 # Load SDK Library
 pathname = os.path.dirname(sys.argv[0])
 sdk_file = pathname + '\migGrabber'
@@ -382,7 +382,8 @@ if (ret == 0)
 ![스크린샷, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/56b41c43236500cc09fa57f2c10e951b.png)
 
 [Download Sample Code for C#](https://cizentech-my.sharepoint.com/:u:/p/mason/IQBjlYE7KuL2R5vcKToan8KyAb1nui9J_I4seHTxnHKvnrU?e=P8ljEj)
-```
+
+```csharp
 // Load SDK Library
 public static extern int SetParamInt(int BoardId, int type, int val);
 [DllImport(sdk_dll, SetLastError = true, CallingConvention = CallingConvention.Cdecl)]

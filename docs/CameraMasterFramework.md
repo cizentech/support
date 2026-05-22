@@ -34,7 +34,7 @@
 -   Performs algorithmic evaluation on captured frames (e.g., defect detection, measurement, etc.)
 -   Communicates inspection results back to the main application for display and report generation
 
-```
+```cpp
 class FRAMEWORKBRIDGECLASS CInspectionItem
 {
 	friend class CInspectionItemImpl;

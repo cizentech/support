@@ -350,6 +350,225 @@
     /* ─── Progress bar ─── */
     #nprogress .bar { background: var(--primary) !important; }
 
+    /* ─── Home: Hero ─── */
+    .cz-hero {
+      margin: 8px 0 36px;
+      padding: 36px 32px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f5f3ff 0%, #eef2ff 55%, #e0f2fe 100%);
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow-sm);
+    }
+    .cz-hero-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary-dk);
+      margin-bottom: 10px;
+    }
+    .cz-hero-title {
+      font-size: 2.1rem !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.03em !important;
+      color: var(--text-h) !important;
+      margin: 0 0 14px !important;
+      border: none !important;
+      padding: 0 !important;
+      line-height: 1.2 !important;
+    }
+    .cz-hero-desc {
+      font-size: 15px !important;
+      line-height: 1.7 !important;
+      color: var(--text-body) !important;
+      max-width: 720px;
+      margin: 0 0 22px !important;
+    }
+    .cz-hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cz-btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13.5px !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      border: 1px solid var(--border-strong) !important;
+      background: #ffffff;
+      color: var(--text-h) !important;
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .cz-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary) !important;
+    }
+    .cz-btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, #6366f1 100%);
+      color: #ffffff !important;
+      border-color: transparent !important;
+    }
+    .cz-btn-primary:hover { color: #ffffff !important; }
+
+    /* ─── Home: Card grid ─── */
+    .cz-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin: 18px 0 8px;
+    }
+    .cz-card {
+      display: block !important;
+      padding: 20px 20px 22px !important;
+      background: var(--surface) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      text-decoration: none !important;
+      color: var(--text-body) !important;
+      transition: all 0.18s ease !important;
+      box-shadow: var(--shadow-sm) !important;
+      position: relative;
+      overflow: hidden;
+    }
+    .cz-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--primary), var(--sky));
+      opacity: 0;
+      transition: opacity 0.18s ease;
+    }
+    .cz-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong) !important;
+      box-shadow: var(--shadow-md) !important;
+    }
+    .cz-card:hover::before { opacity: 1; }
+    .cz-card-tag {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary-dk);
+      background: var(--primary-lt);
+      padding: 3px 8px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+    }
+    .cz-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-h);
+      margin-bottom: 6px;
+      letter-spacing: -0.015em;
+    }
+    .cz-card-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    /* ─── Home: Steps ─── */
+    .cz-steps { display: grid; gap: 12px; margin: 16px 0; }
+    .cz-step {
+      display: flex;
+      gap: 16px;
+      padding: 16px 18px;
+      background: #f8faff;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--primary);
+      border-radius: var(--radius);
+    }
+    .cz-step-num {
+      flex-shrink: 0;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #6366f1);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cz-step-title {
+      font-weight: 600;
+      color: var(--text-h);
+      margin-bottom: 3px;
+      font-size: 14.5px;
+    }
+    .cz-step-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    /* ─── Home: Footer block ─── */
+    .cz-footer {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-top: 28px;
+    }
+
+    /* ─── Search input ─── */
+    .sidebar .search {
+      margin: 12px 14px 8px !important;
+      padding: 0 !important;
+      border: none !important;
+    }
+    .sidebar .search input {
+      border: 1px solid var(--border) !important;
+      border-radius: 8px !important;
+      padding: 8px 12px !important;
+      font-size: 13px !important;
+      width: 100% !important;
+      background: #f8faff !important;
+      transition: all 0.15s ease;
+    }
+    .sidebar .search input:focus {
+      outline: none !important;
+      border-color: var(--primary) !important;
+      background: #fff !important;
+      box-shadow: 0 0 0 3px rgba(79,70,229,0.12) !important;
+    }
+    .sidebar .search .results-panel {
+      background: var(--surface) !important;
+      border-radius: 8px !important;
+    }
+    .sidebar .search .matching-post {
+      border-bottom: 1px solid var(--border) !important;
+      padding: 10px 14px !important;
+    }
+    .sidebar .search .matching-post h2 {
+      font-size: 13px !important;
+      color: var(--primary-dk) !important;
+      margin: 0 0 4px !important;
+    }
+    .sidebar .search .matching-post p {
+      font-size: 12px !important;
+      color: var(--text-muted) !important;
+    }
+    .sidebar .search .search-keyword {
+      color: var(--primary) !important;
+      font-weight: 600 !important;
+      font-style: normal !important;
+    }
+
+    /* ─── Copy code button ─── */
+    .docsify-copy-code-button {
+      background: var(--primary) !important;
+      color: #fff !important;
+      font-size: 11px !important;
+      border-radius: 6px !important;
+      padding: 4px 10px !important;
+      opacity: 0.85;
+    }
+    .docsify-copy-code-button:hover { opacity: 1; }
+    .docsify-copy-code-button.success { background: #10b981 !important; }
+
     /* ─── Responsive ─── */
     @media (max-width: 768px) {
       .markdown-section {
@@ -357,8 +576,12 @@
         padding: 24px 18px !important;
         border-radius: var(--radius) !important;
       }
+      .cz-hero { padding: 26px 22px; }
+      .cz-hero-title { font-size: 1.6rem !important; }
+      .cz-card-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
 </head>
 <body>
   <div id="app">Loading...</div>
@@ -368,6 +591,17 @@
       name: '',
       subMaxLevel: 2,
       loadSidebar: true,
+      search: {
+        placeholder: 'Search documentation…',
+        noData: 'No results found.',
+        depth: 3,
+        hideOtherSidebarContent: false
+      },
+      copyCode: {
+        buttonText: 'Copy',
+        errorText: 'Error',
+        successText: 'Copied'
+      },
       plugins: [
         function(hook) {
           hook.ready(function() {
@@ -382,5 +616,12 @@
     };
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@3"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-csharp.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-ini.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
 </body>
 </html>
