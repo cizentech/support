@@ -16,7 +16,7 @@
 <div class="cz-card-grid">
 
   <a class="cz-card" href="#/CameraMaster">
-    <div class="cz-card-tag">GUI</div>
+    <div class="cz-card-tag">Viewer</div>
     <div class="cz-card-title">CameraMaster</div>
     <div class="cz-card-desc">Real-time capture, configuration files, bring-up procedures, and the Grabber terminal.</div>
   </a>
