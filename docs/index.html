@@ -404,16 +404,22 @@
       border-color: var(--primary) !important;
     }
     .cz-btn-primary {
-      background: linear-gradient(135deg, var(--primary) 0%, #6366f1 100%);
+      background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
       color: #ffffff !important;
       border-color: transparent !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 1px rgba(15, 23, 42, 0.18);
     }
-    .cz-btn-primary:hover { color: #ffffff !important; }
+    .cz-btn-primary:hover {
+      color: #ffffff !important;
+      background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+    }
 
     /* ─── Home: Card grid ─── */
     .cz-card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       margin: 18px 0 8px;
     }
@@ -570,6 +576,9 @@
     .docsify-copy-code-button.success { background: #10b981 !important; }
 
     /* ─── Responsive ─── */
+    @media (max-width: 1200px) {
+      .cz-card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 768px) {
       .markdown-section {
         margin: 12px !important;
