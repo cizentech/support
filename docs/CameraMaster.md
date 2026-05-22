@@ -29,17 +29,13 @@ The CameraMaster (software GUI) interacts directly with the MIG-S2 Grabber to co
     -   6.1 Setting I2C Address
     -   6.2 Writing I2C Data
     -   6.3 Reading I2C Data
-7.  Image Kit Content
-    -   SFR
-    -   Distortion
-    -   Defect
-    -   Stain (Blemish)
-    -   Optical Center
-    -   Shading (Vignetting)
-    -   Fixed Pattern Noise
-    -   Uniformity
-8.  Driver Installation
-9.  Appendix & Notes
+7.  Grabber Terminal Command List
+8.  CameraMaster Installation
+9.  Troubleshooting
+10. Appendix & Notes
+
+> For driver setup, see the [Driver Installation](DriverInstallation.md) page.
+> For image-quality test items (SFR, distortion, defect, …), see the [Image Kit](ImageKit.md) page.
 
 ## 1. System Overview
 
@@ -196,7 +192,7 @@ i2cr x0000 4
 
 // Read 4 bytes from x0000
 
-## 7. Grabber Terminal command list
+## 7. Grabber Terminal Command List
 
 VER (Read current F/W H/W version)
 
@@ -244,7 +240,7 @@ BULK_MODE_START (Bulk Mode data Starting) – in bulk mode, all data (start\~end
 
 BULK_MODE_END (Bulk Mode data Finishing)
 
-## 8. CameraMaster installation
+## 8. CameraMaster Installation
 
 [installation program](https://cizentech-my.sharepoint.com/:u:/p/mason/EXJD-jQiA-NDkKhYoX9OtDkBYY4C9lLZBcOMDJDFNOhfTQ?e=oXlfEx)
 
@@ -262,21 +258,7 @@ BULK_MODE_END (Bulk Mode data Finishing)
 
 ![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/ffda57c75a0475daeafb775ab309007d.png)
 
-## 9. Driver Installation
-
-[Install the MIG_Driver_win10_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/Ed_I9q-3fPpAj6ca6SkHVgQBklY5Z7CpYuXBG8GC3qJv5g?e=32tdgL)
-
-[Install the MIG_Driver_Signed_win10_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/EVryLOTvBRBJhrQF8aKAbaQBKpjr-BKYtnMeJWi-xjI3uw?e=tfwECH)
-
-![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/24f7ac826006a1f50233abfc07da21e9.png)
-
-![텍스트, 스크린샷, 폰트, 라인이(가) 표시된 사진 자동 생성된 설명](media/d510c68c255d79152026d3434cc52ab7.png)
-
-![텍스트, 스크린샷, 폰트이(가) 표시된 사진 자동 생성된 설명](media/5295c0e89f0e336cad77bca047164ef3.png)
-
-![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/8e6e2c8dc87bcada269f9d8f3a5d8b76.png)
-
-## 10. Trouble shoot
+## 9. Troubleshooting
 
 ![텍스트, 스크린샷, 소프트웨어, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/a83d3e2e62e2776ded5ebd0c8ae379a8.png)
 
@@ -296,7 +278,7 @@ ini selection button disabled. Occurs when the user is not an Engineer. Select E
 
 Install “[Visual C++ Redistributable for Visual Studio 2015\~2022](https://cizentech-my.sharepoint.com/:u:/p/mason/EVMhVvG3-CtCtEEtHW4ev9wB4d4AobfjBobrFZFd4BxH6Q?e=UaIyb8)”
 
-## 11. Appendix & Notes
+## 10. Appendix & Notes
 
 -   2025-06-23
     -   Initial release
