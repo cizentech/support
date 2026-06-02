@@ -11,7 +11,7 @@
 | 1 | SFR 블럭 / 엣지 검출 및 이미지 획득 | 엣지 영역 이미지 |
 | 2 | ESF (Edge Spread Function) 데이터 획득 | 밝기 분포 곡선 |
 | 3 | LSF (Line Spread Function) 데이터 획득 | 밝기 변화량(미분) 곡선 |
-| 4 | MTF 값 확인 | 주파수별 선명도 |
+| 4 | MTF 값 확인 | LSF 를 FFT 후 주파수별 선명도 |
 | 5 | cycles/pixel → cycles/mm 변환 | LP/mm, MTF50 해석 |
 
 ---
@@ -53,7 +53,7 @@
 
 ## 4. MTF 값 확인
 
-![MTF 곡선](media/sfr_mtf.png) ![SFR Option](media/sfr_option.png)
+![MTF 곡선](media/sfr_mtf.png)
 
 \- LSF 를 FFT(푸리에 변환)한 후 주파수별로 이미지 선명도를 확인 (X축 : 공간 주파수 cycles/pixel, Y축 : MTF 값 = SFR)
 

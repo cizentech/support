@@ -13,6 +13,7 @@
 * **Test Suite**
   * [Image Kit](ImageKit.md)
   * [SFR Method](SFR.md)
+  * [SFR Method (English)](SFR_en.md)
 
 * **Support**
   * [Technical Support](Technical_Support.md)
