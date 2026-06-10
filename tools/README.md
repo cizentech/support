@@ -21,7 +21,18 @@ crawlable surface that search engines index.
 
 ## Usage
 
-Re-run after editing any `.md`, then commit the regenerated files:
+A **pre-commit hook** rebuilds automatically: whenever a commit touches a
+`docs/*.md` file, `.githooks/pre-commit` runs this script and stages the
+regenerated `*.html` / `sitemap.xml` / `robots.txt`. You just edit Markdown and
+commit as usual.
+
+Enable the hook once per clone (it lives in the committed `.githooks/` dir):
+
+```bash
+git config core.hooksPath .githooks
+```
+
+To run the build manually (e.g. to preview before committing):
 
 ```bash
 node tools/build-seo.js

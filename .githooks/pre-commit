@@ -1,0 +1,21 @@
+#!/bin/sh
+# Auto-regenerate the crawlable static HTML whenever a Markdown source changes.
+# Source of truth is docs/*.md; docs/*.html + sitemap.xml + robots.txt are generated.
+#
+# Enabled per clone with:  git config core.hooksPath .githooks
+
+# Only rebuild when this commit actually touches a Markdown source.
+if git diff --cached --name-only --diff-filter=ACMR | grep -qE '^docs/.*\.md$'; then
+  if ! command -v node >/dev/null 2>&1; then
+    echo "pre-commit: 'node' not found — skipping SEO build." >&2
+    echo "            Run 'node tools/build-seo.js' manually and stage the output." >&2
+    exit 1
+  fi
+  echo "pre-commit: docs/*.md changed — regenerating static SEO pages…"
+  if ! node tools/build-seo.js; then
+    echo "pre-commit: SEO build failed; aborting commit." >&2
+    exit 1
+  fi
+  git add docs/*.html docs/sitemap.xml docs/robots.txt
+fi
+exit 0
