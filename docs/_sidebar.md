@@ -1,7 +1,7 @@
 * **Getting Started**
-  * [Driver Installation](DriverInstallation.md)
-  * [CameraMaster](CameraMaster.md)
   * [Frame Grabber](FrameGrabber.md)
+  * [CameraMaster](CameraMaster.md)
+  * [Driver Installation](DriverInstallation.md)
 
 * **Developer**
   * [MIG Grabber SDK](MIG_Grabber_SDK.md)

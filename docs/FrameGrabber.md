@@ -10,6 +10,8 @@ A compact, highly compatible MIPI-interface image capture card for automotive ca
 
 ## 1. Overview
 
+![MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S6](img/MIG_Series.png)
+
 The MIG-S2 / MIG-S2 Pro is a compact, highly compatible, and reliable MIPI-interface image capture card designed for automotive camera module systems. With a streamlined design and ease of use, it supports image acquisition for most modules on the market. Its scalability and stable testing environment make it ideal for AI/ADAS algorithm development post-camera activation and for in-line camera image-quality testing.
 
 -   **Activation Experience** — 500+ modules
