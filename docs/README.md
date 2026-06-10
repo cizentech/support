@@ -15,6 +15,12 @@
 
 <div class="cz-card-grid">
 
+  <a class="cz-card" href="#/FrameGrabber">
+    <div class="cz-card-tag">Hardware</div>
+    <div class="cz-card-title">Frame Grabber</div>
+    <div class="cz-card-desc">MIG-S2 / S2 Pro / S6 MIPI capture cards — key features, models, and specifications.</div>
+  </a>
+
   <a class="cz-card" href="#/CameraMaster">
     <div class="cz-card-tag">Viewer</div>
     <div class="cz-card-title">CameraMaster</div>
