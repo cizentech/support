@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SFR Method · CIZEN TECH</title>
+  <meta name="description" content="SFR (Spatial Frequency Response) 는 카메라가 공간 주파수에 따라 명암 대비(contrast)를 얼마나 유지하는지로 해상력을 평가하는 측정 방법입니다. CameraMaster 는 차트의 엣지(edge)를 검출한 뒤 ESF → LSF → MTF 순으로 변환하…">
+  <link rel="canonical" href="https://cizentech.github.io/support/SFR.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SFR Method">
+  <meta property="og:description" content="SFR (Spatial Frequency Response) 는 카메라가 공간 주파수에 따라 명암 대비(contrast)를 얼마나 유지하는지로 해상력을 평가하는 측정 방법입니다. CameraMaster 는 차트의 엣지(edge)를 검출한 뒤 ESF → LSF → MTF 순으로 변환하…">
+  <meta property="og:url" content="https://cizentech.github.io/support/SFR.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/cizentech-32x32.png">
+  <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+  <header class="doc-top">
+    <a class="doc-home" href="index.html"><img src="img/cizentech-logo-195x88-trans.png" alt="CIZEN TECH"></a>
+    <a class="doc-app" href="index.html#/SFR">Open in interactive docs →</a>
+  </header>
+  <main class="markdown-section">
+<h1>SFR Method</h1>
+<p><strong>SFR (Spatial Frequency Response)</strong> 는 카메라가 공간 주파수에 따라 명암 대비(contrast)를 얼마나 유지하는지로 해상력을 평가하는 측정 방법입니다. CameraMaster 는 차트의 엣지(edge)를 검출한 뒤 <strong>ESF → LSF → MTF</strong> 순으로 변환하여 SFR 값을 산출합니다.</p>
+<blockquote>
+<p>ISO-12233 표준의 Slanted-Edge 방식을 기반으로 합니다.</p>
+</blockquote>
+<h2>측정 흐름</h2>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>내용</th>
+<th>산출물</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>SFR 블럭 / 엣지 검출 및 이미지 획득</td>
+<td>엣지 영역 이미지</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ESF (Edge Spread Function) 데이터 획득</td>
+<td>밝기 분포 곡선</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LSF (Line Spread Function) 데이터 획득</td>
+<td>밝기 변화량(미분) 곡선</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MTF 값 확인</td>
+<td>LSF 를 FFT 후 주파수별 선명도</td>
+</tr>
+<tr>
+<td>5</td>
+<td>cycles/pixel → cycles/mm 변환</td>
+<td>LP/mm, MTF50 해석</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>1. SFR 블럭 / 엣지 검출</h2>
+<p><img src="media/sfr_block.png" alt="SFR 블럭 검출"></p>
+<p>- SFR 블럭을 찾고 각 엣지를 찾음</p>
+<p>- SFR 블럭 찾기 → 해당 블럭의 상하좌우 각 에지 찾기</p>
+<p>- Bayer 영상의 경우 디모자익(demosaic) 진행</p>
+<p>- 영상에서 Y(휘도) 값을 추출하여 SFR 계산을 위한 이미지 획득</p>
+<h2>2. ESF (Edge Spread Function) 데이터 획득</h2>
+<p><img src="media/sfr_esf.png" alt="ESF 곡선"></p>
+<p>- 에지를 중심으로 한 밝기 그래프 (X축 : 픽셀 위치, Y축 : 픽셀 밝기)</p>
+<ol>
+<li>각 라인의 엣지 위치를 찾음</li>
+<li>엣지를 기준으로 좌표 재정렬</li>
+<li>에지 중심으로 좌우 같은 거리의 밝기값 평균</li>
+<li>ESF 생성</li>
+</ol>
+<h2>3. LSF (Line Spread Function) 데이터 획득</h2>
+<p><img src="media/sfr_lsf.png" alt="LSF 곡선"></p>
+<p>- ESF 의 기울기(변화량 = 미분) 그래프 (X축 : 픽셀 위치, Y축 : 에지 기울기)</p>
+<p>- 경계선에서 위치(값)가 높음</p>
+<p>- 뾰족하게 생기면 포커스가 높음</p>
+<p>- 펑퍼짐하고 낮으면 포커스가 낮음</p>
+<h2>4. MTF 값 확인</h2>
+<p><img src="media/sfr_mtf.png" alt="MTF 곡선"></p>
+<p>- LSF 를 FFT(푸리에 변환)한 후 주파수별로 이미지 선명도를 확인 (X축 : 공간 주파수 cycles/pixel, Y축 : MTF 값 = SFR)</p>
+<p>- 주파수가 <code>0.125 (cycle/pixel)</code> 위치의 MTF 값은 <code>0.44</code> 로 확인됨</p>
+<h2>5. cycles/pixel → cycles/mm 변환</h2>
+<p>mm 당 라인 페어(Line Pair) 갯수로 변환합니다.</p>
+<pre><code>cycles/mm = (cycles/pixel) / Pixel pitch (mm/pixel)
+</code></pre>
+<p>- MTF50 은 MTF 값 <code>0.5</code> 에서의 Line Pair 갯수</p>
+<p><strong>예시</strong> — Pixel pitch 1.4 um 인 경우</p>
+<pre><code>1.4 um  →  0.0014 mm
+0.11 / 0.0014 = 71.42 LP/mm  (cycles/mm)
+</code></pre>
+<h3>Y축(MTF 값)의 의미</h3>
+<p>- 흑백 대비를 몇 % 유지했는가를 의미</p>
+<p>- 실제 차트가 검정 <code>=0</code>, 흰색 <code>=255</code> 일 경우, MTF50 에서는 검정 <code>≈64</code> / 흰색 <code>≈191</code> 정도로 보임</p>
+<p>- 즉 <code>71.42 LP/mm</code> 수준까지는 원래 대비의 절반을 유지하며, 71 개 라인은 선명하게 구분됨</p>
+<h3>MTF 판정 기준</h3>
+<table>
+<thead>
+<tr>
+<th>기준</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MTF50</strong></td>
+<td>선명하게 보임</td>
+</tr>
+<tr>
+<td><strong>MTF30</strong></td>
+<td>어느 정도 보임</td>
+</tr>
+<tr>
+<td><strong>MTF10</strong></td>
+<td>분해 가능 한계</td>
+</tr>
+</tbody></table>
+
+  </main>
+  <footer class="doc-foot">
+    <strong>CIZEN TECH Co., Ltd.</strong> · <a href="http://cizentech.com/">cizentech.com</a> · <a href="mailto:contact@cizentech.com">contact@cizentech.com</a>
+  </footer>
+</body>
+</html>

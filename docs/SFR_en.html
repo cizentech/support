@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SFR Method (English) · CIZEN TECH</title>
+  <meta name="description" content="SFR (Spatial Frequency Response) evaluates resolving power by measuring how well a camera preserves contrast across spatial frequencies. CameraMaster detects…">
+  <link rel="canonical" href="https://cizentech.github.io/support/SFR_en.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SFR Method (English)">
+  <meta property="og:description" content="SFR (Spatial Frequency Response) evaluates resolving power by measuring how well a camera preserves contrast across spatial frequencies. CameraMaster detects…">
+  <meta property="og:url" content="https://cizentech.github.io/support/SFR_en.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/cizentech-32x32.png">
+  <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+  <header class="doc-top">
+    <a class="doc-home" href="index.html"><img src="img/cizentech-logo-195x88-trans.png" alt="CIZEN TECH"></a>
+    <a class="doc-app" href="index.html#/SFR_en">Open in interactive docs →</a>
+  </header>
+  <main class="markdown-section">
+<h1>SFR Method (English)</h1>
+<p><strong>SFR (Spatial Frequency Response)</strong> evaluates resolving power by measuring how well a camera preserves contrast across spatial frequencies. CameraMaster detects the edge of a chart and then converts it through <strong>ESF → LSF → MTF</strong> to derive the SFR value.</p>
+<blockquote>
+<p>Based on the Slanted-Edge method of the ISO-12233 standard.</p>
+</blockquote>
+<h2>Measurement Flow</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>SFR block / edge detection and image acquisition</td>
+<td>Edge region image</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ESF (Edge Spread Function) data acquisition</td>
+<td>Brightness distribution curve</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LSF (Line Spread Function) data acquisition</td>
+<td>Brightness derivative curve</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MTF value check</td>
+<td>FFT of LSF, sharpness per frequency</td>
+</tr>
+<tr>
+<td>5</td>
+<td>cycles/pixel → cycles/mm conversion</td>
+<td>LP/mm, MTF50 interpretation</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>1. SFR Block / Edge Detection</h2>
+<p><img src="media/sfr_block.png" alt="SFR block detection"></p>
+<p>- Find the SFR block and detect each edge</p>
+<p>- Locate the SFR block → find the top, bottom, left, and right edges of that block</p>
+<p>- For Bayer images, perform demosaic</p>
+<p>- Extract the Y (luminance) value from the image to acquire the image used for SFR calculation</p>
+<h2>2. ESF (Edge Spread Function) Data Acquisition</h2>
+<p><img src="media/sfr_esf.png" alt="ESF curve"></p>
+<p>- Brightness graph centered on the edge (X axis : pixel position, Y axis : pixel brightness)</p>
+<ol>
+<li>Find the edge position of each line</li>
+<li>Re-align coordinates relative to the edge</li>
+<li>Average the brightness values at equal distances on both sides of the edge center</li>
+<li>Generate the ESF</li>
+</ol>
+<h2>3. LSF (Line Spread Function) Data Acquisition</h2>
+<p><img src="media/sfr_lsf.png" alt="LSF curve"></p>
+<p>- Graph of the slope of the ESF (rate of change = derivative) (X axis : pixel position, Y axis : edge slope)</p>
+<p>- The value is high at the boundary line</p>
+<p>- A sharp peak means the focus is high</p>
+<p>- A broad, low peak means the focus is low</p>
+<h2>4. MTF Value Check</h2>
+<p><img src="media/sfr_mtf.png" alt="MTF curve"></p>
+<p>- After applying FFT (Fourier transform) to the LSF, check the image sharpness per frequency (X axis : spatial frequency cycles/pixel, Y axis : MTF value = SFR)</p>
+<p>- At the frequency <code>0.125 (cycle/pixel)</code>, the MTF value is found to be <code>0.44</code></p>
+<h2>5. cycles/pixel → cycles/mm Conversion</h2>
+<p>Convert to the number of line pairs per mm.</p>
+<pre><code>cycles/mm = (cycles/pixel) / Pixel pitch (mm/pixel)
+</code></pre>
+<p>- MTF50 is the number of line pairs at an MTF value of <code>0.5</code></p>
+<p><strong>Example</strong> — when the pixel pitch is 1.4 um</p>
+<pre><code>1.4 um  →  0.0014 mm
+0.11 / 0.0014 = 71.42 LP/mm  (cycles/mm)
+</code></pre>
+<h3>Meaning of the Y axis (MTF value)</h3>
+<p>- Indicates what percentage of the black-and-white contrast is preserved</p>
+<p>- If the actual chart is black <code>=0</code> and white <code>=255</code>, at MTF50 black appears <code>≈64</code> / white <code>≈191</code></p>
+<p>- That is, up to <code>71.42 LP/mm</code> half of the original contrast is preserved, and 71 lines are clearly distinguished</p>
+<h3>MTF Evaluation Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MTF50</strong></td>
+<td>Looks sharp</td>
+</tr>
+<tr>
+<td><strong>MTF30</strong></td>
+<td>Somewhat visible</td>
+</tr>
+<tr>
+<td><strong>MTF10</strong></td>
+<td>Resolution limit</td>
+</tr>
+</tbody></table>
+
+  </main>
+  <footer class="doc-foot">
+    <strong>CIZEN TECH Co., Ltd.</strong> · <a href="http://cizentech.com/">cizentech.com</a> · <a href="mailto:contact@cizentech.com">contact@cizentech.com</a>
+  </footer>
+</body>
+</html>

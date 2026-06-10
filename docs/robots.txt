@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cizentech.github.io/support/sitemap.xml

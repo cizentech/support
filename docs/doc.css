@@ -1,0 +1,58 @@
+/* doc.css — styling for the pre-rendered, crawlable static pages (see tools/build-seo.js). */
+:root{
+  --primary:#4f46e5; --primary-dk:#3730a3; --primary-lt:#ede9fe; --sky:#0ea5e9;
+  --text-h:#0f172a; --text-body:#334155; --text-muted:#64748b;
+  --border:#e2e8f0; --border-strong:#c7d2fe; --radius:10px;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#eef1f8;color:var(--text-body);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;line-height:1.7}
+.doc-top{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  max-width:880px;margin:0 auto;padding:18px 24px}
+.doc-top img{height:44px;display:block}
+.doc-app{font-size:13px;font-weight:600;color:var(--primary);text-decoration:none;
+  border:1px solid var(--border-strong);background:#fff;padding:8px 14px;border-radius:8px}
+.doc-app:hover{background:var(--primary-lt);color:var(--primary-dk)}
+.markdown-section{max-width:880px;margin:0 auto 32px;background:#fff;padding:40px 44px;
+  border-radius:var(--radius);border-top:3px solid var(--primary);
+  box-shadow:0 4px 12px rgba(15,23,42,.10)}
+.markdown-section h1{font-size:2rem;color:var(--text-h);letter-spacing:-.025em;
+  border-bottom:2px solid var(--border);padding-bottom:.4em;margin:0 0 1em}
+.markdown-section h2{font-size:1.4rem;color:var(--text-h);letter-spacing:-.02em;
+  border-bottom:1px solid var(--border);padding-bottom:.35em;margin-top:1.8em}
+.markdown-section h3{font-size:1.1rem;color:var(--primary-dk);margin-top:1.6em}
+.markdown-section p,.markdown-section li{font-size:14.5px;color:var(--text-body)}
+.markdown-section strong{color:var(--text-h)}
+.markdown-section a{color:var(--primary);text-decoration:none;border-bottom:1px solid rgba(79,70,229,.3)}
+.markdown-section a:hover{color:var(--primary-dk);border-bottom-color:var(--primary)}
+.markdown-section img{max-width:100%;height:auto;border:1px solid var(--border);
+  border-radius:var(--radius);box-shadow:0 4px 12px rgba(15,23,42,.10);background:#fff}
+.markdown-section code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:#f1f5ff;
+  color:var(--primary-dk);border:1px solid var(--border-strong);border-radius:5px;padding:2px 6px}
+.markdown-section pre{background:#f8faff;border:1px solid var(--border);border-left:3px solid var(--primary);
+  border-radius:var(--radius);padding:14px 16px;overflow:auto}
+.markdown-section pre code{background:none;border:none;padding:0;color:#1e293b}
+.markdown-section table{border-collapse:collapse;width:100%;border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 3px rgba(15,23,42,.08);margin:18px 0}
+.markdown-section thead tr{background:linear-gradient(90deg,var(--primary),#6366f1)}
+.markdown-section th{color:#fff;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;
+  text-align:left;padding:11px 14px}
+.markdown-section td{padding:10px 14px;font-size:13.5px;border-bottom:1px solid var(--border)}
+.markdown-section tbody tr:nth-child(even){background:#f8f9ff}
+.markdown-section blockquote{background:#f8f9ff;border-left:4px solid var(--primary);
+  border-radius:0 var(--radius) var(--radius) 0;margin:18px 0;padding:14px 18px;color:var(--text-muted)}
+.markdown-section blockquote p{margin:0}
+.markdown-section hr{border:none;height:1px;background:var(--border);margin:28px 0}
+.doc-foot{max-width:880px;margin:0 auto;padding:8px 24px 40px;font-size:12.5px;color:var(--text-muted)}
+.doc-foot a{color:var(--text-muted)}
+/* Home card/hero markup carried over from README (when these pages link to it) */
+.cz-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.cz-card{display:block;padding:18px 16px;background:#fff;border:1px solid var(--border);
+  border-radius:12px;text-decoration:none;box-shadow:0 1px 3px rgba(15,23,42,.08)}
+.cz-card:hover{border-color:var(--border-strong);box-shadow:0 4px 12px rgba(15,23,42,.10)}
+.cz-card-tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--primary-dk);background:var(--primary-lt);
+  padding:3px 8px;border-radius:99px;margin-bottom:10px}
+.cz-card-title{font-size:16px;font-weight:700;color:var(--text-h);margin-bottom:6px}
+.cz-card-desc{font-size:13px;color:var(--text-muted)}
+@media(max-width:768px){.markdown-section{padding:26px 18px;margin:0 12px 24px}}
