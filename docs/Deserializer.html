@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deserializer · CIZEN TECH</title>
-  <meta name="description" content="DESINDEXSEL 1 // terminal command to select ADI Deserializer - DESINDEXSEL TI // terminal command to select TI DeserializerTI">
+  <meta name="description" content="Deserializer (DES) boards for the MIG frame grabbers. They recover the GMSL / FPD-Link signal from the camera-side serializer (SER) back into MIPI-CSI-2.">
   <link rel="canonical" href="https://cizentech.github.io/support/Deserializer.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Deserializer">
-  <meta property="og:description" content="DESINDEXSEL 1 // terminal command to select ADI Deserializer - DESINDEXSEL TI // terminal command to select TI DeserializerTI">
+  <meta property="og:description" content="Deserializer (DES) boards for the MIG frame grabbers. They recover the GMSL / FPD-Link signal from the camera-side serializer (SER) back into MIPI-CSI-2.">
   <meta property="og:url" content="https://cizentech.github.io/support/Deserializer.html">
   <link rel="icon" type="image/png" sizes="32x32" href="img/cizentech-32x32.png">
   <link rel="stylesheet" href="doc.css">
@@ -20,12 +20,97 @@
   </header>
   <main class="markdown-section">
 <h1>Deserializer</h1>
-<h2>TI + MAX Deserializer</h2>
-<ul>
-<li>DES_INDEX_SEL 1 // terminal command to select ADI Deserializer</li>
-<li>DES_INDEX_SEL TI // terminal command to select TI DeserializerTI</li>
-</ul>
+<p><strong>Deserializer (DES) boards for the MIG frame grabbers.</strong> They recover the GMSL / FPD-Link signal from the camera-side serializer (SER) back into MIPI-CSI-2.</p>
 <p><img src="media/dceff974de842d5066b61f319174edd5.png" alt="회로, 전자 공학이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다."></p>
+<h2>What is GMSL?</h2>
+<p><strong>GMSL (Gigabit Multimedia Serial Link)</strong> is an automotive SerDes (Serializer/Deserializer) technology. A camera-side <strong>serializer (SER)</strong> serializes video, control, and power into one signal carried over a <strong>single coax or STP cable</strong>, and a grabber-side <strong>deserializer (DES)</strong> recovers it back into MIPI-CSI-2 video.</p>
+<p>Its control channel is bidirectional, so sensor, SER, and DES registers are configured over I2C on the same cable, and PoC (Power over Coax) even feeds power to the camera. A single cable reaches roughly 15 m, making it well suited to vehicle harnesses.</p>
+<p>Link speeds by generation are <strong>GMSL1 (up to ~3.12 Gbps)</strong>, <strong>GMSL2 (up to ~6 Gbps)</strong>, and <strong>GMSL3 (up to ~12 Gbps)</strong>, with newer DES parts offering backward-compatible modes. TI&#39;s <strong>FPD-Link III / IV</strong> is the equivalent alternative SerDes family.</p>
+<h2>Deserializers We Provide</h2>
+<ul>
+<li><strong>MAX9296A</strong> — ADI (Maxim) GMSL2/GMSL1 dual-link deserializer. Shipped as the default DES board on the MIG frame grabbers.</li>
+<li><strong>MAX96724</strong> — ADI (Maxim) GMSL2/GMSL1 quad-link deserializer supporting up to 4-channel camera input.</li>
+<li><strong>DS90UB954</strong> — TI FPD-Link III deserializer supporting up to 2-channel camera input.</li>
+<li><strong>DS90UB9702</strong> — TI FPD-Link IV deserializer with backward-compatible FPD-Link III mode.</li>
+</ul>
+<h2>Verified Combinations</h2>
+<table>
+<thead>
+<tr>
+<th>Maker</th>
+<th>DES</th>
+<th>SER</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ADI</td>
+<td>MAX9296A</td>
+<td>MAX96717</td>
+<td>GMSL2</td>
+</tr>
+<tr>
+<td>ADI</td>
+<td>MAX9296A</td>
+<td>MAX9295D</td>
+<td>GMSL2</td>
+</tr>
+<tr>
+<td>ADI</td>
+<td>MAX9296A</td>
+<td>MAX96789F</td>
+<td>GMSL2</td>
+</tr>
+<tr>
+<td>ADI</td>
+<td>MAX9296A</td>
+<td>MAX96717F</td>
+<td>GMSL1</td>
+</tr>
+<tr>
+<td>ADI</td>
+<td>MAX9296A</td>
+<td>MAX9283</td>
+<td>GMSL1</td>
+</tr>
+<tr>
+<td>ADI</td>
+<td>MAX96724</td>
+<td>MAX96717</td>
+<td>GMSL2</td>
+</tr>
+<tr>
+<td>ADI</td>
+<td>MAX96724</td>
+<td>MAX96789F</td>
+<td>GMSL2</td>
+</tr>
+<tr>
+<td>TI</td>
+<td>DS90UB954</td>
+<td>DS90UB953</td>
+<td>FPD-Link III</td>
+</tr>
+<tr>
+<td>TI</td>
+<td>DS90UB9702</td>
+<td>DS90UB971</td>
+<td>FPD-Link IV</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>The table lists combinations CIZEN TECH has verified in-house; many additional SER/DES combinations are also supported. Contact us for your specific camera / SerDes pairing.</p>
+</blockquote>
+<h2>Selecting the Deserializer</h2>
+<p>Use the Grabber terminal to select which onboard deserializer is active:</p>
+<ul>
+<li><code>DES_INDEX_SEL 1</code> // select ADI (Maxim) deserializer</li>
+<li><code>DES_INDEX_SEL TI</code> // select TI deserializer</li>
+</ul>
+<h2>Resources</h2>
+<ul>
+<li><a href="mailto:contact@cizentech.com">Ask about a combination</a> — <a href="mailto:contact@cizentech.com">contact@cizentech.com</a></li>
+</ul>
 
   </main>
   <footer class="doc-foot">
