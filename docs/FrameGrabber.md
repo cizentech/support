@@ -1,6 +1,6 @@
 # Frame Grabber
 
-**MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S6**
+**MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S3 / MIG-S6**
 
 A compact, highly compatible MIPI-interface image capture card for automotive camera module systems. It supports GMSL / FPD-Link / Clockless Link / MIPI and is designed for AI/ADAS algorithm development after camera activation and for in-line camera image-quality testing.
 
@@ -10,7 +10,7 @@ A compact, highly compatible MIPI-interface image capture card for automotive ca
 
 ## 1. Overview
 
-![MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S6](img/MIG_Series.png)
+![MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S3 / MIG-S6](img/MIG_Series.png)
 
 The MIG-S2 / MIG-S2 Pro is a compact, highly compatible, and reliable MIPI-interface image capture card designed for automotive camera module systems. With a streamlined design and ease of use, it supports image acquisition for most modules on the market. Its scalability and stable testing environment make it ideal for AI/ADAS algorithm development post-camera activation and for in-line camera image-quality testing.
 
@@ -19,7 +19,7 @@ The MIG-S2 / MIG-S2 Pro is a compact, highly compatible, and reliable MIPI-inter
 -   **High-Speed Data Transfer** — USB 3.2 Gen 1 (5 Gbps), USB 3.2 Gen 2 (10 Gbps), Thunderbolt 3 (40 Gbps)
 -   **Wide Power Range** — 1–20 V module power supply
 -   **Deserializer Compatibility** — Supports ADI / TI / ROHM / SONY deserializer boards
--   **HDMI Display** — Full HD output (MIG-S2 Pro only)
+-   **HDMI Display** — 2K@60 / 4K@30 output (MIG-S2 Pro only)
 
 ## 2. Key Features
 
@@ -49,6 +49,14 @@ The MIG-S2 / MIG-S2 Pro is a compact, highly compatible, and reliable MIPI-inter
 -   MAX9296A deserializer board included, FPD-Link III selectable
 -   Supports HDMI video output
 
+### MIG-S3
+
+-   FPGA-based MIPI interface
+-   USB 3.2 Gen 2 Type-C controller
+-   Maximum transfer speed: 10 Gbps
+-   Supports GMSL, FPD-Link and other SerDes interfaces
+-   Compact design: 107 × 86 × 40 mm
+
 ### MIG-S6
 
 -   FPGA-based MIPI interface
@@ -59,17 +67,17 @@ The MIG-S2 / MIG-S2 Pro is a compact, highly compatible, and reliable MIPI-inter
 
 ## 4. Specifications
 
-| Item                       | MIG-S2                                                 | MIG-S2 Pro                                             | MIG-S6                                                  |
-|----------------------------|--------------------------------------------------------|--------------------------------------------------------|---------------------------------------------------------|
-| **Model Name**             | MIG-S2                                                 | MIG-S2 Pro                                             | MIG-S6                                                  |
-| **Dimension**              | 146 × 100 × 50 (mm)                                    | 146 × 100 × 50 (mm)                                    | 170 × 118 × 42 (mm)                                     |
-| **MIPI Interface**         | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane    | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane    | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane     |
-| **Supported Video Format** | 8-bit to 16-bit RAW, YUV422, RGB888                    | 8-bit to 16-bit RAW, YUV422, RGB888                    | 8-bit to 16-bit RAW, YUV422, RGB888                     |
-| **DPS**                    | 2CH, 1–20 V forcing voltage, 0–2 A current measurement | 2CH, 1–20 V forcing voltage, 0–2 A current measurement | 4CH, 1–20 V forcing voltage, 0–2 A current measurement  |
-| **Supported Ser/Des**      | GMSL1, GMSL2/1, GMSL3/2, FPD-Link III                  | GMSL1, GMSL2/1, GMSL3/2, FPD-Link III                  | GMSL1, GMSL2/1, GMSL3/2, FPD-Link III                   |
-| **Input Interface**        | 2× FAKRA connection                                    | 2× FAKRA connection                                    | 4× FAKRA connection                                     |
-| **Output Interface**       | USB 3.0 Type-B connector (max. transfer speed 5 Gbps)  | USB 3.0 Type-B connector; HDMI video output 1080p@60Hz | Thunderbolt 3, C-Type (max. 40 Gbps, effective 22 Gbps) |
-| **Power In**               | 12 V / 5 A DC adaptor                                  | 12 V / 5 A DC adaptor                                  | 12 V / 5 A DC adaptor                                   |
+| Item                       | MIG-S2                                                 | MIG-S2 Pro                                             | MIG-S3                                                 | MIG-S6                                                  |
+|----------------------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---------------------------------------------------------|
+| **Model Name**             | MIG-S2                                                 | MIG-S2 Pro                                             | MIG-S3                                                 | MIG-S6                                                  |
+| **Dimension**              | 146 × 100 × 50 (mm)                                    | 146 × 100 × 50 (mm)                                    | 107 × 86 × 40 (mm)                                     | 170 × 118 × 42 (mm)                                     |
+| **MIPI Interface**         | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane    | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane    | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane    | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane     |
+| **Supported Video Format** | 8-bit to 16-bit RAW, YUV422, RGB888                    | 8-bit to 16-bit RAW, YUV422, RGB888                    | 8-bit to 16-bit RAW, YUV422, RGB888                    | 8-bit to 16-bit RAW, YUV422, RGB888                     |
+| **DPS**                    | 2CH, 1–20 V forcing voltage, 0–2 A current measurement | 2CH, 1–20 V forcing voltage, 0–2 A current measurement | 2CH, 1–20 V forcing voltage, 0–2 A current measurement | 4CH, 1–20 V forcing voltage, 0–2 A current measurement  |
+| **Supported Ser/Des**      | GMSL1, GMSL2/1, GMSL3/2, FPD-Link III                  | GMSL1, GMSL2/1, GMSL3/2, FPD-Link III                  | GMSL1, GMSL2/1, GMSL3/2, FPD-Link III / IV             | GMSL1, GMSL2/1, GMSL3/2, FPD-Link III                   |
+| **Input Interface**        | 2× FAKRA connection                                    | 2× FAKRA connection                                    | FAKRA Z connector                                      | 4× FAKRA connection                                     |
+| **Output Interface**       | USB 3.0 Type-B connector (max. transfer speed 5 Gbps)  | USB 3.0 Type-B connector; HDMI video output 2K@60, 4K@30| USB 3.2 Gen 2 Type-C connector (max. 10 Gbps)          | Thunderbolt 3, C-Type (max. 40 Gbps, effective 22 Gbps) |
+| **Power In**               | 12 V / 5 A DC adaptor                                  | 12 V / 5 A DC adaptor                                  | 12 V / 5 A DC adaptor                                  | 12 V / 5 A DC adaptor                                   |
 
 >   *All specifications are typical values and subject to change without notice.*
 

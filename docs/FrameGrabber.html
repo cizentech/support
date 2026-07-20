@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frame Grabber · CIZEN TECH</title>
-  <meta name="description" content="MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S6">
+  <meta name="description" content="MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S3 / MIG-S6">
   <link rel="canonical" href="https://cizentech.github.io/support/FrameGrabber.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Frame Grabber">
-  <meta property="og:description" content="MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S6">
+  <meta property="og:description" content="MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S3 / MIG-S6">
   <meta property="og:url" content="https://cizentech.github.io/support/FrameGrabber.html">
   <link rel="icon" type="image/png" sizes="32x32" href="img/cizentech-32x32.png">
   <link rel="stylesheet" href="doc.css">
@@ -20,14 +20,14 @@
   </header>
   <main class="markdown-section">
 <h1>Frame Grabber</h1>
-<p><strong>MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S6</strong></p>
+<p><strong>MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S3 / MIG-S6</strong></p>
 <p>A compact, highly compatible MIPI-interface image capture card for automotive camera module systems. It supports GMSL / FPD-Link / Clockless Link / MIPI and is designed for AI/ADAS algorithm development after camera activation and for in-line camera image-quality testing.</p>
 <p><a href="https://cizentech-my.sharepoint.com/:b:/p/mason/IQDrYS5vV8SoTZu11KLzHZ3TAbdqAmPb3fpWbN2JPVbDMoQ?e=T7eGuu">Download datasheet (PDF)</a></p>
 <blockquote>
 <p>  Pairs with the <a href="CameraMaster.html">CameraMaster</a> software for module bring-up, configuration, and live capture.</p>
 </blockquote>
 <h2>1. Overview</h2>
-<p><img src="img/MIG_Series.png" alt="MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S6"></p>
+<p><img src="img/MIG_Series.png" alt="MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S3 / MIG-S6"></p>
 <p>The MIG-S2 / MIG-S2 Pro is a compact, highly compatible, and reliable MIPI-interface image capture card designed for automotive camera module systems. With a streamlined design and ease of use, it supports image acquisition for most modules on the market. Its scalability and stable testing environment make it ideal for AI/ADAS algorithm development post-camera activation and for in-line camera image-quality testing.</p>
 <ul>
 <li><strong>Activation Experience</strong> — 500+ modules</li>
@@ -35,7 +35,7 @@
 <li><strong>High-Speed Data Transfer</strong> — USB 3.2 Gen 1 (5 Gbps), USB 3.2 Gen 2 (10 Gbps), Thunderbolt 3 (40 Gbps)</li>
 <li><strong>Wide Power Range</strong> — 1–20 V module power supply</li>
 <li><strong>Deserializer Compatibility</strong> — Supports ADI / TI / ROHM / SONY deserializer boards</li>
-<li><strong>HDMI Display</strong> — Full HD output (MIG-S2 Pro only)</li>
+<li><strong>HDMI Display</strong> — 2K@60 / 4K@30 output (MIG-S2 Pro only)</li>
 </ul>
 <h2>2. Key Features</h2>
 <table>
@@ -89,6 +89,14 @@
 <li>MAX9296A deserializer board included, FPD-Link III selectable</li>
 <li>Supports HDMI video output</li>
 </ul>
+<h3>MIG-S3</h3>
+<ul>
+<li>FPGA-based MIPI interface</li>
+<li>USB 3.2 Gen 2 Type-C controller</li>
+<li>Maximum transfer speed: 10 Gbps</li>
+<li>Supports GMSL, FPD-Link and other SerDes interfaces</li>
+<li>Compact design: 107 × 86 × 40 mm</li>
+</ul>
 <h3>MIG-S6</h3>
 <ul>
 <li>FPGA-based MIPI interface</li>
@@ -104,6 +112,7 @@
 <th>Item</th>
 <th>MIG-S2</th>
 <th>MIG-S2 Pro</th>
+<th>MIG-S3</th>
 <th>MIG-S6</th>
 </tr>
 </thead>
@@ -111,16 +120,19 @@
 <td><strong>Model Name</strong></td>
 <td>MIG-S2</td>
 <td>MIG-S2 Pro</td>
+<td>MIG-S3</td>
 <td>MIG-S6</td>
 </tr>
 <tr>
 <td><strong>Dimension</strong></td>
 <td>146 × 100 × 50 (mm)</td>
 <td>146 × 100 × 50 (mm)</td>
+<td>107 × 86 × 40 (mm)</td>
 <td>170 × 118 × 42 (mm)</td>
 </tr>
 <tr>
 <td><strong>MIPI Interface</strong></td>
+<td>MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane</td>
 <td>MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane</td>
 <td>MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane</td>
 <td>MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane</td>
@@ -130,9 +142,11 @@
 <td>8-bit to 16-bit RAW, YUV422, RGB888</td>
 <td>8-bit to 16-bit RAW, YUV422, RGB888</td>
 <td>8-bit to 16-bit RAW, YUV422, RGB888</td>
+<td>8-bit to 16-bit RAW, YUV422, RGB888</td>
 </tr>
 <tr>
 <td><strong>DPS</strong></td>
+<td>2CH, 1–20 V forcing voltage, 0–2 A current measurement</td>
 <td>2CH, 1–20 V forcing voltage, 0–2 A current measurement</td>
 <td>2CH, 1–20 V forcing voltage, 0–2 A current measurement</td>
 <td>4CH, 1–20 V forcing voltage, 0–2 A current measurement</td>
@@ -141,22 +155,26 @@
 <td><strong>Supported Ser/Des</strong></td>
 <td>GMSL1, GMSL2/1, GMSL3/2, FPD-Link III</td>
 <td>GMSL1, GMSL2/1, GMSL3/2, FPD-Link III</td>
+<td>GMSL1, GMSL2/1, GMSL3/2, FPD-Link III / IV</td>
 <td>GMSL1, GMSL2/1, GMSL3/2, FPD-Link III</td>
 </tr>
 <tr>
 <td><strong>Input Interface</strong></td>
 <td>2× FAKRA connection</td>
 <td>2× FAKRA connection</td>
+<td>FAKRA Z connector</td>
 <td>4× FAKRA connection</td>
 </tr>
 <tr>
 <td><strong>Output Interface</strong></td>
 <td>USB 3.0 Type-B connector (max. transfer speed 5 Gbps)</td>
-<td>USB 3.0 Type-B connector; HDMI video output 1080p@60Hz</td>
+<td>USB 3.0 Type-B connector; HDMI video output 2K@60, 4K@30</td>
+<td>USB 3.2 Gen 2 Type-C connector (max. 10 Gbps)</td>
 <td>Thunderbolt 3, C-Type (max. 40 Gbps, effective 22 Gbps)</td>
 </tr>
 <tr>
 <td><strong>Power In</strong></td>
+<td>12 V / 5 A DC adaptor</td>
 <td>12 V / 5 A DC adaptor</td>
 <td>12 V / 5 A DC adaptor</td>
 <td>12 V / 5 A DC adaptor</td>
