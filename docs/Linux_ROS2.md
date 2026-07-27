@@ -1,14 +1,14 @@
 # Linux & ROS2
 
-CameraMaster and the MIG Grabber SDK also run on Linux, and a ROS2 package is provided so that the grabber can publish captured frames directly into a ROS2 graph.
+The MIG Grabber SDK also runs on Linux, and a ROS2 package is provided so that the grabber can publish captured frames directly into a ROS2 graph.
 
 ## Ubuntu 22.04 LTS
 
-**CameraMaster runs on Ubuntu 22.04 LTS with the MIG-S2 board, using the same `.ini` module configuration files as the Windows version.**
+**The MIG Grabber SDK operates on Ubuntu 22.04 LTS with the MIG-S2 board, using the same `.ini` module configuration files as on Windows.**
 
-Power on, register init, sync check, and live streaming all work the same way as on Windows — the status bar reports the connected board, power state, and streaming frame rate.
+Power on, register init, sync check, and live streaming work the same way as on Windows — the SDK reports the connected board, power state, and streaming frame rate.
 
-![CameraMaster running on Ubuntu 22.04 LTS with the MIG-S2 board](media/Ubuntu_22.04_LTS_Test_with_S2.png)
+![MIG Grabber SDK sample application on Ubuntu 22.04 LTS with the MIG-S2 board](media/Ubuntu_22.04_LTS_Test_with_S2.png)
 
 ```
 [11:16:23] SDK version: 237
