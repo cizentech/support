@@ -13,7 +13,7 @@ Power on, register init, sync check, and live streaming work the same way as on 
 ```
 [11:16:23] SDK version: 237
 [11:16:23] Using S2 (id 0)
-[11:16:23] Config file: /home/cizen/myDev/shareWin/KanKan_M18DVR_MAX9296A_MAX96717_11_AR0233_1920_1080ISPOFF_D3.ini
+[11:16:23] Config file: /home/cizen/myDev/shareWin/D3.ini
 [11:16:28] OpenGrabber(S2) ret=0
 [11:16:28] Power On ret=0
 [11:16:29] Register Init ret=0
