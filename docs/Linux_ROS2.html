@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux &amp; ROS2 · CIZEN TECH</title>
+  <meta name="description" content="CameraMaster and the MIG Grabber SDK also run on Linux, and a ROS2 package is provided so that the grabber can publish captured frames directly into a ROS2 g…">
+  <link rel="canonical" href="https://cizentech.github.io/support/Linux_ROS2.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Linux &amp; ROS2">
+  <meta property="og:description" content="CameraMaster and the MIG Grabber SDK also run on Linux, and a ROS2 package is provided so that the grabber can publish captured frames directly into a ROS2 g…">
+  <meta property="og:url" content="https://cizentech.github.io/support/Linux_ROS2.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/cizentech-32x32.png">
+  <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+  <header class="doc-top">
+    <a class="doc-home" href="index.html"><img src="img/cizentech-logo-195x88-trans.png" alt="CIZEN TECH"></a>
+    <a class="doc-app" href="index.html#/Linux_ROS2">Open in interactive docs →</a>
+  </header>
+  <main class="markdown-section">
+<h1>Linux &amp; ROS2</h1>
+<p>CameraMaster and the MIG Grabber SDK also run on Linux, and a ROS2 package is provided so that the grabber can publish captured frames directly into a ROS2 graph.</p>
+<h2>Ubuntu 22.04 LTS</h2>
+<p><strong>CameraMaster runs on Ubuntu 22.04 LTS with the MIG-S2 board, using the same <code>.ini</code> module configuration files as the Windows version.</strong></p>
+<p>Power on, register init, sync check, and live streaming all work the same way as on Windows — the status bar reports the connected board, power state, and streaming frame rate.</p>
+<p><img src="media/Ubuntu_22.04_LTS_Test_with_S2.png" alt="CameraMaster running on Ubuntu 22.04 LTS with the MIG-S2 board"></p>
+<pre><code>[11:16:23] SDK version: 237
+[11:16:23] Using S2 (id 0)
+[11:16:23] Config file: /home/cizen/myDev/shareWin/KanKan_M18DVR_MAX9296A_MAX96717_11_AR0233_1920_1080ISPOFF_D3.ini
+[11:16:28] OpenGrabber(S2) ret=0
+[11:16:28] Power On ret=0
+[11:16:29] Register Init ret=0
+[11:16:30] HSync=1920 (1920), VSync=1080 (1080)
+[11:16:31] Live started
+</code></pre>
+<h2>ROS2</h2>
+<p><strong>The <code>mig_grabber_cpp</code> package brings the grabber up as a ROS2 node (<code>mig_camera_cpp</code>) and publishes the captured images as <code>sensor_msgs/msg/Image</code>.</strong></p>
+<p>Launch the node:</p>
+<pre><code class="language-bash">ros2 launch mig_grabber_cpp mig_camera_cpp.launch.py
+</code></pre>
+<p><img src="media/Ubuntu_22.04_LTS__ROS2_Test_with_S2.png" alt="ROS2 mig_camera_cpp node streaming from the MIG-S2 board"></p>
+<h3>Published topics</h3>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/mig_camera_cpp/image_raw</code></td>
+<td><code>sensor_msgs/msg/Image</code></td>
+<td>Captured frames</td>
+</tr>
+<tr>
+<td><code>/mig_camera_cpp/camera_info</code></td>
+<td><code>sensor_msgs/msg/CameraInfo</code></td>
+<td>Camera information</td>
+</tr>
+<tr>
+<td><code>/mig_camera_cpp/status</code></td>
+<td><code>std_msgs/msg/String</code></td>
+<td>Board, power, and streaming status</td>
+</tr>
+</tbody></table>
+<p>List the topics with their types:</p>
+<pre><code class="language-bash">ros2 topic list -t
+</code></pre>
+<p>Read the current status:</p>
+<pre><code class="language-bash">ros2 topic echo /mig_camera_cpp/status --once
+</code></pre>
+<pre><code>data: status=streaming powered=True streaming=True frames=8945 fps=29.9842 wait_ms=32.0591
+</code></pre>
+
+  </main>
+  <footer class="doc-foot">
+    <strong>CIZEN TECH Co., Ltd.</strong> · <a href="http://cizentech.com/">cizentech.com</a> · <a href="mailto:contact@cizentech.com">contact@cizentech.com</a>
+  </footer>
+</body>
+</html>
