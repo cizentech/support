@@ -55,7 +55,7 @@ The MIG-S2 / MIG-S2 Pro is a compact, highly compatible, and reliable MIPI-inter
 -   USB 3.2 Gen 2 Type-C controller
 -   Maximum transfer speed: 10 Gbps
 -   Supports GMSL, FPD-Link and other SerDes interfaces
--   Compact design: 107 × 86 × 40 mm
+-   Compact design: 107 × 86 × 49 mm
 
 ### MIG-S6
 
@@ -70,7 +70,7 @@ The MIG-S2 / MIG-S2 Pro is a compact, highly compatible, and reliable MIPI-inter
 | Item                       | MIG-S2                                                 | MIG-S2 Pro                                             | MIG-S3                                                 | MIG-S6                                                  |
 |----------------------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---------------------------------------------------------|
 | **Model Name**             | MIG-S2                                                 | MIG-S2 Pro                                             | MIG-S3                                                 | MIG-S6                                                  |
-| **Dimension**              | 146 × 100 × 50 (mm)                                    | 146 × 100 × 50 (mm)                                    | 107 × 86 × 40 (mm)                                     | 170 × 118 × 42 (mm)                                     |
+| **Dimension**              | 134 × 92 × 50 (mm)                                     | 134 × 92 × 50 (mm)                                     | 107 × 86 × 49 (mm)                                     | 165 × 114 × 60 (mm)                                     |
 | **MIPI Interface**         | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane    | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane    | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane    | MIPI-CSI-2, 1/2/4-lane D-PHY rated at 2.5 Gbps/lane     |
 | **Supported Video Format** | 8-bit to 16-bit RAW, YUV422, RGB888                    | 8-bit to 16-bit RAW, YUV422, RGB888                    | 8-bit to 16-bit RAW, YUV422, RGB888                    | 8-bit to 16-bit RAW, YUV422, RGB888                     |
 | **DPS**                    | 2CH, 1–20 V forcing voltage, 0–2 A current measurement | 2CH, 1–20 V forcing voltage, 0–2 A current measurement | 2CH, 1–20 V forcing voltage, 0–2 A current measurement | 4CH, 1–20 V forcing voltage, 0–2 A current measurement  |
