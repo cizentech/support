@@ -166,7 +166,7 @@ CameraMaster utilizes .ini files to configure sensor modules.
 
 **6.1 Setting I2C Address**
 
-devadr x90 400 1 1
+devadr x90 400 1 0
 
 // Slave Address: x90
 
@@ -174,7 +174,7 @@ devadr x90 400 1 1
 
 // 16-bit Register Address: Enabled
 
-// 16-bit Register Data: Enabled
+// 16-bit Register Data: Disable
 
 **6.2 Writing I2C Data**
 
