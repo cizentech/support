@@ -34,6 +34,57 @@
 [11:16:30] HSync=1920 (1920), VSync=1080 (1080)
 [11:16:31] Live started
 </code></pre>
+<h3>Downloads</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Target</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://cizentech-my.sharepoint.com/:u:/p/mason/IQCv68zCrrTlQaPhLg0TPDKHASwDQRTPKFQyDUHnjsGY8XU?e=wD54fL"><code>cyusb_install.tar.xz</code></a></td>
+<td>Ubuntu 20.04 / 22.04</td>
+<td>CyUSB Suite for Linux — the USB driver layer (<code>libcyusb</code>, udev rules) used to reach the grabber board</td>
+</tr>
+<tr>
+<td><a href="https://cizentech-my.sharepoint.com/:u:/p/mason/IQD7F-dy3QADRqsaUYo2ZRt7AZeice-Ffwtay-20PLCXKAo?e=8UoSF9"><code>miglib_152_install_Ubuntu_20_.tar.xz</code></a></td>
+<td>Ubuntu 20.04 LTS</td>
+<td>MIG Grabber shared library <code>libmigGrabber.so.152</code></td>
+</tr>
+<tr>
+<td><a href="https://cizentech-my.sharepoint.com/:u:/p/mason/IQDOzx3KC6LrS4WwXi29N-ZWAavgR7De4b-5ZwBWsiztM0g?e=qsijzY"><code>miglib_152_install_Ubuntu_22_.tar.xz</code></a></td>
+<td>Ubuntu 22.04 LTS</td>
+<td>MIG Grabber shared library <code>libmigGrabber.so.152</code></td>
+</tr>
+</tbody></table>
+<p>Both archives extract flat, with no wrapper directory, so unpack each into its own folder.</p>
+<h3>1. Install the CyUSB driver</h3>
+<pre><code class="language-bash">mkdir cyusb_install &amp;&amp; tar xf cyusb_install.tar.xz -C cyusb_install
+cd cyusb_install
+sudo ./install.sh
+</code></pre>
+<p><code>install.sh</code> must be run as root, from the directory it was extracted into — it resolves <code>configs/</code> and <code>lib/</code> relative to the current directory. It:</p>
+<ul>
+<li>writes <code>configs/88-cyusb.rules</code>, a udev rule matching the Cypress vendor ID <code>04b4</code> that sets the device node to mode <code>666</code> and calls <code>/usr/local/bin/cy_renumerate.sh</code> on device add (<code>A</code>) and remove (<code>R</code>)</li>
+<li>copies <code>configs/cyusb.conf</code> to <code>/etc/</code> and <code>88-cyusb.rules</code> to <code>/etc/udev/rules.d/</code></li>
+<li>deletes stale <code>libcyusb.so*</code> from <code>/usr/lib</code> and <code>/usr/local/lib</code></li>
+<li>installs <code>lib/libcyusb.so.1</code> into <code>/usr/local/lib</code> and symlinks <code>libcyusb.so</code> to it</li>
+<li>copies <code>cy_renumerate.sh</code> to <code>/usr/local/bin</code> with mode <code>777</code></li>
+</ul>
+<h3>2. Install the MIG Grabber library</h3>
+<pre><code class="language-bash">mkdir miglib_install &amp;&amp; tar xf miglib_152_install_Ubuntu_22_.tar.xz -C miglib_install
+cd miglib_install
+sudo bash mig_install.sh
+</code></pre>
+<p><code>mig_install.sh</code> carries no shebang and is not marked executable, so run it with <code>bash</code>. It:</p>
+<ul>
+<li>removes any existing <code>/usr/local/lib/libmigGrabber.so*</code></li>
+<li>copies <code>libmigGrabber.so.152</code> into <code>/usr/local/lib</code></li>
+<li>symlinks <code>/usr/local/lib/libmigGrabber.so</code> to <code>libmigGrabber.so.152</code></li>
+</ul>
+<p>On Ubuntu 20.04 LTS the steps are identical — use the <code>miglib_152_install_Ubuntu_20_</code> archive instead.</p>
 <h2>ROS2</h2>
 <p><strong>The <code>mig_grabber_cpp</code> package brings the grabber up as a ROS2 node (<code>mig_camera_cpp</code>) and publishes the captured images as <code>sensor_msgs/msg/Image</code>.</strong></p>
 <p>Launch the node:</p>
