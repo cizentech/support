@@ -10,7 +10,7 @@ Install “[Visual C++ Redistributable for Visual Studio 2015\~2022](https://ciz
 
 [Install the MIG_Driver_win10_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/Ed_I9q-3fPpAj6ca6SkHVgQBklY5Z7CpYuXBG8GC3qJv5g?e=32tdgL)
 
-[Install the MIG_Driver_Signed_win10_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/EVryLOTvBRBJhrQF8aKAbaQBKpjr-BKYtnMeJWi-xjI3uw?e=tfwECH)
+[Install the MIG_Driver_Signed_win10_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/IQC4hKMwUkK8RqKFQMzbpdFLAbJAgNGdMvui6NOEu65JURM?e=oVpVPX)
 
 ![텍스트, 폰트, 스크린샷이(가) 표시된 사진 자동 생성된 설명](media/24f7ac826006a1f50233abfc07da21e9.png)
 
