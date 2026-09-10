@@ -11,6 +11,7 @@
 * **Hardware**
   * [Deserializer](Deserializer.md)
   * [NVIDIA Jetson Platform](NVIDIA_Jetson_platform.md)
+  * [Resolution & Bandwidth](Resolution_Bandwidth.md)
 
 * **Test Suite**
   * [Image Kit](ImageKit.md)
