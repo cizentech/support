@@ -191,7 +191,7 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 
 **30 fps**
 
-| MP | Format | Gbps | GMSL2<br>3G<br>(eff. 2.6G) | GMSL2<br>6G<br>(eff. 5.2G) | **GMSL3**<br>12G<br>(eff. 9.7G) | FPD-Link III<br>4.16G<br>(eff. 3.33G) | FPD-Link IV<br>7.55G<br>(eff. 6.0G) | USB3.0(S2)<br>5G<br>(eff. 3.2G) | USB3.2(S3)<br>10G<br>(eff. 8.0G) | **TB3**<br>40G<br>(eff. 22G) |
+| MP | Format | Gbps | GMSL2<br>3G<br>(eff. 2.6G) | GMSL2<br>6G<br>(eff. 5.2G) | **GMSL3**<br>12G<br>(eff. 9.7G) | FPD-Link III<br>4.16G<br>(eff. 3.33G) | FPD-Link IV<br>7.55G<br>(eff. 6.0G) | USB3.0(S2)<br>5G<br>(eff. 3.2G) | USB3.2(S3)<br>10G<br>(eff. 8.0G) | **TB3(S6)**<br>40G<br>(eff. 22G) |
 |---|---|---:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 2 MP | Bayer10 | 0.62 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 2 MP | Bayer12 | 0.75 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -212,7 +212,7 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 
 **60 fps**
 
-| MP | Format | Gbps | GMSL2<br>3G<br>(eff. 2.6G) | GMSL2<br>6G<br>(eff. 5.2G) | **GMSL3**<br>12G<br>(eff. 9.7G) | FPD-Link III<br>4.16G<br>(eff. 3.33G) | FPD-Link IV<br>7.55G<br>(eff. 6.0G) | USB3.0(S2)<br>5G<br>(eff. 3.2G) | USB3.2(S3)<br>10G<br>(eff. 8.0G) | **TB3**<br>40G<br>(eff. 22G) |
+| MP | Format | Gbps | GMSL2<br>3G<br>(eff. 2.6G) | GMSL2<br>6G<br>(eff. 5.2G) | **GMSL3**<br>12G<br>(eff. 9.7G) | FPD-Link III<br>4.16G<br>(eff. 3.33G) | FPD-Link IV<br>7.55G<br>(eff. 6.0G) | USB3.0(S2)<br>5G<br>(eff. 3.2G) | USB3.2(S3)<br>10G<br>(eff. 8.0G) | **TB3(S6)**<br>40G<br>(eff. 22G) |
 |---|---|---:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 2 MP | Bayer10 | 1.24 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 2 MP | Bayer12 | 1.49 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -275,7 +275,7 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 
 **30 fps**
 
-| MP | Format | Gbps | MB/s | **S2**<br>USB 3.0<br>3.2G | **S3**<br>USB 3.2<br>8.0G | **S6**<br>TB3<br>22G | GMSL2<br>3G<br>2.6 | GMSL2<br>6G<br>5.2 | **GMSL3**<br>9.7 |
+| MP | Format | Gbps | MB/s | USB3.0(S2)<br>5G<br>(eff. 3.2G) | USB3.2(S3)<br>10G<br>(eff. 8.0G) | TB3(S6)<br>40G<br>(eff. 22G) | GMSL2<br>3G<br>(eff. 2.6G) | GMSL2<br>6G<br>(eff. 5.2G) | **GMSL3**<br>12G<br>(eff. 9.7G) |
 |---|---|---:|---:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 2 MP | Bayer10 | 0.62 | 78 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 2 MP | Bayer12 | 0.75 | 93 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -296,7 +296,7 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 
 **60 fps**
 
-| MP | Format | Gbps | MB/s | **S2**<br>USB 3.0<br>3.2G | **S3**<br>USB 3.2<br>8.0G | **S6**<br>TB3<br>22G | GMSL2<br>3G<br>2.6 | GMSL2<br>6G<br>5.2 | **GMSL3**<br>9.7 |
+| MP | Format | Gbps | MB/s | USB3.0(S2)<br>5G<br>(eff. 3.2G) | USB3.2(S3)<br>10G<br>(eff. 8.0G) | TB3(S6)<br>40G<br>(eff. 22G) | GMSL2<br>3G<br>(eff. 2.6G) | GMSL2<br>6G<br>(eff. 5.2G) | **GMSL3**<br>12G<br>(eff. 9.7G) |
 |---|---|---:|---:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 2 MP | Bayer10 | 1.24 | 156 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 2 MP | Bayer12 | 1.49 | 187 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |

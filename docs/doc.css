@@ -37,6 +37,7 @@ body{margin:0;background:#eef1f8;color:var(--text-body);
 .markdown-section thead tr{background:linear-gradient(90deg,var(--primary),#6366f1)}
 .markdown-section th{color:#fff;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;
   text-align:left;padding:11px 14px}
+.markdown-section th strong{color:#fff}
 .markdown-section td{padding:10px 14px;font-size:13.5px;border-bottom:1px solid var(--border)}
 .markdown-section tbody tr:nth-child(even){background:#f8f9ff}
 .markdown-section blockquote{background:#f8f9ff;border-left:4px solid var(--primary);
