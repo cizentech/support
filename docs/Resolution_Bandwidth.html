@@ -603,7 +603,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <strong>Recommendation:</strong> judge against the vendor values (2.6 / 5.2), and treat any combination with <strong>less than 5 % headroom</strong> as <em>borderline</em> — confirm it by measurement.</p>
 </blockquote>
 <h2>4.3 Link capacity matrix</h2>
-<p><strong>Criteria (all effective payload values):</strong> GMSL2 = 3G 2.6 / 6G 5.2 · GMSL3 = 9.7 · FPD-Link III = 3.33 · FPD-Link IV = 6.0 · USB 3.0 = 3.2 · TB3 = 22</p>
+<p><strong>Criteria (all effective payload values):</strong> GMSL2 = 3G 2.6 / 6G 5.2 · GMSL3 = 9.7 · FPD-Link III = 3.33 · FPD-Link IV = 6.0 · USB 3.0 (S2) = 3.2 · USB 3.2 (S3) = 8.0 · TB3 = 22</p>
 <p><strong>Legend:</strong> ✅ fits · 🟡 <strong>borderline (under 5 % headroom — verify by measurement)</strong> · 🔴 exceeds</p>
 <p><strong>30 fps</strong></p>
 <table>
@@ -612,19 +612,21 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <th>MP</th>
 <th>Format</th>
 <th align="right">Gbps</th>
-<th align="center">GMSL2<br>3G<br>2.6</th>
-<th align="center">GMSL2<br>6G<br>5.2</th>
-<th align="center"><strong>GMSL3</strong><br>9.7</th>
-<th align="center">FPD<br>III<br>3.33</th>
-<th align="center">FPD<br>IV<br>6.0</th>
-<th align="center">USB<br>3.0<br>3.2</th>
-<th align="center"><strong>TB3</strong><br>22</th>
+<th align="center">GMSL2<br>3G<br>(eff. 2.6G)</th>
+<th align="center">GMSL2<br>6G<br>(eff. 5.2G)</th>
+<th align="center"><strong>GMSL3</strong><br>12G<br>(eff. 9.7G)</th>
+<th align="center">FPD-Link III<br>4.16G<br>(eff. 3.33G)</th>
+<th align="center">FPD-Link IV<br>7.55G<br>(eff. 6.0G)</th>
+<th align="center">USB3.0(S2)<br>5G<br>(eff. 3.2G)</th>
+<th align="center">USB3.2(S3)<br>10G<br>(eff. 8.0G)</th>
+<th align="center"><strong>TB3</strong><br>40G<br>(eff. 22G)</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>2 MP</td>
 <td>Bayer10</td>
 <td align="right">0.62</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -644,6 +646,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>2 MP</td>
@@ -656,11 +659,13 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>2 MP</td>
 <td>RGB888</td>
 <td align="right">1.49</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -680,11 +685,13 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>3 MP</td>
 <td>Bayer12</td>
 <td align="right">1.13</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -704,11 +711,13 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>3 MP</td>
 <td>RGB888</td>
 <td align="right">2.26</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -728,11 +737,13 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>4 MP</td>
 <td>Bayer12</td>
 <td align="right">1.47</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -752,12 +763,14 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>4 MP</td>
 <td>RGB888</td>
 <td align="right">2.94</td>
 <td align="center">🔴</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -776,12 +789,14 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>8 MP</td>
 <td>Bayer12</td>
 <td align="right">2.99</td>
 <td align="center">🔴</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -800,6 +815,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>8 MP</td>
@@ -812,6 +828,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🟡</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 </tbody></table>
 <p><strong>60 fps</strong></p>
@@ -821,19 +838,21 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <th>MP</th>
 <th>Format</th>
 <th align="right">Gbps</th>
-<th align="center">GMSL2<br>3G<br>2.6</th>
-<th align="center">GMSL2<br>6G<br>5.2</th>
-<th align="center"><strong>GMSL3</strong><br>9.7</th>
-<th align="center">FPD<br>III<br>3.33</th>
-<th align="center">FPD<br>IV<br>6.0</th>
-<th align="center">USB<br>3.0<br>3.2</th>
-<th align="center"><strong>TB3</strong><br>22</th>
+<th align="center">GMSL2<br>3G<br>(eff. 2.6G)</th>
+<th align="center">GMSL2<br>6G<br>(eff. 5.2G)</th>
+<th align="center"><strong>GMSL3</strong><br>12G<br>(eff. 9.7G)</th>
+<th align="center">FPD-Link III<br>4.16G<br>(eff. 3.33G)</th>
+<th align="center">FPD-Link IV<br>7.55G<br>(eff. 6.0G)</th>
+<th align="center">USB3.0(S2)<br>5G<br>(eff. 3.2G)</th>
+<th align="center">USB3.2(S3)<br>10G<br>(eff. 8.0G)</th>
+<th align="center"><strong>TB3</strong><br>40G<br>(eff. 22G)</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>2 MP</td>
 <td>Bayer10</td>
 <td align="right">1.24</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -853,11 +872,13 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>2 MP</td>
 <td>YUV422</td>
 <td align="right">1.99</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -877,11 +898,13 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>3 MP</td>
 <td>Bayer10</td>
 <td align="right">1.89</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -901,12 +924,14 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>3 MP</td>
 <td>YUV422</td>
 <td align="right">3.02</td>
 <td align="center">🔴</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -925,11 +950,13 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>4 MP</td>
 <td>Bayer10</td>
 <td align="right">2.45</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -949,6 +976,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>4 MP</td>
@@ -960,6 +988,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">🔴</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
 <tr>
@@ -973,6 +1002,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🟡</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>8 MP</td>
@@ -984,6 +1014,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">🔴</td>
+<td align="center">✅</td>
 <td align="center">✅</td>
 </tr>
 <tr>
@@ -997,6 +1028,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🟡</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
+<td align="center">✅</td>
 </tr>
 <tr>
 <td>8 MP</td>
@@ -1008,12 +1040,14 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🔴</td>
 <td align="center">🔴</td>
 <td align="center">🔴</td>
+<td align="center">🟡</td>
 <td align="center">✅</td>
 </tr>
 <tr>
 <td>8 MP</td>
 <td>RGB888</td>
 <td align="right">11.94</td>
+<td align="center">🔴</td>
 <td align="center">🔴</td>
 <td align="center">🔴</td>
 <td align="center">🔴</td>

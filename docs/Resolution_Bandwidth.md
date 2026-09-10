@@ -185,51 +185,51 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 
 ## 4.3 Link capacity matrix
 
-**Criteria (all effective payload values):** GMSL2 = 3G 2.6 / 6G 5.2 · GMSL3 = 9.7 · FPD-Link III = 3.33 · FPD-Link IV = 6.0 · USB 3.0 = 3.2 · TB3 = 22
+**Criteria (all effective payload values):** GMSL2 = 3G 2.6 / 6G 5.2 · GMSL3 = 9.7 · FPD-Link III = 3.33 · FPD-Link IV = 6.0 · USB 3.0 (S2) = 3.2 · USB 3.2 (S3) = 8.0 · TB3 = 22
 
 **Legend:** ✅ fits · 🟡 **borderline (under 5 % headroom — verify by measurement)** · 🔴 exceeds
 
 **30 fps**
 
-| MP | Format | Gbps | GMSL2<br>3G<br>2.6 | GMSL2<br>6G<br>5.2 | **GMSL3**<br>9.7 | FPD<br>III<br>3.33 | FPD<br>IV<br>6.0 | USB<br>3.0<br>3.2 | **TB3**<br>22 |
-|---|---|---:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| 2 MP | Bayer10 | 0.62 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 2 MP | Bayer12 | 0.75 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 2 MP | YUV422 | 1.00 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 2 MP | RGB888 | 1.49 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 3 MP | Bayer10 | 0.94 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 3 MP | Bayer12 | 1.13 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 3 MP | YUV422 | 1.51 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 3 MP | RGB888 | 2.26 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 4 MP | Bayer10 | 1.23 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 4 MP | Bayer12 | 1.47 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 4 MP | YUV422 | 1.96 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 4 MP | RGB888 | 2.94 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 8 MP | Bayer10 | 2.49 | 🟡 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 8 MP | Bayer12 | 2.99 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 8 MP | YUV422 | 3.98 | 🔴 | ✅ | ✅ | 🔴 | ✅ | 🔴 | ✅ |
-| 8 MP | RGB888 | 5.97 | 🔴 | 🔴 | ✅ | 🔴 | 🟡 | 🔴 | ✅ |
+| MP | Format | Gbps | GMSL2<br>3G<br>(eff. 2.6G) | GMSL2<br>6G<br>(eff. 5.2G) | **GMSL3**<br>12G<br>(eff. 9.7G) | FPD-Link III<br>4.16G<br>(eff. 3.33G) | FPD-Link IV<br>7.55G<br>(eff. 6.0G) | USB3.0(S2)<br>5G<br>(eff. 3.2G) | USB3.2(S3)<br>10G<br>(eff. 8.0G) | **TB3**<br>40G<br>(eff. 22G) |
+|---|---|---:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 2 MP | Bayer10 | 0.62 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 2 MP | Bayer12 | 0.75 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 2 MP | YUV422 | 1.00 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 2 MP | RGB888 | 1.49 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 3 MP | Bayer10 | 0.94 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 3 MP | Bayer12 | 1.13 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 3 MP | YUV422 | 1.51 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 3 MP | RGB888 | 2.26 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 4 MP | Bayer10 | 1.23 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 4 MP | Bayer12 | 1.47 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 4 MP | YUV422 | 1.96 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 4 MP | RGB888 | 2.94 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 8 MP | Bayer10 | 2.49 | 🟡 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 8 MP | Bayer12 | 2.99 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 8 MP | YUV422 | 3.98 | 🔴 | ✅ | ✅ | 🔴 | ✅ | 🔴 | ✅ | ✅ |
+| 8 MP | RGB888 | 5.97 | 🔴 | 🔴 | ✅ | 🔴 | 🟡 | 🔴 | ✅ | ✅ |
 
 **60 fps**
 
-| MP | Format | Gbps | GMSL2<br>3G<br>2.6 | GMSL2<br>6G<br>5.2 | **GMSL3**<br>9.7 | FPD<br>III<br>3.33 | FPD<br>IV<br>6.0 | USB<br>3.0<br>3.2 | **TB3**<br>22 |
-|---|---|---:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| 2 MP | Bayer10 | 1.24 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 2 MP | Bayer12 | 1.49 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 2 MP | YUV422 | 1.99 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 2 MP | RGB888 | 2.99 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 3 MP | Bayer10 | 1.89 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 3 MP | Bayer12 | 2.26 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 3 MP | YUV422 | 3.02 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 3 MP | RGB888 | 4.53 | 🔴 | ✅ | ✅ | 🔴 | ✅ | 🔴 | ✅ |
-| 4 MP | Bayer10 | 2.45 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 4 MP | Bayer12 | 2.94 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 4 MP | YUV422 | 3.92 | 🔴 | ✅ | ✅ | 🔴 | ✅ | 🔴 | ✅ |
-| 4 MP | RGB888 | 5.88 | 🔴 | 🔴 | ✅ | 🔴 | 🟡 | 🔴 | ✅ |
-| 8 MP | Bayer10 | 4.98 | 🔴 | 🟡 | ✅ | 🔴 | ✅ | 🔴 | ✅ |
-| 8 MP | Bayer12 | 5.97 | 🔴 | 🔴 | ✅ | 🔴 | 🟡 | 🔴 | ✅ |
-| 8 MP | YUV422 | 7.96 | 🔴 | 🔴 | ✅ | 🔴 | 🔴 | 🔴 | ✅ |
-| 8 MP | RGB888 | 11.94 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | ✅ |
+| MP | Format | Gbps | GMSL2<br>3G<br>(eff. 2.6G) | GMSL2<br>6G<br>(eff. 5.2G) | **GMSL3**<br>12G<br>(eff. 9.7G) | FPD-Link III<br>4.16G<br>(eff. 3.33G) | FPD-Link IV<br>7.55G<br>(eff. 6.0G) | USB3.0(S2)<br>5G<br>(eff. 3.2G) | USB3.2(S3)<br>10G<br>(eff. 8.0G) | **TB3**<br>40G<br>(eff. 22G) |
+|---|---|---:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 2 MP | Bayer10 | 1.24 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 2 MP | Bayer12 | 1.49 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 2 MP | YUV422 | 1.99 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 2 MP | RGB888 | 2.99 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 3 MP | Bayer10 | 1.89 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 3 MP | Bayer12 | 2.26 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 3 MP | YUV422 | 3.02 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 3 MP | RGB888 | 4.53 | 🔴 | ✅ | ✅ | 🔴 | ✅ | 🔴 | ✅ | ✅ |
+| 4 MP | Bayer10 | 2.45 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 4 MP | Bayer12 | 2.94 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 4 MP | YUV422 | 3.92 | 🔴 | ✅ | ✅ | 🔴 | ✅ | 🔴 | ✅ | ✅ |
+| 4 MP | RGB888 | 5.88 | 🔴 | 🔴 | ✅ | 🔴 | 🟡 | 🔴 | ✅ | ✅ |
+| 8 MP | Bayer10 | 4.98 | 🔴 | 🟡 | ✅ | 🔴 | ✅ | 🔴 | ✅ | ✅ |
+| 8 MP | Bayer12 | 5.97 | 🔴 | 🔴 | ✅ | 🔴 | 🟡 | 🔴 | ✅ | ✅ |
+| 8 MP | YUV422 | 7.96 | 🔴 | 🔴 | ✅ | 🔴 | 🔴 | 🔴 | 🟡 | ✅ |
+| 8 MP | RGB888 | 11.94 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | ✅ |
 
 > **Borderline cases** — **8 MP Bayer10 @ 30 fps on GMSL2 3G (2.49)**, **8 MP Bayer10 @ 60 fps on GMSL2 6G (4.98)**, and on **FPD-Link IV (6.0)**: 8 MP RGB888 @ 30 fps, 4 MP RGB888 @ 60 fps, 8 MP Bayer12 @ 60 fps (5.88–5.97). With only **2–4 % headroom**, blanking and packet overhead can push them over. **Measure before committing.**
 > GMSL3 (9.7) does not change any verdict, because no combination lands in the 9.7–10.4 range. It does make clear that **8 MP RGB888 @ 60 fps (11.94) is out of reach even for GMSL3**.
