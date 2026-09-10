@@ -98,7 +98,7 @@ bandwidth (bps) = width × height × bpp × fps × overhead
 | 3040×1520 RGB888 @ 30 fps | 4,620,800 × 24 × 30 | **3.33 Gbps** → **6G required** |
 
 > These are **pure payload** figures. Real links add blanking and packet overhead (×1.2–1.3).
-> The effective GMSL2 payload limits used below are ADI's official values (GMSL2 General User Guide, Table 87): **3G = 2.6 Gbps, 6G = 5.2 Gbps**. They already include margin for the sideband channels — see §4.2.
+> The effective GMSL2 payload limits used below are **3G = 2.6 Gbps, 6G = 5.2 Gbps**, the maximum video payload specified by the SerDes vendor. They already include margin for the sideband channels — see §4.2.
 
 ## 4.1 Frame size and bandwidth by pixel format
 
@@ -148,42 +148,42 @@ MB/s          = bytes/frame × fps ÷ 1e6      Gbps          = bits/frame × fps
 
 ## 4.2 Effective interface bandwidth
 
-GMSL2 links carry less video payload than their raw line rate. ADI specifies the limit in the GMSL2 General User Guide, Table 87 ("Maximum Video Payload for GMSL2 Modes"): **3 Gbps mode → 2.6 Gbps, 6 Gbps mode → 5.2 Gbps** (86.7 %). The difference comes from 9b/10b encoding and guard-band protection, and the stated maximums already leave room for the sideband channels.
+GMSL2 links carry less video payload than their raw line rate. The vendor-specified maximum video payload is **3 Gbps mode → 2.6 Gbps, 6 Gbps mode → 5.2 Gbps** (86.7 %). The difference comes from 9b/10b encoding and guard-band protection, and the stated maximums already leave room for the sideband channels.
 
 GMSL2 uses **9b/10b encoding, an 11 % overhead** (8b/10b would be 25 %) — which is why the efficiency is 86.7 % rather than 80 %.
 
 | Link | **Raw rate** | **Effective** | MB/s | Basis |
 |---|---:|---:|---:|---|
-| **GMSL2 3G** | 3 Gbps | **2.60 Gbps** | 325 | ADI GMSL2 User Guide, Table 87 |
-| **GMSL2 6G** | 6 Gbps | **5.20 Gbps** | 650 | ADI GMSL2 User Guide, Table 87 |
+| **GMSL2 3G** | 3 Gbps | **2.60 Gbps** | 325 | Vendor specification |
+| **GMSL2 6G** | 6 Gbps | **5.20 Gbps** | 650 | Vendor specification |
 | GMSL1 | 3.12 Gbps | ~2.7 Gbps | ~338 | Estimate (86.7 % applied) |
-| **GMSL3** | **12 Gbps** | **9.70 Gbps** | 1,213 | ADI MAX96719 datasheet (80.8 %) |
+| **GMSL3** | **12 Gbps** | **9.70 Gbps** | 1,213 | Vendor specification, MAX96719 (80.8 %) |
 | FPD-Link III | 4.85 Gbps | not published | — | No TI efficiency figure available |
 | FPD-Link IV | 7.55 Gbps | not published | — | No TI efficiency figure available |
 | USB 3.0 | 5 Gbps | **3.20 Gbps** | 400 | 8b/10b + protocol overhead |
 | **Thunderbolt 3** | **40 Gbps** | **22 Gbps** | **2,750** | PCIe tunnel effective throughput (theoretical 32 Gbps) |
 
-> **GMSL3** runs at a fixed 12 Gbps forward rate with a **9.7 Gbps video payload** (ADI MAX96719 datasheet). The same datasheet also lists the GMSL2 payload as 5.2 Gbps, independently confirming Table 87.
+> **GMSL3** runs at a fixed 12 Gbps forward rate with a **9.7 Gbps video payload** (MAX96719-class deserializers).
 > **GMSL3 is less efficient than GMSL2**: 80.8 % vs 86.7 %. The link doubles (6 → 12 Gbps) but the payload only grows **1.87×** (5.2 → 9.7). Assuming "12G = twice 6G" over-estimates capacity.
 > **FPD-Link efficiency is not published.** The matrices below judge FPD-Link against its **raw** rate, which is **optimistic**. Verify against TI documentation before relying on a borderline result.
 > The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (external NVMe at 2.6–2.8 GB/s), not the 40 Gbps link rate.
 
 ### Applying a conservative 80 % rule instead
 
-If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the ADI values, **three combinations drop out**. All of them are Bayer10 with only 2–4 % headroom.
+If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the vendor values, **three combinations drop out**. All of them are Bayer10 with only 2–4 % headroom.
 
-| Combination | Required | **ADI official** | **Conservative ×0.8** |
+| Combination | Required | **Vendor value** | **Conservative ×0.8** |
 |---|---:|:---:|:---:|
 | **8 MP Bayer10 @ 30 fps** (3G) | 2.49 Gbps | ✅ (2.6) | 🔴 (2.4) |
 | **4 MP Bayer10 @ 60 fps** (3G) | 2.45 Gbps | ✅ (2.6) | 🔴 (2.4) |
 | **8 MP Bayer10 @ 60 fps** (6G) | 4.98 Gbps | ✅ (5.2) | 🔴 (4.8) |
 
-> The ADI values (2.6 / 5.2) **already include the sideband margin**. Applying a further 80 % on top double-counts that margin.
-> **Recommendation:** judge against the ADI values (2.6 / 5.2), and treat any combination with **less than 5 % headroom** as *borderline* — confirm it by measurement.
+> The vendor values (2.6 / 5.2) **already include the sideband margin**. Applying a further 80 % on top double-counts that margin.
+> **Recommendation:** judge against the vendor values (2.6 / 5.2), and treat any combination with **less than 5 % headroom** as *borderline* — confirm it by measurement.
 
 ## 4.3 Link capacity matrix
 
-**Criteria:** GMSL2 = ADI Table 87 (3G 2.6 / 6G 5.2) · GMSL3 = 9.7 (MAX96719 datasheet) · FPD-Link = **raw** rate (efficiency unverified, optimistic) · USB 3.0 = 3.2 · TB3 = 22
+**Criteria:** GMSL2 = 3G 2.6 / 6G 5.2 · GMSL3 = 9.7 · FPD-Link = **raw** rate (efficiency unverified, optimistic) · USB 3.0 = 3.2 · TB3 = 22
 
 **Legend:** ✅ fits · 🟡 **borderline (under 5 % headroom — verify by measurement)** · 🔴 exceeds
 
@@ -237,9 +237,9 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the A
 
 | Observation | Detail |
 |---|---|
-| **GMSL2 6G practical limit** | **5.2 Gbps** (ADI). 8 MP fits comfortably up to **Bayer12 @ 30 fps (2.99)**; **Bayer10 @ 60 fps (4.98)** is 🟡 borderline |
+| **GMSL2 6G practical limit** | **5.2 Gbps**. 8 MP fits comfortably up to **Bayer12 @ 30 fps (2.99)**; **Bayer10 @ 60 fps (4.98)** is 🟡 borderline |
 | **GMSL2 3G practical limit** | **2.6 Gbps**. Comfortable up to **4 MP**; 8 MP Bayer10 @ 30 fps (2.49) is 🟡 borderline |
-| **GMSL3 practical limit** | **9.7 Gbps** (MAX96719 datasheet). Covers up to **8 MP YUV422 @ 60 fps (7.96)** |
+| **GMSL3 practical limit** | **9.7 Gbps**. Covers up to **8 MP YUV422 @ 60 fps (7.96)** |
 | **GMSL3 is less efficient** | **80.8 %** (9.7 / 12) vs GMSL2 **86.7 %** (5.2 / 6). **Double the link ≠ double the payload** (1.87×) |
 | **The one case GMSL3 cannot carry** | **8 MP RGB888 @ 60 fps = 11.94 Gbps** — **only Thunderbolt 3 passes** in the whole table |
 | **TB3 passes everything** | Even at the heaviest load (11.94 Gbps) utilisation is **54 %** |
@@ -247,7 +247,7 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the A
 | **The cost of RGB888** | **2.4×** Bayer10. The standard approach is to **send Bayer over the link and run the ISP on the receiver** |
 | **The "fixed rate" trap** | GMSL2 has **no intermediate rates**. If you need 5 Gbps you configure **6G and the remainder is idle** — so channel design must also assume **6G (f½ = 3 GHz)** |
 
-> These verdicts are for **pixel data only**. The ADI values include sideband margin but **blanking and CSI-2 packet overhead are extra**, so always measure the 🟡 borderline combinations.
+> These verdicts are for **pixel data only**. The vendor values include sideband margin but **blanking and CSI-2 packet overhead are extra**, so always measure the 🟡 borderline combinations.
 
 ## 4.5 MIG boards + GMSL capacity matrix
 
@@ -347,9 +347,9 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the A
 | Figure | Status |
 |---|---|
 | Pixel counts, frame sizes, Gbps / MB/s in §4.1 | Arithmetic from width × height × bpp × fps — verifiable |
-| GMSL2 3G = 2.6 / 6G = 5.2 Gbps | ADI GMSL2 General User Guide, Table 87 |
-| GMSL3 12 Gbps link / 9.7 Gbps payload | ADI MAX96719 datasheet |
-| GMSL2 is a fixed-rate link (6G → f½ = 3 GHz) | ADI GMSL2 Channel Specification User Guide |
+| GMSL2 3G = 2.6 / 6G = 5.2 Gbps | SerDes vendor specification |
+| GMSL3 12 Gbps link / 9.7 Gbps payload | SerDes vendor specification (MAX96719) |
+| GMSL2 is a fixed-rate link (6G → f½ = 3 GHz) | SerDes vendor specification |
 | GMSL1 ~2.7 Gbps effective | Estimate — 86.7 % applied by analogy with GMSL2 |
 | FPD-Link III / IV effective rate | Not published by TI — matrices use raw rates (optimistic) |
 | USB 3.0 ≈ 400 MB/s, Thunderbolt 3 ≈ 22 Gbps | Industry rule of thumb / measured PCIe-tunnel throughput |

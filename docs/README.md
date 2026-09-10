@@ -63,6 +63,12 @@
     <div class="cz-card-desc">Jetson TX2 / Xavier / Orin deserializer boards for GPU-side image acquisition.</div>
   </a>
 
+  <a class="cz-card" href="#/Resolution_Bandwidth">
+    <div class="cz-card-tag">Reference</div>
+    <div class="cz-card-title">Resolution &amp; Bandwidth</div>
+    <div class="cz-card-desc">Megapixels to pixel counts to link bandwidth — which MIG board and GMSL rate carries each resolution / format / fps.</div>
+  </a>
+
   <a class="cz-card" href="#/Technical_Support">
     <div class="cz-card-tag">Help</div>
     <div class="cz-card-title">Technical Support</div>
