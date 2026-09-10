@@ -34,8 +34,8 @@ pixel count = horizontal pixels × vertical pixels
 | 1920×1536 | 2,949,120 | ~3 MP | 5:4-ish automotive sensors |
 | 2688×1520 | 4,085,760 | 4 MP | QHD class |
 | 3040×1520 | 4,620,800 | 4.6 MP | 2:1 surround-view sensors |
-| **2592×1944** | **5,038,848** | **5 MP** | e.g. **OX05B1S** |
-| **3840×2160** | **8,294,400** | **8 MP** | **4K UHD**, e.g. **OX08D10** |
+| **2592×1944** | **5,038,848** | **5 MP** | Common 5 MP automotive sensor size |
+| **3840×2160** | **8,294,400** | **8 MP** | **4K UHD** |
 | 4096×2160 | 8,847,360 | 8.8 MP | **DCI 4K** (cinema) |
 
 > **"4K" means two different things.** **UHD 3840×2160** (broadcast, automotive) and **DCI 4K 4096×2160** (cinema). Unqualified "4K" almost always means **UHD**.
