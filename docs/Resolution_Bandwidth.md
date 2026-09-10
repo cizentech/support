@@ -157,13 +157,13 @@ GMSL2 uses **9b/10b encoding, an 11 % overhead** (8b/10b would be 25 %) — whic
 | **GMSL2 3G** | 3 Gbps | **2.60 Gbps** | 325 | Vendor specification |
 | **GMSL2 6G** | 6 Gbps | **5.20 Gbps** | 650 | Vendor specification |
 | GMSL1 | 3.12 Gbps | ~2.7 Gbps | ~338 | Estimate (86.7 % applied) |
-| **GMSL3** | **12 Gbps** | **9.70 Gbps** | 1,213 | Vendor specification, MAX96719 (80.8 %) |
+| **GMSL3** | **12 Gbps** | **9.70 Gbps** | 1,213 | Vendor specification (80.8 %) |
 | FPD-Link III | 4.85 Gbps | not published | — | No TI efficiency figure available |
 | FPD-Link IV | 7.55 Gbps | not published | — | No TI efficiency figure available |
 | USB 3.0 | 5 Gbps | **3.20 Gbps** | 400 | 8b/10b + protocol overhead |
 | **Thunderbolt 3** | **40 Gbps** | **22 Gbps** | **2,750** | PCIe tunnel effective throughput (theoretical 32 Gbps) |
 
-> **GMSL3** runs at a fixed 12 Gbps forward rate with a **9.7 Gbps video payload** (MAX96719-class deserializers).
+> **GMSL3** runs at a fixed 12 Gbps forward rate with a **9.7 Gbps video payload**.
 > **GMSL3 is less efficient than GMSL2**: 80.8 % vs 86.7 %. The link doubles (6 → 12 Gbps) but the payload only grows **1.87×** (5.2 → 9.7). Assuming "12G = twice 6G" over-estimates capacity.
 > **FPD-Link efficiency is not published.** The matrices below judge FPD-Link against its **raw** rate, which is **optimistic**. Verify against TI documentation before relying on a borderline result.
 > The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (external NVMe at 2.6–2.8 GB/s), not the 40 Gbps link rate.
@@ -348,7 +348,7 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 |---|---|
 | Pixel counts, frame sizes, Gbps / MB/s in §4.1 | Arithmetic from width × height × bpp × fps — verifiable |
 | GMSL2 3G = 2.6 / 6G = 5.2 Gbps | SerDes vendor specification |
-| GMSL3 12 Gbps link / 9.7 Gbps payload | SerDes vendor specification (MAX96719) |
+| GMSL3 12 Gbps link / 9.7 Gbps payload | SerDes vendor specification |
 | GMSL2 is a fixed-rate link (6G → f½ = 3 GHz) | SerDes vendor specification |
 | GMSL1 ~2.7 Gbps effective | Estimate — 86.7 % applied by analogy with GMSL2 |
 | FPD-Link III / IV effective rate | Not published by TI — matrices use raw rates (optimistic) |
