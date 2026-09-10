@@ -158,14 +158,16 @@ GMSL2 uses **9b/10b encoding, an 11 % overhead** (8b/10b would be 25 %) — whic
 | **GMSL2 6G** | 6 Gbps | **5.20 Gbps** | 650 | Vendor specification |
 | GMSL1 | 3.12 Gbps | ~2.7 Gbps | ~338 | Estimate (86.7 % applied) |
 | **GMSL3** | **12 Gbps** | **9.70 Gbps** | 1,213 | Vendor specification (80.8 %) |
-| FPD-Link III | 4.85 Gbps | not published | — | No TI efficiency figure available |
-| FPD-Link IV | 7.55 Gbps | not published | — | No TI efficiency figure available |
+| **FPD-Link III** | **4.16 Gbps** | **3.33 Gbps** | 416 | Vendor specification (80.0 %) |
+| **FPD-Link IV** | **7.55 Gbps** | **6.00 Gbps** | 750 | Vendor specification (79.5 %) |
 | USB 3.0 | 5 Gbps | **3.20 Gbps** | 400 | 8b/10b + protocol overhead |
 | **Thunderbolt 3** | **40 Gbps** | **22 Gbps** | **2,750** | PCIe tunnel effective throughput (theoretical 32 Gbps) |
 
 > **GMSL3** runs at a fixed 12 Gbps forward rate with a **9.7 Gbps video payload**.
 > **GMSL3 is less efficient than GMSL2**: 80.8 % vs 86.7 %. The link doubles (6 → 12 Gbps) but the payload only grows **1.87×** (5.2 → 9.7). Assuming "12G = twice 6G" over-estimates capacity.
-> **FPD-Link efficiency is not published.** The matrices below judge FPD-Link against its **raw** rate, which is **optimistic**. Verify against TI documentation before relying on a borderline result.
+> **FPD-Link runs at about 80 % in both generations.** FPD-Link III packs 32 bits of video payload into each 40-bit frame — the same 20 % overhead as 8b/10b — so 4.16 × 0.8 = **3.33 Gbps**. FPD-Link IV carries a **6.0 Gbps video payload** on its 7.55 Gbps link (79.5 %).
+> **Efficiency ranking: GMSL2 86.7 % > GMSL3 80.8 % ≈ FPD-Link III 80.0 % ≈ FPD-Link IV 79.5 %.** GMSL2 stands out because of its 9b/10b encoding (11 % overhead); the others all carry roughly 8b/10b-class 20 % overhead.
+> The FPD-Link III figure is for the 4.16 Gbps class of deserializer. FPD-Link III parts range from 2.0 to 4.85 Gbps, so check the rate of the specific device.
 > The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (external NVMe at 2.6–2.8 GB/s), not the 40 Gbps link rate.
 
 ### Applying a conservative 80 % rule instead
@@ -183,13 +185,13 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 
 ## 4.3 Link capacity matrix
 
-**Criteria:** GMSL2 = 3G 2.6 / 6G 5.2 · GMSL3 = 9.7 · FPD-Link = **raw** rate (efficiency unverified, optimistic) · USB 3.0 = 3.2 · TB3 = 22
+**Criteria (all effective payload values):** GMSL2 = 3G 2.6 / 6G 5.2 · GMSL3 = 9.7 · FPD-Link III = 3.33 · FPD-Link IV = 6.0 · USB 3.0 = 3.2 · TB3 = 22
 
 **Legend:** ✅ fits · 🟡 **borderline (under 5 % headroom — verify by measurement)** · 🔴 exceeds
 
 **30 fps**
 
-| MP | Format | Gbps | GMSL2<br>3G | GMSL2<br>6G | **GMSL3** | FPD<br>III | FPD<br>IV | USB<br>3.0 | **TB3** |
+| MP | Format | Gbps | GMSL2<br>3G<br>2.6 | GMSL2<br>6G<br>5.2 | **GMSL3**<br>9.7 | FPD<br>III<br>3.33 | FPD<br>IV<br>6.0 | USB<br>3.0<br>3.2 | **TB3**<br>22 |
 |---|---|---:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 2 MP | Bayer10 | 0.62 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 2 MP | Bayer12 | 0.75 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -205,12 +207,12 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 | 4 MP | RGB888 | 2.94 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 8 MP | Bayer10 | 2.49 | 🟡 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 8 MP | Bayer12 | 2.99 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 8 MP | YUV422 | 3.98 | 🔴 | ✅ | ✅ | ✅ | ✅ | 🔴 | ✅ |
-| 8 MP | RGB888 | 5.97 | 🔴 | 🔴 | ✅ | 🔴 | ✅ | 🔴 | ✅ |
+| 8 MP | YUV422 | 3.98 | 🔴 | ✅ | ✅ | 🔴 | ✅ | 🔴 | ✅ |
+| 8 MP | RGB888 | 5.97 | 🔴 | 🔴 | ✅ | 🔴 | 🟡 | 🔴 | ✅ |
 
 **60 fps**
 
-| MP | Format | Gbps | GMSL2<br>3G | GMSL2<br>6G | **GMSL3** | FPD<br>III | FPD<br>IV | USB<br>3.0 | **TB3** |
+| MP | Format | Gbps | GMSL2<br>3G<br>2.6 | GMSL2<br>6G<br>5.2 | **GMSL3**<br>9.7 | FPD<br>III<br>3.33 | FPD<br>IV<br>6.0 | USB<br>3.0<br>3.2 | **TB3**<br>22 |
 |---|---|---:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | 2 MP | Bayer10 | 1.24 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 2 MP | Bayer12 | 1.49 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -219,19 +221,20 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 | 3 MP | Bayer10 | 1.89 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 3 MP | Bayer12 | 2.26 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 3 MP | YUV422 | 3.02 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 3 MP | RGB888 | 4.53 | 🔴 | ✅ | ✅ | ✅ | ✅ | 🔴 | ✅ |
+| 3 MP | RGB888 | 4.53 | 🔴 | ✅ | ✅ | 🔴 | ✅ | 🔴 | ✅ |
 | 4 MP | Bayer10 | 2.45 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | 4 MP | Bayer12 | 2.94 | 🔴 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 4 MP | YUV422 | 3.92 | 🔴 | ✅ | ✅ | ✅ | ✅ | 🔴 | ✅ |
-| 4 MP | RGB888 | 5.88 | 🔴 | 🔴 | ✅ | 🔴 | ✅ | 🔴 | ✅ |
+| 4 MP | YUV422 | 3.92 | 🔴 | ✅ | ✅ | 🔴 | ✅ | 🔴 | ✅ |
+| 4 MP | RGB888 | 5.88 | 🔴 | 🔴 | ✅ | 🔴 | 🟡 | 🔴 | ✅ |
 | 8 MP | Bayer10 | 4.98 | 🔴 | 🟡 | ✅ | 🔴 | ✅ | 🔴 | ✅ |
-| 8 MP | Bayer12 | 5.97 | 🔴 | 🔴 | ✅ | 🔴 | ✅ | 🔴 | ✅ |
+| 8 MP | Bayer12 | 5.97 | 🔴 | 🔴 | ✅ | 🔴 | 🟡 | 🔴 | ✅ |
 | 8 MP | YUV422 | 7.96 | 🔴 | 🔴 | ✅ | 🔴 | 🔴 | 🔴 | ✅ |
 | 8 MP | RGB888 | 11.94 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | ✅ |
 
-> **Two borderline cases** — **8 MP Bayer10 @ 30 fps on 3G (2.49)** and **8 MP Bayer10 @ 60 fps on 6G (4.98)**. With only **4 % headroom**, blanking and packet overhead can push them over. **Measure before committing.**
+> **Borderline cases** — **8 MP Bayer10 @ 30 fps on GMSL2 3G (2.49)**, **8 MP Bayer10 @ 60 fps on GMSL2 6G (4.98)**, and on **FPD-Link IV (6.0)**: 8 MP RGB888 @ 30 fps, 4 MP RGB888 @ 60 fps, 8 MP Bayer12 @ 60 fps (5.88–5.97). With only **2–4 % headroom**, blanking and packet overhead can push them over. **Measure before committing.**
 > GMSL3 (9.7) does not change any verdict, because no combination lands in the 9.7–10.4 range. It does make clear that **8 MP RGB888 @ 60 fps (11.94) is out of reach even for GMSL3**.
-> The FPD-Link columns use raw rates and are optimistic. Applying the same 86.7 % as GMSL2 would give III = 4.20 / IV = 6.55, and **3 MP RGB888 @ 60 fps (4.53) would then fail on FPD-Link III**.
+> **FPD-Link III (3.33) is narrower than its raw rate suggests** — 8 MP fits only up to **Bayer12 @ 30 fps (2.99)**; YUV422 and above are blocked.
+> **FPD-Link IV (6.0) and GMSL2 6G (5.2) are in the same class.** The raw rates (7.55 vs 6.0) look far apart, but the effective payloads differ by only **15 %**.
 
 ## 4.4 What to take from the matrix
 
@@ -246,6 +249,10 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 | **The USB 3.0 wall** | **3.2 Gbps** — 8 MP only up to **Bayer12 @ 30 fps (2.99)**; YUV422 and above are blocked |
 | **The cost of RGB888** | **2.4×** Bayer10. The standard approach is to **send Bayer over the link and run the ISP on the receiver** |
 | **The "fixed rate" trap** | GMSL2 has **no intermediate rates**. If you need 5 Gbps you configure **6G and the remainder is idle** — so channel design must also assume **6G (f½ = 3 GHz)** |
+| **FPD-Link III practical limit** | **3.33 Gbps** (4.16 × 80 %). 8 MP only up to **Bayer12 @ 30 fps (2.99)**; YUV422 and above are blocked — easy to miss when judging by the raw rate |
+| **FPD-Link IV practical limit** | **6.0 Gbps** (7.55 × 79.5 %). **8 MP Bayer12 @ 60 fps (5.97)** is 🟡 borderline; YUV422 @ 60 fps (7.96) is 🔴 |
+| **FPD-Link IV ≈ GMSL2 6G** | Raw 7.55 vs 6.0 looks like a big gap, but effective **6.0 vs 5.2 is only 15 %** |
+| **Only GMSL2 is unusually efficient** | **GMSL2 86.7 % > GMSL3 80.8 % ≈ FPD-Link III 80.0 % ≈ FPD-Link IV 79.5 %.** GMSL2's 9b/10b (11 % overhead) is the only one outside the 8b/10b-class 20 % |
 
 > These verdicts are for **pixel data only**. The vendor values include sideband margin but **blanking and CSI-2 packet overhead are extra**, so always measure the 🟡 borderline combinations.
 
@@ -351,12 +358,12 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 | GMSL3 12 Gbps link / 9.7 Gbps payload | SerDes vendor specification |
 | GMSL2 is a fixed-rate link (6G → f½ = 3 GHz) | SerDes vendor specification |
 | GMSL1 ~2.7 Gbps effective | Estimate — 86.7 % applied by analogy with GMSL2 |
-| FPD-Link III / IV effective rate | Not published by TI — matrices use raw rates (optimistic) |
+| FPD-Link III 3.33 Gbps / FPD-Link IV 6.0 Gbps effective | SerDes vendor specification — the III figure is for the 4.16 Gbps class (III parts range 2.0–4.85 Gbps) |
 | USB 3.0 ≈ 400 MB/s, Thunderbolt 3 ≈ 22 Gbps | Industry rule of thumb / measured PCIe-tunnel throughput |
 | Representative resolutions per MP class | Convention (2 MP = 1920×1080, 3 MP = 2048×1536, 4 MP = 2688×1520, 8 MP = 3840×2160) — real sensors differ |
 | Overhead factor ×1.2–1.3, 5 % borderline threshold | Engineering rules of thumb |
 
-Open items: FPD-Link effective rates, and measured verification of the two borderline cases (8 MP Bayer10 @ 30 fps on 3G, @ 60 fps on 6G).
+Open items: measured verification of the borderline cases — 8 MP Bayer10 @ 30 fps on GMSL2 3G, 8 MP Bayer10 @ 60 fps on GMSL2 6G, and the three FPD-Link IV cases at 5.88–5.97 Gbps.
 
 ***
 

@@ -532,18 +532,18 @@ Many &quot;4 MP&quot; products are actually <strong>2560×1440 (3.69 MP)</strong
 <td>Vendor specification (80.8 %)</td>
 </tr>
 <tr>
-<td>FPD-Link III</td>
-<td align="right">4.85 Gbps</td>
-<td align="right">not published</td>
-<td align="right">—</td>
-<td>No TI efficiency figure available</td>
+<td><strong>FPD-Link III</strong></td>
+<td align="right"><strong>4.16 Gbps</strong></td>
+<td align="right"><strong>3.33 Gbps</strong></td>
+<td align="right">416</td>
+<td>Vendor specification (80.0 %)</td>
 </tr>
 <tr>
-<td>FPD-Link IV</td>
-<td align="right">7.55 Gbps</td>
-<td align="right">not published</td>
-<td align="right">—</td>
-<td>No TI efficiency figure available</td>
+<td><strong>FPD-Link IV</strong></td>
+<td align="right"><strong>7.55 Gbps</strong></td>
+<td align="right"><strong>6.00 Gbps</strong></td>
+<td align="right">750</td>
+<td>Vendor specification (79.5 %)</td>
 </tr>
 <tr>
 <td>USB 3.0</td>
@@ -563,7 +563,9 @@ Many &quot;4 MP&quot; products are actually <strong>2560×1440 (3.69 MP)</strong
 <blockquote>
 <p><strong>GMSL3</strong> runs at a fixed 12 Gbps forward rate with a <strong>9.7 Gbps video payload</strong>.
 <strong>GMSL3 is less efficient than GMSL2</strong>: 80.8 % vs 86.7 %. The link doubles (6 → 12 Gbps) but the payload only grows <strong>1.87×</strong> (5.2 → 9.7). Assuming &quot;12G = twice 6G&quot; over-estimates capacity.
-<strong>FPD-Link efficiency is not published.</strong> The matrices below judge FPD-Link against its <strong>raw</strong> rate, which is <strong>optimistic</strong>. Verify against TI documentation before relying on a borderline result.
+<strong>FPD-Link runs at about 80 % in both generations.</strong> FPD-Link III packs 32 bits of video payload into each 40-bit frame — the same 20 % overhead as 8b/10b — so 4.16 × 0.8 = <strong>3.33 Gbps</strong>. FPD-Link IV carries a <strong>6.0 Gbps video payload</strong> on its 7.55 Gbps link (79.5 %).
+<strong>Efficiency ranking: GMSL2 86.7 % &gt; GMSL3 80.8 % ≈ FPD-Link III 80.0 % ≈ FPD-Link IV 79.5 %.</strong> GMSL2 stands out because of its 9b/10b encoding (11 % overhead); the others all carry roughly 8b/10b-class 20 % overhead.
+The FPD-Link III figure is for the 4.16 Gbps class of deserializer. FPD-Link III parts range from 2.0 to 4.85 Gbps, so check the rate of the specific device.
 The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (external NVMe at 2.6–2.8 GB/s), not the 40 Gbps link rate.</p>
 </blockquote>
 <h3>Applying a conservative 80 % rule instead</h3>
@@ -601,7 +603,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <strong>Recommendation:</strong> judge against the vendor values (2.6 / 5.2), and treat any combination with <strong>less than 5 % headroom</strong> as <em>borderline</em> — confirm it by measurement.</p>
 </blockquote>
 <h2>4.3 Link capacity matrix</h2>
-<p><strong>Criteria:</strong> GMSL2 = 3G 2.6 / 6G 5.2 · GMSL3 = 9.7 · FPD-Link = <strong>raw</strong> rate (efficiency unverified, optimistic) · USB 3.0 = 3.2 · TB3 = 22</p>
+<p><strong>Criteria (all effective payload values):</strong> GMSL2 = 3G 2.6 / 6G 5.2 · GMSL3 = 9.7 · FPD-Link III = 3.33 · FPD-Link IV = 6.0 · USB 3.0 = 3.2 · TB3 = 22</p>
 <p><strong>Legend:</strong> ✅ fits · 🟡 <strong>borderline (under 5 % headroom — verify by measurement)</strong> · 🔴 exceeds</p>
 <p><strong>30 fps</strong></p>
 <table>
@@ -610,13 +612,13 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <th>MP</th>
 <th>Format</th>
 <th align="right">Gbps</th>
-<th align="center">GMSL2<br>3G</th>
-<th align="center">GMSL2<br>6G</th>
-<th align="center"><strong>GMSL3</strong></th>
-<th align="center">FPD<br>III</th>
-<th align="center">FPD<br>IV</th>
-<th align="center">USB<br>3.0</th>
-<th align="center"><strong>TB3</strong></th>
+<th align="center">GMSL2<br>3G<br>2.6</th>
+<th align="center">GMSL2<br>6G<br>5.2</th>
+<th align="center"><strong>GMSL3</strong><br>9.7</th>
+<th align="center">FPD<br>III<br>3.33</th>
+<th align="center">FPD<br>IV<br>6.0</th>
+<th align="center">USB<br>3.0<br>3.2</th>
+<th align="center"><strong>TB3</strong><br>22</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -794,7 +796,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
-<td align="center">✅</td>
+<td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
@@ -807,7 +809,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">🔴</td>
-<td align="center">✅</td>
+<td align="center">🟡</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
 </tr>
@@ -819,13 +821,13 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <th>MP</th>
 <th>Format</th>
 <th align="right">Gbps</th>
-<th align="center">GMSL2<br>3G</th>
-<th align="center">GMSL2<br>6G</th>
-<th align="center"><strong>GMSL3</strong></th>
-<th align="center">FPD<br>III</th>
-<th align="center">FPD<br>IV</th>
-<th align="center">USB<br>3.0</th>
-<th align="center"><strong>TB3</strong></th>
+<th align="center">GMSL2<br>3G<br>2.6</th>
+<th align="center">GMSL2<br>6G<br>5.2</th>
+<th align="center"><strong>GMSL3</strong><br>9.7</th>
+<th align="center">FPD<br>III<br>3.33</th>
+<th align="center">FPD<br>IV<br>6.0</th>
+<th align="center">USB<br>3.0<br>3.2</th>
+<th align="center"><strong>TB3</strong><br>22</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -919,7 +921,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
-<td align="center">✅</td>
+<td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
@@ -955,7 +957,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
-<td align="center">✅</td>
+<td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
@@ -968,7 +970,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">🔴</td>
-<td align="center">✅</td>
+<td align="center">🟡</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
 </tr>
@@ -992,7 +994,7 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 <td align="center">🔴</td>
 <td align="center">✅</td>
 <td align="center">🔴</td>
-<td align="center">✅</td>
+<td align="center">🟡</td>
 <td align="center">🔴</td>
 <td align="center">✅</td>
 </tr>
@@ -1022,9 +1024,10 @@ The Thunderbolt 3 figure of 22 Gbps reflects measured PCIe-tunnel throughput (ex
 </tr>
 </tbody></table>
 <blockquote>
-<p><strong>Two borderline cases</strong> — <strong>8 MP Bayer10 @ 30 fps on 3G (2.49)</strong> and <strong>8 MP Bayer10 @ 60 fps on 6G (4.98)</strong>. With only <strong>4 % headroom</strong>, blanking and packet overhead can push them over. <strong>Measure before committing.</strong>
+<p><strong>Borderline cases</strong> — <strong>8 MP Bayer10 @ 30 fps on GMSL2 3G (2.49)</strong>, <strong>8 MP Bayer10 @ 60 fps on GMSL2 6G (4.98)</strong>, and on <strong>FPD-Link IV (6.0)</strong>: 8 MP RGB888 @ 30 fps, 4 MP RGB888 @ 60 fps, 8 MP Bayer12 @ 60 fps (5.88–5.97). With only <strong>2–4 % headroom</strong>, blanking and packet overhead can push them over. <strong>Measure before committing.</strong>
 GMSL3 (9.7) does not change any verdict, because no combination lands in the 9.7–10.4 range. It does make clear that <strong>8 MP RGB888 @ 60 fps (11.94) is out of reach even for GMSL3</strong>.
-The FPD-Link columns use raw rates and are optimistic. Applying the same 86.7 % as GMSL2 would give III = 4.20 / IV = 6.55, and <strong>3 MP RGB888 @ 60 fps (4.53) would then fail on FPD-Link III</strong>.</p>
+<strong>FPD-Link III (3.33) is narrower than its raw rate suggests</strong> — 8 MP fits only up to <strong>Bayer12 @ 30 fps (2.99)</strong>; YUV422 and above are blocked.
+<strong>FPD-Link IV (6.0) and GMSL2 6G (5.2) are in the same class.</strong> The raw rates (7.55 vs 6.0) look far apart, but the effective payloads differ by only <strong>15 %</strong>.</p>
 </blockquote>
 <h2>4.4 What to take from the matrix</h2>
 <table>
@@ -1069,6 +1072,22 @@ The FPD-Link columns use raw rates and are optimistic. Applying the same 86.7 % 
 <tr>
 <td><strong>The &quot;fixed rate&quot; trap</strong></td>
 <td>GMSL2 has <strong>no intermediate rates</strong>. If you need 5 Gbps you configure <strong>6G and the remainder is idle</strong> — so channel design must also assume <strong>6G (f½ = 3 GHz)</strong></td>
+</tr>
+<tr>
+<td><strong>FPD-Link III practical limit</strong></td>
+<td><strong>3.33 Gbps</strong> (4.16 × 80 %). 8 MP only up to <strong>Bayer12 @ 30 fps (2.99)</strong>; YUV422 and above are blocked — easy to miss when judging by the raw rate</td>
+</tr>
+<tr>
+<td><strong>FPD-Link IV practical limit</strong></td>
+<td><strong>6.0 Gbps</strong> (7.55 × 79.5 %). <strong>8 MP Bayer12 @ 60 fps (5.97)</strong> is 🟡 borderline; YUV422 @ 60 fps (7.96) is 🔴</td>
+</tr>
+<tr>
+<td><strong>FPD-Link IV ≈ GMSL2 6G</strong></td>
+<td>Raw 7.55 vs 6.0 looks like a big gap, but effective <strong>6.0 vs 5.2 is only 15 %</strong></td>
+</tr>
+<tr>
+<td><strong>Only GMSL2 is unusually efficient</strong></td>
+<td><strong>GMSL2 86.7 % &gt; GMSL3 80.8 % ≈ FPD-Link III 80.0 % ≈ FPD-Link IV 79.5 %.</strong> GMSL2&#39;s 9b/10b (11 % overhead) is the only one outside the 8b/10b-class 20 %</td>
 </tr>
 </tbody></table>
 <blockquote>
@@ -1646,8 +1665,8 @@ The FPD-Link columns use raw rates and are optimistic. Applying the same 86.7 % 
 <td>Estimate — 86.7 % applied by analogy with GMSL2</td>
 </tr>
 <tr>
-<td>FPD-Link III / IV effective rate</td>
-<td>Not published by TI — matrices use raw rates (optimistic)</td>
+<td>FPD-Link III 3.33 Gbps / FPD-Link IV 6.0 Gbps effective</td>
+<td>SerDes vendor specification — the III figure is for the 4.16 Gbps class (III parts range 2.0–4.85 Gbps)</td>
 </tr>
 <tr>
 <td>USB 3.0 ≈ 400 MB/s, Thunderbolt 3 ≈ 22 Gbps</td>
@@ -1662,7 +1681,7 @@ The FPD-Link columns use raw rates and are optimistic. Applying the same 86.7 % 
 <td>Engineering rules of thumb</td>
 </tr>
 </tbody></table>
-<p>Open items: FPD-Link effective rates, and measured verification of the two borderline cases (8 MP Bayer10 @ 30 fps on 3G, @ 60 fps on 6G).</p>
+<p>Open items: measured verification of the borderline cases — 8 MP Bayer10 @ 30 fps on GMSL2 3G, 8 MP Bayer10 @ 60 fps on GMSL2 6G, and the three FPD-Link IV cases at 5.88–5.97 Gbps.</p>
 <hr>
 <p>See also: <a href="FrameGrabber.html">Frame Grabber</a> for board specifications and <a href="Deserializer.html">Deserializer</a> for supported SerDes parts.</p>
 
