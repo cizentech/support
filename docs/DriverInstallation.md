@@ -24,6 +24,6 @@ Install “[Visual C++ Redistributable for Visual Studio 2015\~2022](https://ciz
 
 ## MIG-S6 Driver Installation
 
-[Install the S6_Driver_Signed_win11_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/IQDTfXYv20pyQpmeUu3e9ElCAVtZkgKFUF8cxpS2iIWNxLE?e=iEfYA6)
+[Install the S6_Driver_Signed_win11_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/IQBGqKYR8wYHRJmiOj2T58_qAWxyLolqxD2JOQ0vTAeOGQw?e=4gxlac)
 
 ![The image shows a user interface on a Windows device, where the user is guiding through the process of updating a PCI Serial Port driver, with options to search for drivers automatically or manually, and the successful installation message is displayed. AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/297dd6bf502f2d5f1ab0f82cff60fd99.png)
