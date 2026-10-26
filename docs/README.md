@@ -1,14 +1,27 @@
 <div class="cz-hero">
+  <div class="cz-hero-copy">
   <div class="cz-hero-eyebrow">CIZEN TECH · Technical Support</div>
-  <h1 class="cz-hero-title">Camera module bring-up, made simple.</h1>
+  <h1 class="cz-hero-title">Frame grabbers &amp; software.<br>From setup to integration.</h1>
   <p class="cz-hero-desc">
-    CameraMaster GUI and the MIG Grabber SDK provide everything you need to power up, configure,
-    capture, and validate GMSL camera modules — from first I2C handshake to automated inspection.
+    Installation, control, image capture and analysis guides for MIG frame grabbers, CameraMaster and the SDK. Find your next step below.
   </p>
   <div class="cz-hero-actions">
-    <a class="cz-btn cz-btn-primary" href="#/DriverInstallation">Get Started →</a>
+    <a class="cz-btn cz-btn-primary" href="#/Getting_Started">Get Started →</a>
     <a class="cz-btn" href="#/MIG_Grabber_SDK">Browse the SDK</a>
   </div>
+  </div>
+  <figure class="cz-hero-visual">
+    <div class="product-media"><span class="product-overline">MIG SERIES / FRAME GRABBER</span><img src="img/MIG-S6.png" alt="MIG-S6 frame grabber with four camera connectors and Thunderbolt 3 ports" width="809" height="539"></div>
+    <figcaption><strong>MIG-S6</strong><span>Capture · Control · Analyze</span><a href="#/FrameGrabber">Explore the hardware →</a></figcaption>
+  </figure>
+</div>
+
+## What would you like to do?
+
+<div class="cz-task-grid">
+  <a class="cz-card" href="#/Getting_Started"><span class="cz-card-tag">01 / SETUP</span><div class="cz-card-title">Connect your first board →</div><div class="cz-card-desc">Identify your model, install the driver and check your first image.</div></a>
+  <a class="cz-card" href="#/MIG_Grabber_SDK"><span class="cz-card-tag">02 / DEVELOP</span><div class="cz-card-title">Integrate the SDK →</div><div class="cz-card-desc">Find API signatures and C++, Python and C# examples.</div></a>
+  <a class="cz-card" href="#/Troubleshooting"><span class="cz-card-tag">03 / RESOLVE</span><div class="cz-card-title">Find and report an issue →</div><div class="cz-card-desc">Check device detection, video and configuration before contacting support.</div></a>
 </div>
 
 ## Explore the docs
@@ -18,7 +31,7 @@
   <a class="cz-card" href="#/FrameGrabber">
     <div class="cz-card-tag">Hardware</div>
     <div class="cz-card-title">Frame Grabber</div>
-    <div class="cz-card-desc">MIG-S2 / S2 Pro / S6 MIPI capture cards — key features, models, and specifications.</div>
+    <div class="cz-card-desc">MIG-S2 / S2 Pro / S3 / S6 MIPI capture cards — key features, models, and specifications.</div>
   </a>
 
   <a class="cz-card" href="#/CameraMaster">
@@ -36,7 +49,7 @@
   <a class="cz-card" href="#/DriverInstallation">
     <div class="cz-card-tag">Setup</div>
     <div class="cz-card-title">Driver Installation</div>
-    <div class="cz-card-desc">USB driver setup for MIG-S2, S3, and S6 boards on Windows 10 / 11.</div>
+    <div class="cz-card-desc">MIG-S2 and S6 driver packages, installation checks, and MIG-S3 support guidance.</div>
   </a>
 
   <a class="cz-card" href="#/CameraMasterFramework">
@@ -85,7 +98,7 @@
     <div class="cz-step-num">1</div>
     <div class="cz-step-body">
       <div class="cz-step-title">Install the driver</div>
-      <div class="cz-step-desc">Install Visual C++ Redistributable 2015–2022, then the MIG driver matching your board (S2 / S6). See <a href="#/DriverInstallation">Driver Installation</a>.</div>
+      <div class="cz-step-desc">Install Visual C++ Redistributable 2015–2022, then the MIG driver matching your board (S2 / S6; contact support for S3). See <a href="#/DriverInstallation">Driver Installation</a>.</div>
     </div>
   </div>
 
@@ -119,5 +132,5 @@
 
 <div class="cz-footer">
   <strong>CIZEN TECH Co., Ltd.</strong> · 624, 6F, 118 LS-ro 116beon-gil, Dongan-gu, Anyang-si, Gyeonggi-do, Republic of Korea<br>
-  <a href="mailto:sw@cizentech.com">sw@cizentech.com</a> · <a href="http://cizentech.com/" target="_blank" rel="noopener">cizentech.com</a>
+  <a href="mailto:sw@cizentech.com">sw@cizentech.com</a> · <a href="https://www.cizentech.com/" target="_blank" rel="noopener">cizentech.com</a>
 </div>

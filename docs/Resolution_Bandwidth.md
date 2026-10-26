@@ -262,13 +262,13 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 
 | Board | Host link | **Capture ceiling** | Basis |
 |---|---|---:|---|
-| **MIG-S2** (FX3) | USB 3.0 | **3.2 Gbps** (400 MB/s) | 8b/10b + protocol overhead |
-| **MIG-S3** (FX10) | USB 3.2 Gen 2 | **8.0 Gbps** (~1,000 MB/s) | USB 10 Gbps Gen 2 effective ≈ 1 GB/s; the GPIF III receive path (1,280 MB/s) is not the bottleneck |
-| **MIG-S6** (PCIe FPGA) | Thunderbolt 3 | **22 Gbps** (2,750 MB/s) | PCIe tunnel effective throughput |
+| **MIG-S2** | USB 3.0 | **3.2 Gbps** (400 MB/s) | 8b/10b + protocol overhead |
+| **MIG-S3** | USB 3.2 Gen 2 | **8.0 Gbps** (~1,000 MB/s) | USB 10 Gbps Gen 2 effective ≈ 1 GB/s |
+| **MIG-S6** | Thunderbolt 3 | **22 Gbps** (2,750 MB/s) | PCIe tunnel effective throughput |
 
 > **MIG-S3 has different limits per direction.**
-> **Capture (RX):** GPIF III RX 1,280 MB/s is not limiting — **USB is the ceiling (~1 GB/s)**.
-> **Playback (TX):** **GPIF III TX = SDR 100 MHz × 32 bit = 400 MB/s = 3.2 Gbps** — this is the bottleneck.
+> **Capture (RX):** Effective capture throughput is approximately **1 GB/s**.
+> **Playback (TX):** Effective playback throughput is limited to **400 MB/s = 3.2 Gbps**.
 > **Used as a pattern generator, MIG-S3 is therefore equivalent to MIG-S2 (3.2 Gbps).** The tables below are for **capture**.
 
 **Legend:** ✅ fits · 🟡 **borderline (under 5 % headroom — verify by measurement)** · 🔴 exceeds
@@ -338,7 +338,7 @@ If you prefer a conservative **80 %** rule (3G = 2.4 / 6G = 4.8 Gbps) over the v
 | **MIG-S3 + GMSL3: the board is the bottleneck** | GMSL3 can deliver 9.7 G but **MIG-S3 captures 8.0 G**. **8 MP YUV422 @ 60 fps (7.96)** is 🟡 borderline on MIG-S3 |
 | **8 MP RGB888 @ 60 fps (11.94 G)** | **Only MIG-S6 (TB3) can capture it, and no SerDes link — not even GMSL3 — can deliver it.** The board could receive it but nothing can send it |
 | **MIG-S6 is not overkill** | For multi-channel capture the headroom matters: **22 G ÷ 2.99 G ≈ 7 channels of 8 MP Bayer12 @ 30 fps** |
-| **MIG-S3 as a generator** | Playback is limited by **GPIF TX 400 MB/s = 3.2 Gbps**, the same as MIG-S2. For playback, read the **S2 column** |
+| **MIG-S3 as a generator** | Playback is limited by **400 MB/s = 3.2 Gbps**, the same as MIG-S2. For playback, read the **S2 column** |
 
 ## 5. Quick conversions
 

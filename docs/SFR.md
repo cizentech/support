@@ -1,5 +1,7 @@
 # SFR Method
 
+[Read in English](SFR_en.md)
+
 **SFR (Spatial Frequency Response)** 는 카메라가 공간 주파수에 따라 명암 대비(contrast)를 얼마나 유지하는지로 해상력을 평가하는 측정 방법입니다. CameraMaster 는 차트의 엣지(edge)를 검출한 뒤 **ESF → LSF → MTF** 순으로 변환하여 SFR 값을 산출합니다.
 
 > ISO-12233 표준의 Slanted-Edge 방식을 기반으로 합니다.

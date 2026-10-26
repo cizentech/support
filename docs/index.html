@@ -1,630 +1,61 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CIZEN TECH</title>
-  <meta name="description" content="CIZEN TECH MIG Series frame grabbers (MIG-S2 / S2 Pro / S6) and CameraMaster — camera module bring-up, configuration, capture, and image-quality testing.">
+  <meta name="description" content="Setup, capture and integration guides for CIZEN TECH MIG frame grabbers, CameraMaster and the SDK.">
   <link rel="canonical" href="https://cizentech.github.io/support/">
   <link rel="icon" type="image/png" sizes="32x32" href="./img/cizentech-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
-  <style>
-    /* ─── Variables ─── */
-    :root {
-      --bg:           #eef1f8;
-      --surface:      #ffffff;
-      --sidebar-bg:   #ffffff;
-      --primary:      #4f46e5;
-      --primary-lt:   #ede9fe;
-      --primary-dk:   #3730a3;
-      --sky:          #0ea5e9;
-      --text-h:       #0f172a;
-      --text-body:    #334155;
-      --text-muted:   #64748b;
-      --border:       #e2e8f0;
-      --border-strong:#c7d2fe;
-      --shadow-sm:    0 1px 3px rgba(15,23,42,.08), 0 1px 2px rgba(15,23,42,.05);
-      --shadow-md:    0 4px 12px rgba(15,23,42,.10), 0 2px 4px rgba(15,23,42,.06);
-      --shadow-lg:    0 12px 32px rgba(15,23,42,.12), 0 4px 8px rgba(15,23,42,.07);
-      --sidebar-w:    280px;
-      --radius:       10px;
-    }
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css" />
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    /* ─── Body ─── */
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-      background-color: #ffffff !important;
-      color: var(--text-body) !important;
-      overflow-x: hidden;
-    }
-
-    /* ─── Custom scrollbar ─── */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 99px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
-
-    /* ─── Sidebar ─── */
-    .sidebar {
-      background: var(--sidebar-bg) !important;
-      border-right: 2px solid var(--border) !important;
-      box-shadow: var(--shadow-md) !important;
-      width: var(--sidebar-w) !important;
-      position: relative;
-      z-index: 10 !important;
-    }
-
-    /* Indigo accent stripe top of sidebar */
-    .sidebar::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary) 0%, var(--sky) 100%);
-    }
-
-    /* Logo */
-    .sidebar-logo {
-      padding: 28px 20px 20px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .sidebar-logo img {
-      height: 64px;
-      transition: transform 0.25s ease;
-    }
-    .sidebar-logo img:hover { transform: scale(1.04); }
-
-    /* Nav */
-    .sidebar-nav { padding: 16px 0 64px !important; }
-    .sidebar-nav > ul { padding: 0 12px !important; }
-
-    .sidebar-nav ul li {
-      list-style: none !important;
-      margin: 2px 0 !important;
-    }
-
-    .sidebar-nav ul li a {
-      color: var(--text-muted) !important;
-      font-size: 13.5px !important;
-      font-weight: 500 !important;
-      letter-spacing: 0.01em !important;
-      padding: 8px 14px !important;
-      border-radius: var(--radius) !important;
-      display: block !important;
-      text-decoration: none !important;
-      transition: all 0.15s ease !important;
-      border: 1px solid transparent !important;
-    }
-
-    .sidebar-nav ul li a:hover {
-      color: var(--primary) !important;
-      background: var(--primary-lt) !important;
-      border-color: var(--border-strong) !important;
-    }
-
-    .sidebar-nav ul li.active > a,
-    .sidebar-nav ul li a.active {
-      color: var(--primary-dk) !important;
-      background: var(--primary-lt) !important;
-      border-color: var(--border-strong) !important;
-      font-weight: 600 !important;
-    }
-
-    /* Active left accent bar */
-    .sidebar-nav ul li.active > a::before,
-    .sidebar-nav ul li a.active::before {
-      content: '';
-      display: inline-block;
-      width: 3px; height: 12px;
-      background: var(--primary);
-      border-radius: 2px;
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-
-    .sidebar-nav ul ul {
-      padding-left: 10px !important;
-      border-left: 2px solid var(--border) !important;
-      margin-left: 16px !important;
-      margin-top: 2px !important;
-    }
-
-    .sidebar-nav ul ul li a {
-      font-size: 12.5px !important;
-      padding: 5px 12px !important;
-      font-weight: 400 !important;
-    }
-
-    /* ─── Content ─── */
-    .content {
-      background: transparent !important;
-      position: absolute;
-      z-index: 1;
-    }
-
-    .markdown-section {
-      max-width: 100% !important;
-      margin: 0 !important;
-      padding: 40px 36px !important;
-      background: var(--surface) !important;
-      border-radius: 0 !important;
-      border: none !important;
-      border-top: 3px solid var(--primary) !important;
-      box-shadow: none !important;
-      color: var(--text-body) !important;
-      box-sizing: border-box !important;
-      overflow-x: hidden;
-    }
-
-    /* ─── Typography ─── */
-    .markdown-section h1,
-    .markdown-section h2,
-    .markdown-section h3,
-    .markdown-section h4,
-    .markdown-section h5,
-    .markdown-section h6 {
-      font-family: 'Inter', sans-serif !important;
-      color: var(--text-h) !important;
-      font-weight: 700 !important;
-      letter-spacing: -0.025em !important;
-      margin-top: 1.8em !important;
-    }
-
-    .markdown-section h1 {
-      font-size: 2rem !important;
-      border-bottom: 2px solid var(--border) !important;
-      padding-bottom: 0.45em !important;
-      margin-bottom: 1em !important;
-    }
-
-    /* Indigo accent left bar on h2 */
-    .markdown-section h2 {
-      font-size: 1.4rem !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 10px !important;
-      border-bottom: 1px solid var(--border) !important;
-      padding-bottom: 0.4em !important;
-    }
-    .markdown-section h2::before {
-      content: '';
-      display: inline-block;
-      width: 4px; height: 1.1em;
-      background: linear-gradient(180deg, var(--primary), var(--sky));
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    .markdown-section h3 {
-      font-size: 1.1rem !important;
-      color: var(--primary-dk) !important;
-    }
-
-    .markdown-section p {
-      color: var(--text-body) !important;
-      line-height: 1.8 !important;
-      font-size: 14.5px !important;
-    }
-
-    .markdown-section strong {
-      color: var(--text-h) !important;
-      font-weight: 600 !important;
-    }
-
-    /* ─── Links ─── */
-    .markdown-section a {
-      color: var(--primary) !important;
-      text-decoration: none !important;
-      border-bottom: 1px solid rgba(79,70,229,.3) !important;
-      font-weight: 500 !important;
-      transition: all 0.15s !important;
-    }
-    .markdown-section a:hover {
-      color: var(--primary-dk) !important;
-      border-bottom-color: var(--primary) !important;
-    }
-
-    /* ─── Code ─── */
-    .markdown-section code {
-      font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
-      font-size: 0.83em !important;
-      background: #f1f5ff !important;
-      color: var(--primary-dk) !important;
-      border: 1px solid var(--border-strong) !important;
-      border-radius: 5px !important;
-      padding: 2px 7px !important;
-    }
-
-    .markdown-section pre {
-      background: #f8faff !important;
-      border: 1px solid var(--border) !important;
-      border-radius: var(--radius) !important;
-      box-shadow: var(--shadow-sm) !important;
-      border-left: 3px solid var(--primary) !important;
-      position: relative;
-    }
-
-    .markdown-section pre code {
-      background: transparent !important;
-      border: none !important;
-      color: #1e293b !important;
-      font-size: 13px !important;
-      padding: 0 !important;
-    }
-
-    /* ─── Tables ─── */
-    .markdown-section table {
-      border-collapse: collapse !important;
-      width: 100% !important;
-      border-radius: var(--radius) !important;
-      overflow: hidden !important;
-      border: 1px solid var(--border) !important;
-      box-shadow: var(--shadow-sm) !important;
-    }
-
-    .markdown-section thead tr {
-      background: linear-gradient(90deg, var(--primary) 0%, #6366f1 100%) !important;
-    }
-
-    .markdown-section thead th {
-      color: #ffffff !important;
-      font-weight: 600 !important;
-      font-size: 12.5px !important;
-      letter-spacing: 0.05em !important;
-      text-transform: uppercase !important;
-      padding: 12px 16px !important;
-      border: none !important;
-    }
-
-    .markdown-section thead th strong {
-      color: #ffffff !important;
-    }
-
-    .markdown-section tbody tr {
-      background: var(--surface) !important;
-      transition: background 0.12s !important;
-    }
-    .markdown-section tbody tr:nth-child(even) {
-      background: #f8f9ff !important;
-    }
-    .markdown-section tbody tr:hover {
-      background: var(--primary-lt) !important;
-    }
-
-    .markdown-section tbody td {
-      color: var(--text-body) !important;
-      padding: 10px 16px !important;
-      font-size: 13.5px !important;
-      border: none !important;
-      border-bottom: 1px solid var(--border) !important;
-    }
-
-    /* ─── Blockquotes ─── */
-    .markdown-section blockquote {
-      background: #f8f9ff !important;
-      border-left: 4px solid var(--primary) !important;
-      border-radius: 0 var(--radius) var(--radius) 0 !important;
-      margin: 20px 0 !important;
-      padding: 16px 20px !important;
-      color: var(--text-muted) !important;
-      box-shadow: var(--shadow-sm) !important;
-    }
-    .markdown-section blockquote p { color: var(--text-muted) !important; margin: 0 !important; }
-
-    /* ─── Lists ─── */
-    .markdown-section ul li,
-    .markdown-section ol li {
-      color: var(--text-body) !important;
-      font-size: 14.5px !important;
-      line-height: 1.75 !important;
-      margin: 4px 0 !important;
-    }
-    .markdown-section ul li::marker { color: var(--primary) !important; }
-
-    /* ─── HR ─── */
-    .markdown-section hr {
-      border: none !important;
-      height: 1px !important;
-      background: var(--border) !important;
-      margin: 32px 0 !important;
-    }
-
-    /* ─── Images — keep white bg friendly ─── */
-    .markdown-section img {
-      border-radius: var(--radius) !important;
-      border: 1px solid var(--border) !important;
-      box-shadow: var(--shadow-md) !important;
-      max-width: 100% !important;
-      background: #fff !important;
-    }
-
-    /* ─── Sidebar toggle (mobile) ─── */
-    .sidebar-toggle {
-      background: var(--surface) !important;
-      border: 1px solid var(--border) !important;
-      box-shadow: var(--shadow-sm) !important;
-    }
-    .sidebar-toggle span { background-color: var(--primary) !important; }
-
-    /* ─── Progress bar ─── */
-    #nprogress .bar { background: var(--primary) !important; }
-
-    /* ─── Home: Hero ─── */
-    .cz-hero {
-      margin: 8px 0 36px;
-      padding: 36px 32px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #f5f3ff 0%, #eef2ff 55%, #e0f2fe 100%);
-      border: 1px solid var(--border-strong);
-      box-shadow: var(--shadow-sm);
-    }
-    .cz-hero-eyebrow {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--primary-dk);
-      margin-bottom: 10px;
-    }
-    .cz-hero-title {
-      font-size: 2.1rem !important;
-      font-weight: 700 !important;
-      letter-spacing: -0.03em !important;
-      color: var(--text-h) !important;
-      margin: 0 0 14px !important;
-      border: none !important;
-      padding: 0 !important;
-      line-height: 1.2 !important;
-    }
-    .cz-hero-desc {
-      font-size: 15px !important;
-      line-height: 1.7 !important;
-      color: var(--text-body) !important;
-      max-width: 720px;
-      margin: 0 0 22px !important;
-    }
-    .cz-hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-    .cz-btn {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 13.5px !important;
-      font-weight: 600 !important;
-      text-decoration: none !important;
-      border: 1px solid var(--border-strong) !important;
-      background: #ffffff;
-      color: var(--text-h) !important;
-      transition: all 0.15s ease;
-      box-shadow: var(--shadow-sm);
-    }
-    .cz-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary) !important;
-    }
-    .cz-btn-primary {
-      background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
-      color: #ffffff !important;
-      border-color: transparent !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.01em;
-      text-shadow: 0 1px 1px rgba(15, 23, 42, 0.18);
-    }
-    .cz-btn-primary:hover {
-      color: #ffffff !important;
-      background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
-    }
-
-    /* ─── Home: Card grid ─── */
-    .cz-card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin: 18px 0 8px;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-    .cz-card {
-      display: block !important;
-      padding: 18px 16px 20px !important;
-      background: var(--surface) !important;
-      border: 1px solid var(--border) !important;
-      border-radius: 12px !important;
-      text-decoration: none !important;
-      color: var(--text-body) !important;
-      transition: all 0.18s ease !important;
-      box-shadow: var(--shadow-sm) !important;
-      position: relative;
-      overflow: hidden;
-      min-width: 0;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-    .cz-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, var(--primary), var(--sky));
-      opacity: 0;
-      transition: opacity 0.18s ease;
-    }
-    .cz-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--border-strong) !important;
-      box-shadow: var(--shadow-md) !important;
-    }
-    .cz-card:hover::before { opacity: 1; }
-    .cz-card-tag {
-      display: inline-block;
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--primary-dk);
-      background: var(--primary-lt);
-      padding: 3px 8px;
-      border-radius: 99px;
-      margin-bottom: 10px;
-    }
-    .cz-card-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text-h);
-      margin-bottom: 6px;
-      letter-spacing: -0.015em;
-    }
-    .cz-card-desc {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-muted);
-    }
-
-    /* ─── Home: Steps ─── */
-    .cz-steps { display: grid; gap: 12px; margin: 16px 0; }
-    .cz-step {
-      display: flex;
-      gap: 16px;
-      padding: 16px 18px;
-      background: #f8faff;
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--primary);
-      border-radius: var(--radius);
-    }
-    .cz-step-num {
-      flex-shrink: 0;
-      width: 30px; height: 30px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), #6366f1);
-      color: #fff;
-      font-weight: 700;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .cz-step-title {
-      font-weight: 600;
-      color: var(--text-h);
-      margin-bottom: 3px;
-      font-size: 14.5px;
-    }
-    .cz-step-desc {
-      font-size: 13.5px;
-      line-height: 1.65;
-      color: var(--text-body);
-    }
-
-    /* ─── Home: Footer block ─── */
-    .cz-footer {
-      font-size: 12.5px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-top: 28px;
-    }
-
-    /* ─── Search input ─── */
-    .sidebar .search {
-      margin: 12px 14px 8px !important;
-      padding: 0 !important;
-      border: none !important;
-    }
-    .sidebar .search input {
-      border: 1px solid var(--border) !important;
-      border-radius: 8px !important;
-      padding: 8px 12px !important;
-      font-size: 13px !important;
-      width: 100% !important;
-      background: #f8faff !important;
-      transition: all 0.15s ease;
-    }
-    .sidebar .search input:focus {
-      outline: none !important;
-      border-color: var(--primary) !important;
-      background: #fff !important;
-      box-shadow: 0 0 0 3px rgba(79,70,229,0.12) !important;
-    }
-    .sidebar .search .results-panel {
-      background: var(--surface) !important;
-      border-radius: 8px !important;
-    }
-    .sidebar .search .matching-post {
-      border-bottom: 1px solid var(--border) !important;
-      padding: 10px 14px !important;
-    }
-    .sidebar .search .matching-post h2 {
-      font-size: 13px !important;
-      color: var(--primary-dk) !important;
-      margin: 0 0 4px !important;
-    }
-    .sidebar .search .matching-post p {
-      font-size: 12px !important;
-      color: var(--text-muted) !important;
-    }
-    .sidebar .search .search-keyword {
-      color: var(--primary) !important;
-      font-weight: 600 !important;
-      font-style: normal !important;
-    }
-
-    /* ─── Copy code button ─── */
-    .docsify-copy-code-button {
-      background: var(--primary) !important;
-      color: #fff !important;
-      font-size: 11px !important;
-      border-radius: 6px !important;
-      padding: 4px 10px !important;
-      opacity: 0.85;
-    }
-    .docsify-copy-code-button:hover { opacity: 1; }
-    .docsify-copy-code-button.success { background: #10b981 !important; }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 768px) {
-      .markdown-section {
-        margin: 12px !important;
-        padding: 24px 18px !important;
-        border-radius: var(--radius) !important;
-      }
-      .cz-hero { padding: 26px 22px; }
-      .cz-hero-title { font-size: 1.6rem !important; }
-    }
-  </style>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism.min.css" />
+  <link rel="stylesheet" href="doc.css">
 </head>
-<body>
+<body class="portal-app">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="portal-header">
+    <a class="brand" href="#/"><img src="img/cizentech-32x32.png" alt="" width="24" height="24">CIZEN TECH <span> / Support</span></a>
+    <nav aria-label="Quick links"><a href="#/Downloads">Downloads</a><a href="#/Technical_Support">Support</a><a class="company-link" href="https://www.cizentech.com/">Company ↗</a><button type="button" class="theme-toggle" aria-label="Switch color theme">Dark</button></nav>
+  </header>
   <div id="app">
 <!--SEO:HOME:START-->
+<main id="main" class="markdown-section" tabindex="-1">
 <div class="cz-hero">
+  <div class="cz-hero-copy">
   <div class="cz-hero-eyebrow">CIZEN TECH · Technical Support</div>
-  <h1 class="cz-hero-title">Camera module bring-up, made simple.</h1>
+  <h1 class="cz-hero-title">Frame grabbers &amp; software.<br>From setup to integration.</h1>
   <p class="cz-hero-desc">
-    CameraMaster GUI and the MIG Grabber SDK provide everything you need to power up, configure,
-    capture, and validate GMSL camera modules — from first I2C handshake to automated inspection.
+    Installation, control, image capture and analysis guides for MIG frame grabbers, CameraMaster and the SDK. Find your next step below.
   </p>
   <div class="cz-hero-actions">
-    <a class="cz-btn cz-btn-primary" href="DriverInstallation.html">Get Started →</a>
+    <a class="cz-btn cz-btn-primary" href="Getting_Started.html">Get Started →</a>
     <a class="cz-btn" href="MIG_Grabber_SDK.html">Browse the SDK</a>
   </div>
+  </div>
+  <figure class="cz-hero-visual">
+    <div class="product-media"><span class="product-overline">MIG SERIES / FRAME GRABBER</span><img src="img/MIG-S6.png" alt="MIG-S6 frame grabber with four camera connectors and Thunderbolt 3 ports" width="809" height="539"></div>
+    <figcaption><strong>MIG-S6</strong><span>Capture · Control · Analyze</span><a href="FrameGrabber.html">Explore the hardware →</a></figcaption>
+  </figure>
 </div>
 
-<h2>Explore the docs</h2>
+<h2 id="what-would-you-like-to-do">What would you like to do?</h2>
+<div class="cz-task-grid">
+  <a class="cz-card" href="Getting_Started.html"><span class="cz-card-tag">01 / SETUP</span><div class="cz-card-title">Connect your first board →</div><div class="cz-card-desc">Identify your model, install the driver and check your first image.</div></a>
+  <a class="cz-card" href="MIG_Grabber_SDK.html"><span class="cz-card-tag">02 / DEVELOP</span><div class="cz-card-title">Integrate the SDK →</div><div class="cz-card-desc">Find API signatures and C++, Python and C# examples.</div></a>
+  <a class="cz-card" href="Troubleshooting.html"><span class="cz-card-tag">03 / RESOLVE</span><div class="cz-card-title">Find and report an issue →</div><div class="cz-card-desc">Check device detection, video and configuration before contacting support.</div></a>
+</div>
+
+<h2 id="explore-the-docs">Explore the docs</h2>
 <div class="cz-card-grid">
 
   <a class="cz-card" href="FrameGrabber.html">
     <div class="cz-card-tag">Hardware</div>
     <div class="cz-card-title">Frame Grabber</div>
-    <div class="cz-card-desc">MIG-S2 / S2 Pro / S6 MIPI capture cards — key features, models, and specifications.</div>
+    <div class="cz-card-desc">MIG-S2 / S2 Pro / S3 / S6 MIPI capture cards — key features, models, and specifications.</div>
   </a>
 
   <a class="cz-card" href="CameraMaster.html">
@@ -642,7 +73,7 @@
   <a class="cz-card" href="DriverInstallation.html">
     <div class="cz-card-tag">Setup</div>
     <div class="cz-card-title">Driver Installation</div>
-    <div class="cz-card-desc">USB driver setup for MIG-S2, S3, and S6 boards on Windows 10 / 11.</div>
+    <div class="cz-card-desc">MIG-S2 and S6 driver packages, installation checks, and MIG-S3 support guidance.</div>
   </a>
 
   <a class="cz-card" href="CameraMasterFramework.html">
@@ -683,14 +114,14 @@
 
 </div>
 
-<h2>Quick start</h2>
+<h2 id="quick-start">Quick start</h2>
 <div class="cz-steps">
 
   <div class="cz-step">
     <div class="cz-step-num">1</div>
     <div class="cz-step-body">
       <div class="cz-step-title">Install the driver</div>
-      <div class="cz-step-desc">Install Visual C++ Redistributable 2015–2022, then the MIG driver matching your board (S2 / S6). See <a href="DriverInstallation.html">Driver Installation</a>.</div>
+      <div class="cz-step-desc">Install Visual C++ Redistributable 2015–2022, then the MIG driver matching your board (S2 / S6; contact support for S3). See <a href="DriverInstallation.html">Driver Installation</a>.</div>
     </div>
   </div>
 
@@ -723,17 +154,22 @@
 <hr>
 <div class="cz-footer">
   <strong>CIZEN TECH Co., Ltd.</strong> · 624, 6F, 118 LS-ro 116beon-gil, Dongan-gu, Anyang-si, Gyeonggi-do, Republic of Korea<br>
-  <a href="mailto:sw@cizentech.com">sw@cizentech.com</a> · <a href="http://cizentech.com/" target="_blank" rel="noopener">cizentech.com</a>
+  <a href="mailto:sw@cizentech.com">sw@cizentech.com</a> · <a href="https://www.cizentech.com/" target="_blank" rel="noopener">cizentech.com</a>
 </div>
 
+</main>
 <!--SEO:HOME:END-->
 </div>
 
+  <script src="portal.js"></script>
+  <script src="navigation.js"></script>
   <script>
     window.$docsify = {
       name: '',
-      subMaxLevel: 2,
+      subMaxLevel: 0,
       loadSidebar: true,
+      auto2top: true,
+      topMargin: 104,
       search: {
         placeholder: 'Search documentation…',
         noData: 'No results found.',
@@ -750,7 +186,7 @@
           hook.ready(function() {
             var logo = document.createElement('div');
             logo.className = 'sidebar-logo';
-            logo.innerHTML = '<a href="#/README"><img src="img/cizentech-logo-195x88-trans.png" alt="CIZEN TECH Logo"></a>';
+            logo.innerHTML = '<a href="#/">DOCUMENTATION</a>';
             var sidebar = document.querySelector('.sidebar');
             if (sidebar) sidebar.insertBefore(logo, sidebar.firstChild);
           });
@@ -761,24 +197,28 @@
           hook.doneEach(function() {
             var path = (location.hash || '').replace(/^#\//, '').replace(/[?#].*$/, '');
             var isHome = !path || path === 'README';
+            document.documentElement.lang = path === 'SFR' ? 'ko' : 'en';
+            document.body.classList.toggle('is-home', isHome);
             var h1 = document.querySelector('.markdown-section h1');
             document.title = (isHome || !h1) ? 'CIZEN TECH · Technical Support'
                                              : h1.textContent.trim() + ' · CIZEN TECH';
             var canonical = isHome ? BASE : BASE + path + '.html';
             var link = document.querySelector('link[rel="canonical"]');
             if (link) link.setAttribute('href', canonical);
+            window.SupportNavigation.refresh();
           });
         }
       ]
     };
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@3"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-csharp.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-ini.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@3.0.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-c.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-csharp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-ini.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-bash.min.js"></script>
 </body>
 </html>

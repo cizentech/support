@@ -1,0 +1,24 @@
+name: Documentation checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node tools/build-seo.js
+      - run: node tools/check-docs.js
+      - run: python tools/check-python.py
+      - name: Ensure generated files were included
+        run: |
+          git diff --exit-code -- docs
+          test -z "$(git ls-files --others --exclude-standard docs)"

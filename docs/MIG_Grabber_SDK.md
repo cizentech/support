@@ -7,9 +7,15 @@ We provide a SDK (API) so that users can control the grabber through their own p
 
 [SDK (migGrabber.dll) library](https://cizentech-my.sharepoint.com/:u:/p/mason/IQALGjOZzjR2QqCCB25r8L4EASPM0SLJJFcOpntc58ZOMQA?e=ZCtpBu)
 
-![텍스트, 스크린샷, 디자인이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/6e9e554615f1b0ca8760547bb2c0d4df.png)
+![MIG Grabber SDK application overview](media/6e9e554615f1b0ca8760547bb2c0d4df.png)
 
 ## API List
+
+Use the sidebar or search to jump to a function. Declarations below are retained from the published SDK reference; consult the headers supplied with your SDK version for authoritative types and supported models.
+
+### GetMigSdkVersion
+
+Get the version of MIG SDK.
 
 ```cpp
 /**
@@ -18,6 +24,13 @@ We provide a SDK (API) so that users can control the grabber through their own p
  * @return int
  */
 extern int              GetMigSdkVersion();
+```
+
+### EnumerateBoard
+
+Get the list of connected boards.
+
+```cpp
 /**
  * @brief Get the list of connected boards.
  *
@@ -26,12 +39,26 @@ extern int              GetMigSdkVersion();
  * @see _BOARD_LIST
  */
 extern int              EnumerateBoard(_BOARD_LIST* pDest);
+```
+
+### GetNumOfBoard
+
+Get the number of connected boards.
+
+```cpp
 /**
  * @brief Get the number of connected boards.
  *
  * @return Gets the number of connected boards.
  */
 extern int              GetNumOfBoard();
+```
+
+### GetBoardId
+
+Get the board id by the usb index.
+
+```cpp
 /**
  * @brief Get the board id by the usb index.
  *
@@ -39,6 +66,13 @@ extern int              GetNumOfBoard();
  * @return Board id : 0, 1, 2,, (-1: invalid usb index)
  */
 extern int              GetBoardId(int nUsbIndex);
+```
+
+### GetErrStr
+
+Get the error string.
+
+```cpp
 /**
  * @brief Get the error string.
  *
@@ -47,6 +81,13 @@ extern int              GetBoardId(int nUsbIndex);
  * @param sizeBuff buffer size
  */
 extern void             GetErrStr(int nErrCode, char* pBuff, int sizeBuff);
+```
+
+### SetParamInt
+
+Set the parameter.
+
+```cpp
 /**
  * @brief Set the parameter.
  *
@@ -56,6 +97,13 @@ extern void             GetErrStr(int nErrCode, char* pBuff, int sizeBuff);
  * @return #MIG_OK\n #MIG_ERR_INVALID_PARAMETER\n #MIG_ERR_GRABBER_NOT_OPENED
  */
 extern int              SetParamInt(int BoardId, int type, int val);
+```
+
+### GetParamInt
+
+Get the parameter.
+
+```cpp
 /**
  * @brief Get the parameter.
  *
@@ -64,6 +112,13 @@ extern int              SetParamInt(int BoardId, int type, int val);
  * @return parameter value
  */
 extern int              GetParamInt(int BoardId, int type);
+```
+
+### OpenGrabber
+
+Open Grabber board.
+
+```cpp
 /**
  * @brief Open Grabber board.
  *
@@ -73,6 +128,13 @@ extern int              GetParamInt(int BoardId, int type);
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              OpenGrabber(int BoardId, int nGrabberType, MIG_HANDLE hwndParent);
+```
+
+### SetConfigPathName
+
+Set the config path name.
+
+```cpp
 /**
  * @brief Set the config path name.
  *
@@ -80,6 +142,13 @@ extern int              OpenGrabber(int BoardId, int nGrabberType, MIG_HANDLE hw
  * @param pConfigFilePath config path
  */
 extern void             SetConfigPathName(int BoardId, const char* pConfigFilePath);
+```
+
+### CloseGrabber
+
+Close Grabber board.
+
+```cpp
 /**
  * @brief Close Grabber board.
  *
@@ -87,6 +156,13 @@ extern void             SetConfigPathName(int BoardId, const char* pConfigFilePa
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              CloseGrabber(int BoardId);
+```
+
+### IsGrabberOpened
+
+Query that Grabber is opened.
+
+```cpp
 /**
  * @brief Query that Grabber is opened.
  *
@@ -94,6 +170,13 @@ extern int              CloseGrabber(int BoardId);
  * @return TRUE. grabber is opened / FALSE
  */
 extern BOOL             IsGrabberOpened(int BoardId);
+```
+
+### GetGrabberType
+
+Get the Grabber Type.
+
+```cpp
 /**
  * @brief Get the Grabber Type.
  *
@@ -101,6 +184,13 @@ extern BOOL             IsGrabberOpened(int BoardId);
  * @return Grabber Type.
  */
 extern int              GetGrabberType(int BoardId);
+```
+
+### GetSerialNo
+
+Get the Serial Number.
+
+```cpp
 /**
  * @brief Get the Serial Number.
  *
@@ -110,6 +200,13 @@ extern int              GetGrabberType(int BoardId);
  * @return #MIG_OK\n #MIG_ERR\n #MIG_ERR_INTERFACE_NOT_IMPLEMENTED
  */
 extern int              GetSerialNo(int BoardId, char* pSn, int sizeSN);
+```
+
+### IsVirtual
+
+Query that Grabber is virtual mode.
+
+```cpp
 /**
  * @brief Query that Grabber is virtual mode.
  *
@@ -117,6 +214,13 @@ extern int              GetSerialNo(int BoardId, char* pSn, int sizeSN);
  * @return TRUE. sdk is virtual mode / FALSE
  */
 extern BOOL             IsVirtual(int BoardId);
+```
+
+### Grab
+
+Captures the specified number of frames.
+
+```cpp
 /**
  * @brief Captures the specified number of frames.
  *
@@ -126,6 +230,13 @@ extern BOOL             IsVirtual(int BoardId);
  * @return #MIG_OK\n #MIG_ERR_GRAB_IN_PROGRESS
  */
 extern int              Grab(int BoardId, int nNbImage, DWORD dwTimeOut_ms);
+```
+
+### GrabContinuous
+
+Start capturing image.
+
+```cpp
 /**
  * @brief Start capturing image.
  *
@@ -134,6 +245,13 @@ extern int              Grab(int BoardId, int nNbImage, DWORD dwTimeOut_ms);
  * @see WaitForFrameDone()
  */
 extern int              GrabContinuous(int BoardId);
+```
+
+### GrabInProgress
+
+Query that Grab is in progress.
+
+```cpp
 /**
  * @brief Query that Grab is in progress.
  *
@@ -141,6 +259,13 @@ extern int              GrabContinuous(int BoardId);
  * @return BOOL
  */
 extern BOOL             GrabInProgress(int BoardId);
+```
+
+### HaltGrab
+
+Stop capturing image.
+
+```cpp
 /**
  * @brief Stop capturing image.
  *
@@ -148,6 +273,13 @@ extern BOOL             GrabInProgress(int BoardId);
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              HaltGrab(int BoardId);
+```
+
+### WaitForFrameDone
+
+Wait for new frame.
+
+```cpp
 /**
  * @brief Wait for new frame.
  *
@@ -157,6 +289,13 @@ extern int              HaltGrab(int BoardId);
  * @see GrabContinuous()
  */
 extern int              WaitForFrameDone(int BoardId, DWORD dwTimeOut_ms);
+```
+
+### GetImage
+
+Get image data.
+
+```cpp
 /**
  * @brief Get image data.
  *
@@ -168,6 +307,13 @@ extern int              WaitForFrameDone(int BoardId, DWORD dwTimeOut_ms);
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              GetImage(int BoardId, unsigned char* pDstBuffer, int dstWidth, int dstHeight, int dstPitchBytes);
+```
+
+### i2cRead
+
+Read i2c data.
+
+```cpp
 /**
  * @brief Read i2c data.
  *
@@ -178,6 +324,13 @@ extern int              GetImage(int BoardId, unsigned char* pDstBuffer, int dst
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              i2cRead(int BoardId, unsigned short wRegAddr, BYTE* pbytValue, int nLength);
+```
+
+### i2cWrite
+
+Write i2c data.
+
+```cpp
 /**
  * @brief Write i2c data.
  *
@@ -189,6 +342,13 @@ extern int              i2cRead(int BoardId, unsigned short wRegAddr, BYTE* pbyt
  * @see MIG_ERR_I2C_NO_ACK_DEV_ADDR
  */
 extern int              i2cWrite(int BoardId, unsigned short wRegAddr, BYTE* pbytValue, int nLength);
+```
+
+### bulk_i2cReset
+
+Reset bulk i2c buffer data.
+
+```cpp
 /**
  * @brief Reset bulk i2c buffer data.
  *
@@ -196,6 +356,13 @@ extern int              i2cWrite(int BoardId, unsigned short wRegAddr, BYTE* pby
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              bulk_i2cReset(int BoardId);
+```
+
+### bulk_i2cSet
+
+Add i2c data into bulk buffer.
+
+```cpp
 /**
  * @brief Add i2c data into bulk buffer.
  *
@@ -206,6 +373,13 @@ extern int              bulk_i2cReset(int BoardId);
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              bulk_i2cSet(int BoardId, unsigned short wRegAddr, BYTE* pbytValue, int nLength);
+```
+
+### bulk_i2cSetDelay
+
+Add delay data into bulk buffer.
+
+```cpp
 /**
  * @brief Add delay data into bulk buffer.
  *
@@ -214,6 +388,13 @@ extern int              bulk_i2cSet(int BoardId, unsigned short wRegAddr, BYTE* 
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              bulk_i2cSetDelay(int BoardId, WORD wDelay_ms);
+```
+
+### bulk_i2cRun
+
+Execute bulk i2c buffer data.
+
+```cpp
 /**
  * @brief Execute bulk i2c buffer data.
  *
@@ -221,6 +402,13 @@ extern int              bulk_i2cSetDelay(int BoardId, WORD wDelay_ms);
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              bulk_i2cRun(int BoardId);
+```
+
+### pwrSetVoltage
+
+Power on the specified power channel.
+
+```cpp
 /**
  * @brief Power on the specified power channel.
  *
@@ -230,6 +418,13 @@ extern int              bulk_i2cRun(int BoardId);
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              pwrSetVoltage(int BoardId, int nPwrChannel, const int nPwrLevel_mV);
+```
+
+### pwrMeasureVoltage
+
+Measure voltage on specified power channel.
+
+```cpp
 /**
  * @brief Measure voltage on specified power channel.
  *
@@ -239,6 +434,13 @@ extern int              pwrSetVoltage(int BoardId, int nPwrChannel, const int nP
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              pwrMeasureVoltage(int BoardId, int nPwrChannel, int* pPwrResult_mV);
+```
+
+### pwrMeasureCurrent
+
+Measure current on specified power channel.
+
+```cpp
 /**
  * @brief Measure current on specified power channel.
  *
@@ -248,6 +450,13 @@ extern int              pwrMeasureVoltage(int BoardId, int nPwrChannel, int* pPw
  * @return #MIG_OK\n #MIG_ERR
  */
 extern int              pwrMeasureCurrent(int BoardId, int nPwrChannel, int* pPwrResult_mA);
+```
+
+### WriteRegisterSet
+
+Apply power or Sensor init configuration.  ex> [POWERON] [REGISTER_INIT]
+
+```cpp
 /**
  * @brief Apply power or Sensor init configuration.  ex> [POWERON] [REGISTER_INIT]
  *
@@ -258,6 +467,13 @@ extern int              pwrMeasureCurrent(int BoardId, int nPwrChannel, int* pPw
  * @return #MIG_OK\n #MIG_ERR_EMPTY_REGISTER_SET\n #MIG_ERR_I2C_NO_ACK_DEV_ADDR\n #MIG_ERR_INVALID_COMMAND
  */
 extern int              WriteRegisterSet(int BoardId, const char* pFile, const char* pSection, int* pnErrorIndex);
+```
+
+### ReadSyncCount
+
+Read sync count to check module output.
+
+```cpp
 /**
  * @brief Read sync count to check module output.
  *
@@ -273,7 +489,7 @@ extern int              ReadSyncCount(int BoardId, DWORD dwTimeOut_ms, int* pDes
 
 ## C++ Sample code
 
-![텍스트, 스크린샷, 멀티미디어 소프트웨어, 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/94fa8ac2cb28d19dd18c5f270bc81459.png)
+![C++ SDK sample application](media/94fa8ac2cb28d19dd18c5f270bc81459.png)
 
 ```cpp
 // Dynamically Load API from SDK library
@@ -346,13 +562,15 @@ nRet = i2cRead(nBoardID, reg, data, nLen);
 
 ## Python Sample code
 
-![스크린샷, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/84ef7a549f08d016b6d5e0256bd3a241.png)
+> Integration excerpt, not a standalone application. The SDK package must supply matching constants and ctypes declarations (argtypes/restype and calling convention). Open the board first; initialize the configuration path, image dimensions, buffers and output pointers before running this excerpt. Match Python architecture to the DLL. Check every return code and close the board in your application's cleanup path. Hardware execution and ABI compatibility are not verified by this documentation's syntax check.
+
+![Python SDK sample application](media/84ef7a549f08d016b6d5e0256bd3a241.png)
 
 ```python
-# Load SDK Library
-pathname = os.path.dirname(sys.argv[0])
-sdk_file = pathname + '\migGrabber'
-Grabber = ctypes.WinDLL(sdk_file)
+# Use the Grabber binding initialized by the matching SDK sample.
+# Load migGrabber.dll using an absolute path, for example:
+# Path(__file__).resolve().parent / "migGrabber.dll"
+# Configure the calling convention and all ctypes prototypes before calling it.
 
 # Setup Grabber board with Test Image config
 ret = Grabber.SetParamInt(board_id, MIG_PARAM_VIDEO_FMT, video_format)
@@ -373,15 +591,15 @@ ret = Grabber.ReadSyncCount(board_id,1000, pHsync, pVsync, 0)
 
 # Capture Image in Grabber and copy image data from Grabber board to application.
 ret = Grabber.Grab(board_id, 1, 1000)
-if (ret == 0)
-{
-	ret = Grabber.GetImage(board_id, pBuff, width, height, width * bytePexPxl)
-}
+if ret == 0:
+    ret = Grabber.GetImage(board_id, pBuff, width, height, width * bytePexPxl)
+if ret != 0:
+    raise RuntimeError(f"Image capture failed: {ret}")
 ```
 
 ## C\# Sample code
 
-![스크린샷, 멀티미디어 소프트웨어이(가) 표시된 사진 AI 생성 콘텐츠는 정확하지 않을 수 있습니다.](media/56b41c43236500cc09fa57f2c10e951b.png)
+![C# SDK sample application](media/56b41c43236500cc09fa57f2c10e951b.png)
 
 [Download Sample Code for C#](https://cizentech-my.sharepoint.com/:u:/p/mason/IQBjlYE7KuL2R5vcKToan8KyAb1nui9J_I4seHTxnHKvnrU?e=P8ljEj)
 

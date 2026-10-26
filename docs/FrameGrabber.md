@@ -10,7 +10,12 @@ A compact, highly compatible MIPI-interface image capture card for automotive ca
 
 ## 1. Overview
 
-![MIG Series Frame Grabber — MIG-S2 / MIG-S2 Pro / MIG-S3 / MIG-S6](img/MIG_Series.png)
+<div class="product-grid">
+  <article class="product-card"><div class="product-media"><img src="img/MIG-S2.png" alt="MIG-S2 frame grabber" loading="lazy"></div><div class="product-info"><strong class="product-name">MIG-S2</strong><p>USB 3.0 · 5 Gbps</p><span>Compact MIPI capture</span></div></article>
+  <article class="product-card"><div class="product-media"><img src="img/MIG-S2Pro.png" alt="MIG-S2 Pro frame grabber" loading="lazy"></div><div class="product-info"><strong class="product-name">MIG-S2 Pro</strong><p>USB 3.0 · HDMI output</p><span>Capture and display</span></div></article>
+  <article class="product-card"><div class="product-media"><img src="img/MIG-S3.png" alt="MIG-S3 frame grabber" loading="lazy"></div><div class="product-info"><strong class="product-name">MIG-S3</strong><p>USB 3.2 Gen 2 · 10 Gbps</p><span>Compact Type-C interface</span></div></article>
+  <article class="product-card"><div class="product-media"><img src="img/MIG-S6.png" alt="MIG-S6 frame grabber" loading="lazy"></div><div class="product-info"><strong class="product-name">MIG-S6</strong><p>Thunderbolt 3 · 40 Gbps</p><span>Four camera connections</span></div></article>
+</div>
 
 The MIG-S2 / MIG-S2 Pro is a compact, highly compatible, and reliable MIPI-interface image capture card designed for automotive camera module systems. With a streamlined design and ease of use, it supports image acquisition for most modules on the market. Its scalability and stable testing environment make it ideal for AI/ADAS algorithm development post-camera activation and for in-line camera image-quality testing.
 
@@ -35,32 +40,32 @@ The MIG-S2 / MIG-S2 Pro is a compact, highly compatible, and reliable MIPI-inter
 
 ### MIG-S2
 
--   FPGA-based MIPI interface
--   FX3 USB 3.0 controller
+-   MIPI interface
+-   USB 3.0 interface
 -   Maximum transfer speed: 5 Gbps
 -   Supports GMSL, FPD-Link and other SerDes interfaces
 -   MAX9296A deserializer board included, FPD-Link III selectable
 
 ### MIG-S2 Pro
 
--   FPGA-based MIPI interface
--   FX3 USB 3.0 controller
+-   MIPI interface
+-   USB 3.0 interface
 -   Supports GMSL, FPD-Link and other SerDes interfaces
 -   MAX9296A deserializer board included, FPD-Link III selectable
 -   Supports HDMI video output
 
 ### MIG-S3
 
--   FPGA-based MIPI interface
--   USB 3.2 Gen 2 Type-C controller
+-   MIPI interface
+-   USB 3.2 Gen 2 Type-C interface
 -   Maximum transfer speed: 10 Gbps
 -   Supports GMSL, FPD-Link and other SerDes interfaces
 -   Compact design: 107 × 86 × 49 mm
 
 ### MIG-S6
 
--   FPGA-based MIPI interface
--   Thunderbolt 3 controller
+-   MIPI interface
+-   Thunderbolt 3 interface
 -   Maximum transfer speed: 40 Gbps
 -   Supports GMSL, FPD-Link and other SerDes interfaces
 -   MAX9296A deserializer board included, FPD-Link III selectable

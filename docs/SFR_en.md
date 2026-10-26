@@ -1,5 +1,7 @@
 # SFR Method (English)
 
+[한국어로 보기](SFR.md)
+
 **SFR (Spatial Frequency Response)** evaluates resolving power by measuring how well a camera preserves contrast across spatial frequencies. CameraMaster detects the edge of a chart and then converts it through **ESF → LSF → MTF** to derive the SFR value.
 
 > Based on the Slanted-Edge method of the ISO-12233 standard.

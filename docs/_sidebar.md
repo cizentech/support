@@ -1,22 +1,22 @@
-* **Getting Started**
-  * [Frame Grabber](FrameGrabber.md)
+* **Start here**
+  * [Overview](README.md)
+  * [First connection](Getting_Started.md)
+  * [Downloads](Downloads.md)
+  * [Driver installation](DriverInstallation.md)
+* **Software & analysis**
   * [CameraMaster](CameraMaster.md)
-  * [Driver Installation](DriverInstallation.md)
-
-* **Developer**
+  * [Image Kit](ImageKit.md)
+  * [SFR · 한국어](SFR.md)
+  * [SFR · English](SFR_en.md)
+* **Developers**
   * [MIG Grabber SDK](MIG_Grabber_SDK.md)
   * [CameraMaster Framework](CameraMasterFramework.md)
   * [Linux & ROS2](Linux_ROS2.md)
-
-* **Hardware**
+* **Hardware & platforms**
+  * [Frame grabbers](FrameGrabber.md)
   * [Deserializer](Deserializer.md)
-  * [NVIDIA Jetson Platform](NVIDIA_Jetson_platform.md)
-  * [Resolution & Bandwidth](Resolution_Bandwidth.md)
-
-* **Test Suite**
-  * [Image Kit](ImageKit.md)
-  * [SFR Method](SFR.md)
-  * [SFR Method (English)](SFR_en.md)
-
-* **Support**
-  * [Technical Support](Technical_Support.md)
+  * [NVIDIA Jetson](NVIDIA_Jetson_platform.md)
+  * [Resolution & bandwidth](Resolution_Bandwidth.md)
+* **Help**
+  * [Troubleshooting](Troubleshooting.md)
+  * [Technical support](Technical_Support.md)
