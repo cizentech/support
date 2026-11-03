@@ -641,8 +641,9 @@ body.portal-app > main { z-index: auto; }
 .product-card { overflow: hidden; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
 .product-card .product-media { aspect-ratio: 1.6; padding: 24px; }
 .product-card .product-media img { position: absolute; inset: 24px; width: calc(100% - 48px); height: calc(100% - 48px); max-height: none; object-fit: contain; }
-/* The S2 rendering includes wider transparent margins than the other models. */
-.product-card .product-media img[src$="/MIG-S2.png"] { transform: scale(1.35); }
+/* The S2 and S2 Pro renderings include wider margins than the other models. */
+.product-card .product-media img[src$="/MIG-S2.png"],
+.product-card .product-media img[src$="/MIG-S2Pro.png"] { transform: scale(1.35); }
 .product-info { padding: 18px 22px; }
 .markdown-section .product-info h3 { margin: 0; font-size: 20px; }
 .markdown-section .product-info p { margin: 4px 0; font-size: 14px; color: var(--text); }
