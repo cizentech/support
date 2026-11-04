@@ -29,9 +29,9 @@ Install “[Visual C++ Redistributable for Visual Studio 2015\~2022](https://ciz
 
 ![MIG-S2 driver installation — step 2](media/d510c68c255d79152026d3434cc52ab7.png)
 
-![MIG-S2 driver installation — step 3](media/5295c0e89f0e336cad77bca047164ef3.png)
+![Windows successfully installed the MIG-S2 driver](media/mig-s2-driver-installation-success.png)
 
-![MIG-S2 driver installation — step 4](media/8e6e2c8dc87bcada269f9d8f3a5d8b76.png)
+![MIG-S2 listed under Universal Serial Bus controllers in Device Manager](media/mig-s2-device-manager.png)
 
 ## MIG-S3 Driver Installation
 
