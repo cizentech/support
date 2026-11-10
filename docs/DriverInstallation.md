@@ -39,6 +39,6 @@ Install “[Visual C++ Redistributable for Visual Studio 2015\~2022](https://ciz
 
 ## MIG-S6 Driver Installation
 
-[Install the S6_Driver_Signed_win11_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/IQBGqKYR8wYHRJmiOj2T58_qAWxyLolqxD2JOQ0vTAeOGQw?e=4gxlac)
+[Install the S6_Driver_Signed_win11_x64 package](https://cizentech-my.sharepoint.com/:u:/p/mason/IQAvZQfTaaUNTLHvePlmjaTjAd8dc5pLS7XSk_eVYMrhqNA?e=ijWFbp)
 
 ![MIG-S6 driver update and installation result](media/297dd6bf502f2d5f1ab0f82cff60fd99.png)
